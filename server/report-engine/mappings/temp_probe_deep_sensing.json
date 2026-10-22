@@ -1,0 +1,243 @@
+{
+ "key": "temp_probe_deep_sensing",
+ "label": "Temp. Probe (Deep Sensing)",
+ "template": "00. Temp.Probe Deep Sensing _Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "deep sensing",
+  "temp probe deep",
+  "temp.probe deep",
+  "probe deep"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "application_limit_is_formula": true
+ },
+ "priority": 5,
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L46",
+ "cells": {
+  "B20": "data.verification_method",
+  "L46": "data.physical_condition",
+  "P49": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "L49": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "Q24": "data.stabilization.time_start",
+  "U24": "data.stabilization.time_end",
+  "Q25": "data.stabilization.temp_start",
+  "U25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "AK11": {
+   "value": "=CONCATENATE(I31,\" ~ \",I39,\" °C only\")"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Temperature measurement (°C)",
+   "fields": [
+    {
+     "id": "std_1",
+     "cell": "F31",
+     "label": "Point 1 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 1",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_1",
+     "cell": "I31",
+     "label": "Point 1 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 1",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_2",
+     "cell": "F32",
+     "label": "Point 2 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 2",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_2",
+     "cell": "I32",
+     "label": "Point 2 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 2",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_3",
+     "cell": "F33",
+     "label": "Point 3 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 3",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_3",
+     "cell": "I33",
+     "label": "Point 3 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 3",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_4",
+     "cell": "F34",
+     "label": "Point 4 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 4",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_4",
+     "cell": "I34",
+     "label": "Point 4 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 4",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_5",
+     "cell": "F35",
+     "label": "Point 5 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 5",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_5",
+     "cell": "I35",
+     "label": "Point 5 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 5",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_6",
+     "cell": "F36",
+     "label": "Point 6 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 6",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_6",
+     "cell": "I36",
+     "label": "Point 6 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 6",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_7",
+     "cell": "F37",
+     "label": "Point 7 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 7",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_7",
+     "cell": "I37",
+     "label": "Point 7 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 7",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_8",
+     "cell": "F38",
+     "label": "Point 8 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 8",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_8",
+     "cell": "I38",
+     "label": "Point 8 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 8",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_9",
+     "cell": "F39",
+     "label": "Point 9 - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 9",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_9",
+     "cell": "I39",
+     "label": "Point 9 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 9",
+     "col": "EUT measured (°C)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

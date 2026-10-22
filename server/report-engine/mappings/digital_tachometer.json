@@ -1,0 +1,278 @@
+{
+ "key": "digital_tachometer",
+ "label": "Digital Tachometer",
+ "template": "00. Digital Tachometer_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "tachometer"
+ ],
+ "header": {
+  "series": "AI11",
+  "humidity": "O7",
+  "application_limit": "AO11",
+  "eut_row": 14,
+  "eut_first_col": "AI",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AJ",
+  "eut_date_offset": 16,
+  "eut_due_offset": 17
+ },
+ "people": {
+  "verified": [
+   "T6",
+   "T7"
+  ],
+  "reviewed": [
+   "X6",
+   "X7"
+  ],
+  "approved": [
+   "AB6",
+   "AB7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "M43",
+ "cells": {
+  "B20": "data.verification_method",
+  "M43": "data.physical_condition",
+  "Q46": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "M46": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "M49": {
+   "path": "data.equipment_issued_to",
+   "keep_if_blank": true
+  },
+  "Q25": "data.stabilization.time_start",
+  "U25": "data.stabilization.time_end",
+  "Q26": "data.stabilization.temp_start",
+  "U26": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "L55": {
+   "value": "=AO11"
+  },
+  "N5": {
+   "value": "=CONCATENATE(\"CAL-\",J12,\"-\",AI11)"
+  },
+  "Y12": {
+   "value": "=CONCATENATE(AJ17,AK17,AL17)"
+  },
+  "Y13": {
+   "value": "=AP17"
+  },
+  "Y14": {
+   "value": "=AQ17"
+  },
+  "Y15": {
+   "value": "=AR17"
+  },
+  "Y16": {
+   "value": "=AS17"
+  },
+  "Y17": {
+   "value": "=AT17"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Non-contact (RPM)",
+   "fields": [
+    {
+     "id": "std_1",
+     "cell": "I32",
+     "label": "Check item 1 - standard value (RPM)",
+     "type": "number",
+     "default": 60,
+     "row": "Check item 1",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_1",
+     "cell": "L32",
+     "label": "Check item 1 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 1",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_2",
+     "cell": "I33",
+     "label": "Check item 2 - standard value (RPM)",
+     "type": "number",
+     "default": 120,
+     "row": "Check item 2",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_2",
+     "cell": "L33",
+     "label": "Check item 2 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 2",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_3",
+     "cell": "I34",
+     "label": "Check item 3 - standard value (RPM)",
+     "type": "number",
+     "default": 600,
+     "row": "Check item 3",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_3",
+     "cell": "L34",
+     "label": "Check item 3 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 3",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_4",
+     "cell": "I35",
+     "label": "Check item 4 - standard value (RPM)",
+     "type": "number",
+     "default": 1200,
+     "row": "Check item 4",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_4",
+     "cell": "L35",
+     "label": "Check item 4 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 4",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_5",
+     "cell": "I36",
+     "label": "Check item 5 - standard value (RPM)",
+     "type": "number",
+     "default": 6000,
+     "row": "Check item 5",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_5",
+     "cell": "L36",
+     "label": "Check item 5 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 5",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_6",
+     "cell": "I37",
+     "label": "Check item 6 - standard value (RPM)",
+     "type": "number",
+     "default": 12001,
+     "row": "Check item 6",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_6",
+     "cell": "L37",
+     "label": "Check item 6 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 6",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_7",
+     "cell": "I38",
+     "label": "Check item 7 - standard value (RPM)",
+     "type": "number",
+     "default": 60000,
+     "row": "Check item 7",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_7",
+     "cell": "L38",
+     "label": "Check item 7 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 7",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_8",
+     "cell": "I39",
+     "label": "Check item 8 - standard value (RPM)",
+     "type": "number",
+     "default": 72000,
+     "row": "Check item 8",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_8",
+     "cell": "L39",
+     "label": "Check item 8 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 8",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_9",
+     "cell": "I40",
+     "label": "Check item 9 - standard value (RPM)",
+     "type": "number",
+     "default": 84000,
+     "row": "Check item 9",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_9",
+     "cell": "L40",
+     "label": "Check item 9 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 9",
+     "col": "EUT measured (RPM)"
+    },
+    {
+     "id": "std_10",
+     "cell": "I41",
+     "label": "Check item 10 - standard value (RPM)",
+     "type": "number",
+     "default": 99000,
+     "row": "Check item 10",
+     "col": "standard value (RPM)"
+    },
+    {
+     "id": "eut_10",
+     "cell": "L41",
+     "label": "Check item 10 - EUT measured (RPM)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Check item 10",
+     "col": "EUT measured (RPM)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 88
+}

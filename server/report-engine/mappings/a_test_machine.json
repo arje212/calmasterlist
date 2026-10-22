@@ -1,0 +1,152 @@
+{
+ "key": "a_test_machine",
+ "label": "A-Test Machine",
+ "template": "00. A-Test Machine_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "a-test",
+  "atest",
+  "a test"
+ ],
+ "header": {
+  "series": "AG11",
+  "humidity": "AJ11",
+  "application_limit": "AM11",
+  "eut_row": 14,
+  "eut_first_col": "AG",
+  "std_rows": [
+   16,
+   17
+  ],
+  "std_first_col": "AH"
+ },
+ "due_date_is_formula": true,
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "AA6",
+   "AA7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "N49",
+ "cells": {
+  "B20": "data.verification_method",
+  "N24": "data.stabilization.time_start",
+  "R24": "data.stabilization.time_end",
+  "N25": "data.stabilization.temp_start",
+  "R25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "N49": "data.physical_condition",
+  "T52": "data.result_note"
+ },
+ "input_groups": [
+  {
+   "title": "A-Test machine verification - measured values",
+   "fields": [
+    {
+     "id": "s31",
+     "cell": "S31",
+     "label": "Resistance Measurement (DC) - Atest machine (Ω)",
+     "type": "number"
+    },
+    {
+     "id": "s32",
+     "cell": "S32",
+     "label": "Current Measurement (DC) - DMM (mA)",
+     "type": "number"
+    },
+    {
+     "id": "s33",
+     "cell": "S33",
+     "label": "Voltage (DC) 5.0 V setting - DMM (V)",
+     "type": "number"
+    },
+    {
+     "id": "s34",
+     "cell": "S34",
+     "label": "Voltage (DC) 3.0 V setting - DMM (V)",
+     "type": "number"
+    },
+    {
+     "id": "s35",
+     "cell": "S35",
+     "label": "Frequency Measurement - DMM (kHz)",
+     "type": "number"
+    },
+    {
+     "id": "s36",
+     "cell": "S36",
+     "label": "Current Measurement (DC) 100 mA - DMM (mA)",
+     "type": "number"
+    },
+    {
+     "id": "s37",
+     "cell": "S37",
+     "label": "Voltage (AC) @1 kHz Output - STD value - DMM (mV)",
+     "type": "number"
+    },
+    {
+     "id": "s38",
+     "cell": "S38",
+     "label": "Voltage (AC) @1 kHz Output - measured - DMM (mV)",
+     "type": "number"
+    },
+    {
+     "id": "s39",
+     "cell": "S39",
+     "label": "Voltage (AC) @1 kHz DC change - STD value - DMM (mV)",
+     "type": "number"
+    },
+    {
+     "id": "s40",
+     "cell": "S40",
+     "label": "Voltage (AC) @1 kHz DC change - measured - Atest (mV)",
+     "type": "number"
+    },
+    {
+     "id": "s41",
+     "cell": "S41",
+     "label": "Voltage (AC) @1 kHz White noise - STD value - DMM (mV)",
+     "type": "number"
+    },
+    {
+     "id": "s42",
+     "cell": "S42",
+     "label": "Voltage (AC) @1 kHz White noise - measured - DMM (mV)",
+     "type": "number"
+    },
+    {
+     "id": "s43",
+     "cell": "S43",
+     "label": "Voltage (AC) @20 Hz Piezo noise - STD value - DMM (mV)",
+     "type": "number"
+    },
+    {
+     "id": "s44",
+     "cell": "S44",
+     "label": "Voltage (AC) @20 Hz Piezo noise - measured - DMM (mV)",
+     "type": "number"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "key": "layer_short",
+ "label": "Layer Short",
+ "template": "00__Layer_Short___Blank_Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "layer short",
+  "layer short tester"
+ ],
+ "due_date_is_formula": true,
+ "header": {
+  "eut_row": 13,
+  "eut_first_col": "AF",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AG",
+  "series": "AF10",
+  "application_limit": "AL10",
+  "humidity": "AI10",
+  "application_limit_always": true
+ },
+ "people": {
+  "verified": [
+   "S6",
+   "S7"
+  ],
+  "reviewed": [
+   "W6",
+   "W7"
+  ],
+  "approved": [
+   "AA6",
+   "AA7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "J44": "data.physical_condition",
+  "J47": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "Q47": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "R24": "data.stabilization.time_start",
+  "U24": "data.stabilization.time_end",
+  "R25": "data.stabilization.temp_start",
+  "U25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "J44",
+ "photo_boxes": [
+  {
+   "id": "test_data",
+   "from": "B27",
+   "to": "AC42"
+  }
+ ],
+ "default_attachment_slot": "body",
+ "print_scale": 92,
+ "_notes": [
+  "FREE-FORM: the template's application-limit formula reads empty body cells - the app's application limit is written instead",
+  "FREE-FORM: no measurement formulas - the body (B27:AC42) is a photo box",
+  "PRINT: print scale 92% gives the 1 page(s) the template announces"
+ ]
+}

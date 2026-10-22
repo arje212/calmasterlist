@@ -1,0 +1,339 @@
+{
+ "key": "dial_indicator",
+ "label": "Dial Indicator",
+ "template": "00. Dial Indicator_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "dial indicator"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "due_date_is_formula": true,
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "N45",
+ "cells": {
+  "B20": "data.verification_method",
+  "N45": "data.physical_condition",
+  "Q48": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "Q24": "data.stabilization.time_start",
+  "V24": "data.stabilization.time_end",
+  "Q25": "data.stabilization.temp_start",
+  "V25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Test points (standard / EUT)",
+   "fields": [
+    {
+     "id": "std_1",
+     "cell": "H29",
+     "label": "Test point 1 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 1",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_1",
+     "cell": "K29",
+     "label": "Test point 1 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 1",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_2",
+     "cell": "H30",
+     "label": "Test point 2 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 2",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_2",
+     "cell": "K30",
+     "label": "Test point 2 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 2",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_3",
+     "cell": "H31",
+     "label": "Test point 3 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 3",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_3",
+     "cell": "K31",
+     "label": "Test point 3 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 3",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_4",
+     "cell": "H32",
+     "label": "Test point 4 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 4",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_4",
+     "cell": "K32",
+     "label": "Test point 4 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 4",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_5",
+     "cell": "H33",
+     "label": "Test point 5 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 5",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_5",
+     "cell": "K33",
+     "label": "Test point 5 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 5",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_6",
+     "cell": "H34",
+     "label": "Test point 6 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 6",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_6",
+     "cell": "K34",
+     "label": "Test point 6 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 6",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_7",
+     "cell": "H35",
+     "label": "Test point 7 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 7",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_7",
+     "cell": "K35",
+     "label": "Test point 7 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 7",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_8",
+     "cell": "H36",
+     "label": "Test point 8 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 8",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_8",
+     "cell": "K36",
+     "label": "Test point 8 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 8",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_9",
+     "cell": "H37",
+     "label": "Test point 9 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 9",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_9",
+     "cell": "K37",
+     "label": "Test point 9 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 9",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_10",
+     "cell": "H38",
+     "label": "Test point 10 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 10",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_10",
+     "cell": "K38",
+     "label": "Test point 10 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 10",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_11",
+     "cell": "H39",
+     "label": "Test point 11 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 11",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_11",
+     "cell": "K39",
+     "label": "Test point 11 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 11",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_12",
+     "cell": "H40",
+     "label": "Test point 12 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 12",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_12",
+     "cell": "K40",
+     "label": "Test point 12 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 12",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_13",
+     "cell": "H41",
+     "label": "Test point 13 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 13",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_13",
+     "cell": "K41",
+     "label": "Test point 13 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 13",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_14",
+     "cell": "H42",
+     "label": "Test point 14 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 14",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_14",
+     "cell": "K42",
+     "label": "Test point 14 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 14",
+     "col": "EUT measured value"
+    },
+    {
+     "id": "std_15",
+     "cell": "H43",
+     "label": "Test point 15 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 15",
+     "col": "standard measured value"
+    },
+    {
+     "id": "eut_15",
+     "cell": "K43",
+     "label": "Test point 15 - EUT measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 15",
+     "col": "EUT measured value"
+    }
+   ]
+  }
+ ],
+ "print_scale": 90
+}

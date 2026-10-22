@@ -1,0 +1,522 @@
+{
+ "key": "conductivity_meter",
+ "label": "Conductivity Meter",
+ "template": "00__Conductivity_Meter_Blank_Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "conductivity meter",
+  "conductivity"
+ ],
+ "standard_cells": {
+  "equipment_type": "X10",
+  "maker_model": "X11",
+  "control_number": "Y12",
+  "serial_number": "X13",
+  "accuracy": "X14",
+  "calibrated_by": "X15",
+  "traceability": "X16",
+  "certificate_number": "X17"
+ },
+ "due_date_is_formula": true,
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AH",
+  "series": "AH11",
+  "application_limit": "AN11",
+  "humidity": "AK11",
+  "application_limit_is_formula": true
+ },
+ "people": {
+  "verified": [
+   "T6",
+   "T7"
+  ],
+  "reviewed": [
+   "X6",
+   "X7"
+  ],
+  "approved": [
+   "AB6",
+   "AB7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "J16",
+  "value": "K16",
+  "unit": "L16"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "O46": "data.physical_condition",
+  "O49": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "T49": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "Q24": "data.stabilization.time_start",
+  "U24": "data.stabilization.time_end",
+  "Q25": "data.stabilization.temp_start",
+  "U25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "O46",
+ "input_groups": [
+  {
+   "title": "Conductivity Measurement (S / cm)",
+   "fields": [
+    {
+     "id": "t1_r1_L",
+     "cell": "L30",
+     "label": "84 µS/cm (F.S.=200μS) · 1 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 1",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_O",
+     "cell": "O30",
+     "label": "84 µS/cm (F.S.=200μS) · 1 - E.U.T Measured Value",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 1",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_AJ",
+     "cell": "AJ30",
+     "label": "84 µS/cm (F.S.=200μS) · 1 - Full scale",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 1",
+     "col": "Full scale",
+     "default": 199.9
+    },
+    {
+     "id": "t1_r2_L",
+     "cell": "L31",
+     "label": "84 µS/cm (F.S.=200μS) · 2 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 2",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_O",
+     "cell": "O31",
+     "label": "84 µS/cm (F.S.=200μS) · 2 - E.U.T Measured Value",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 2",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_L",
+     "cell": "L32",
+     "label": "84 µS/cm (F.S.=200μS) · 3 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 3",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_O",
+     "cell": "O32",
+     "label": "84 µS/cm (F.S.=200μS) · 3 - E.U.T Measured Value",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 3",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_L",
+     "cell": "L33",
+     "label": "84 µS/cm (F.S.=200μS) · 4 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 4",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_O",
+     "cell": "O33",
+     "label": "84 µS/cm (F.S.=200μS) · 4 - E.U.T Measured Value",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 4",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_L",
+     "cell": "L34",
+     "label": "84 µS/cm (F.S.=200μS) · 5 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 5",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_O",
+     "cell": "O34",
+     "label": "84 µS/cm (F.S.=200μS) · 5 - E.U.T Measured Value",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 5",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_L",
+     "cell": "L35",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 1 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 1",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_O",
+     "cell": "O35",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 1 - E.U.T Measured Value",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 1",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_AJ",
+     "cell": "AJ35",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 1 - Full scale",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 1",
+     "col": "Full scale",
+     "default": 1.999
+    },
+    {
+     "id": "t1_r7_L",
+     "cell": "L36",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 2 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 2",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_O",
+     "cell": "O36",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 2 - E.U.T Measured Value",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 2",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_L",
+     "cell": "L37",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 3 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 3",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_O",
+     "cell": "O37",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 3 - E.U.T Measured Value",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 3",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_L",
+     "cell": "L38",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 4 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 4",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_O",
+     "cell": "O38",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 4 - E.U.T Measured Value",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 4",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_L",
+     "cell": "L39",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 5 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 5",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_O",
+     "cell": "O39",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 5 - E.U.T Measured Value",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 5",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_L",
+     "cell": "L40",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 1 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 1",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_O",
+     "cell": "O40",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 1 - E.U.T Measured Value",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 1",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_AJ",
+     "cell": "AJ40",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 1 - Full scale",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 1",
+     "col": "Full scale",
+     "default": 19.99
+    },
+    {
+     "id": "t1_r12_L",
+     "cell": "L41",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 2 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 2",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_O",
+     "cell": "O41",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 2 - E.U.T Measured Value",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 2",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_L",
+     "cell": "L42",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 3 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 3",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_O",
+     "cell": "O42",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 3 - E.U.T Measured Value",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 3",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r14_L",
+     "cell": "L43",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 4 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 4",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r14_O",
+     "cell": "O43",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 4 - E.U.T Measured Value",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 4",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r15_L",
+     "cell": "L44",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 5 - Standard Value at a given temp.",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 5",
+     "col": "Standard Value at a given temp.",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r15_O",
+     "cell": "O44",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 5 - E.U.T Measured Value",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 5",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_I",
+     "cell": "I30",
+     "label": "84 µS/cm (F.S.=200μS) · 1 - Temperature (°C)",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 1",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_I",
+     "cell": "I31",
+     "label": "84 µS/cm (F.S.=200μS) · 2 - Temperature (°C)",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 2",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_I",
+     "cell": "I32",
+     "label": "84 µS/cm (F.S.=200μS) · 3 - Temperature (°C)",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 3",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_I",
+     "cell": "I33",
+     "label": "84 µS/cm (F.S.=200μS) · 4 - Temperature (°C)",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 4",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_I",
+     "cell": "I34",
+     "label": "84 µS/cm (F.S.=200μS) · 5 - Temperature (°C)",
+     "type": "number",
+     "row": "84 µS/cm (F.S.=200μS) · 5",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_I",
+     "cell": "I35",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 1 - Temperature (°C)",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 1",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_I",
+     "cell": "I36",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 2 - Temperature (°C)",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 2",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_I",
+     "cell": "I37",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 3 - Temperature (°C)",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 3",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_I",
+     "cell": "I38",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 4 - Temperature (°C)",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 4",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_I",
+     "cell": "I39",
+     "label": "1.413 mS/cm (F.S.=2.0mS) · 5 - Temperature (°C)",
+     "type": "number",
+     "row": "1.413 mS/cm (F.S.=2.0mS) · 5",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_I",
+     "cell": "I40",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 1 - Temperature (°C)",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 1",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_I",
+     "cell": "I41",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 2 - Temperature (°C)",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 2",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_I",
+     "cell": "I42",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 3 - Temperature (°C)",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 3",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r14_I",
+     "cell": "I43",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 4 - Temperature (°C)",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 4",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r15_I",
+     "cell": "I44",
+     "label": "12.880 mS/cm (F.S.=20mS/cm) · 5 - Temperature (°C)",
+     "type": "number",
+     "row": "12.880 mS/cm (F.S.=20mS/cm) · 5",
+     "col": "Temperature (°C)",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 88,
+ "_notes": [
+  "HEADER: the standard-equipment block is typed straight into visible cells (no hidden data block) - mapped as standard_cells",
+  "EXTRA COLUMN: 'Temperature (°C)' (I) is empty and read by no formula - added as an input column",
+  "PRINT: print scale 88% gives the 1 page(s) the template announces (template says 90%; LibreOffice needs less)"
+ ]
+}

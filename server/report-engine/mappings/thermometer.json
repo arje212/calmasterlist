@@ -1,0 +1,72 @@
+{
+ "key": "thermometer",
+ "label": "Thermometer",
+ "template": "00. Thermometer_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "thermometer"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "photo_boxes": [
+  {
+   "id": "test_data",
+   "from": "B26",
+   "to": "AC62"
+  }
+ ],
+ "default_attachment_slot": "body",
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L64",
+ "cells": {
+  "B20": "data.verification_method",
+  "L64": "data.physical_condition",
+  "P67": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "T70": {
+   "value": "=AP14"
+  }
+ },
+ "print_scale": 82
+}

@@ -1,0 +1,263 @@
+{
+ "key": "digital_light_meter",
+ "label": "Digital Light Meter",
+ "template": "00__Digital_Light_Meter_Blank_Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "digital light meter",
+  "light meter",
+  "lux meter",
+  "illuminance meter"
+ ],
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "series": "AE11",
+  "application_limit": "AK11",
+  "humidity": "AH11"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16",
+  "percent": true
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "L47": "data.physical_condition",
+  "L50": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "P50": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "L47",
+ "input_groups": [
+  {
+   "title": "Measurement Value (Lux)",
+   "fields": [
+    {
+     "id": "t1_r1_H",
+     "cell": "H31",
+     "label": "1 - Standard Measured Value",
+     "type": "number",
+     "row": "1",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_L",
+     "cell": "L31",
+     "label": "1 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "1",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_H",
+     "cell": "H32",
+     "label": "2 - Standard Measured Value",
+     "type": "number",
+     "row": "2",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_L",
+     "cell": "L32",
+     "label": "2 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "2",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_H",
+     "cell": "H33",
+     "label": "3 - Standard Measured Value",
+     "type": "number",
+     "row": "3",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_L",
+     "cell": "L33",
+     "label": "3 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "3",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_H",
+     "cell": "H34",
+     "label": "4 - Standard Measured Value",
+     "type": "number",
+     "row": "4",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_L",
+     "cell": "L34",
+     "label": "4 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "4",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_H",
+     "cell": "H35",
+     "label": "5 - Standard Measured Value",
+     "type": "number",
+     "row": "5",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_L",
+     "cell": "L35",
+     "label": "5 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "5",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_H",
+     "cell": "H36",
+     "label": "6 - Standard Measured Value",
+     "type": "number",
+     "row": "6",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_L",
+     "cell": "L36",
+     "label": "6 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "6",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_H",
+     "cell": "H37",
+     "label": "7 - Standard Measured Value",
+     "type": "number",
+     "row": "7",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_L",
+     "cell": "L37",
+     "label": "7 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "7",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_H",
+     "cell": "H38",
+     "label": "8 - Standard Measured Value",
+     "type": "number",
+     "row": "8",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_L",
+     "cell": "L38",
+     "label": "8 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "8",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_H",
+     "cell": "H39",
+     "label": "9 - Standard Measured Value",
+     "type": "number",
+     "row": "9",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_L",
+     "cell": "L39",
+     "label": "9 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "9",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_H",
+     "cell": "H40",
+     "label": "10 - Standard Measured Value",
+     "type": "number",
+     "row": "10",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_L",
+     "cell": "L40",
+     "label": "10 - E.U.T. Measured Value",
+     "type": "number",
+     "row": "10",
+     "col": "E.U.T. Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 80,
+ "_notes": [
+  "PRINT: print scale 80% gives the 1 page(s) the template announces (template says 82%; LibreOffice needs less)"
+ ]
+}

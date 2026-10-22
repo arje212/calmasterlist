@@ -1,0 +1,310 @@
+{
+ "key": "digital_pressure_gauge",
+ "label": "Digital Pressure Gauge",
+ "template": "00. Digital Pressure Gauge_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "digital pressure gauge",
+  "pressure gauge"
+ ],
+ "header": {
+  "series": "AE10",
+  "humidity": "M7",
+  "application_limit": "AK10",
+  "eut_row": 13,
+  "eut_first_col": "AE",
+  "std_rows": [
+   16
+  ],
+  "std_first_col": "AF",
+  "application_limit_is_formula": true
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16",
+  "percent": true
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "M45",
+ "cells": {
+  "B20": "data.verification_method",
+  "M45": "data.physical_condition",
+  "Q48": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "M48": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "Q24": "data.stabilization.time_start",
+  "V24": "data.stabilization.time_end",
+  "Q25": "data.stabilization.temp_start",
+  "V25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Increasing / decreasing pressure (kPa)",
+   "fields": [
+    {
+     "id": "inc_std_1",
+     "cell": "H29",
+     "label": "Increasing 1 - standard (kPa)",
+     "type": "number",
+     "default": 0,
+     "row": "Increasing 1",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "inc_eut_1",
+     "cell": "K29",
+     "label": "Increasing 1 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Increasing 1",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "inc_std_2",
+     "cell": "H30",
+     "label": "Increasing 2 - standard (kPa)",
+     "type": "number",
+     "default": 100,
+     "row": "Increasing 2",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "inc_eut_2",
+     "cell": "K30",
+     "label": "Increasing 2 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Increasing 2",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "inc_std_3",
+     "cell": "H31",
+     "label": "Increasing 3 - standard (kPa)",
+     "type": "number",
+     "default": 200,
+     "row": "Increasing 3",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "inc_eut_3",
+     "cell": "K31",
+     "label": "Increasing 3 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Increasing 3",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "inc_std_4",
+     "cell": "H32",
+     "label": "Increasing 4 - standard (kPa)",
+     "type": "number",
+     "default": 300,
+     "row": "Increasing 4",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "inc_eut_4",
+     "cell": "K32",
+     "label": "Increasing 4 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Increasing 4",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "inc_std_5",
+     "cell": "H33",
+     "label": "Increasing 5 - standard (kPa)",
+     "type": "number",
+     "default": 400,
+     "row": "Increasing 5",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "inc_eut_5",
+     "cell": "K33",
+     "label": "Increasing 5 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Increasing 5",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "inc_std_6",
+     "cell": "H34",
+     "label": "Increasing 6 - standard (kPa)",
+     "type": "number",
+     "default": 500,
+     "row": "Increasing 6",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "inc_eut_6",
+     "cell": "K34",
+     "label": "Increasing 6 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Increasing 6",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "inc_std_7",
+     "cell": "H35",
+     "label": "Increasing 7 - standard (kPa)",
+     "type": "number",
+     "default": 600,
+     "row": "Increasing 7",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "inc_eut_7",
+     "cell": "K35",
+     "label": "Increasing 7 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Increasing 7",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "dec_std_1",
+     "cell": "H38",
+     "label": "Decreasing 1 - standard (kPa)",
+     "type": "number",
+     "default": 500,
+     "row": "Decreasing 1",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "dec_eut_1",
+     "cell": "K38",
+     "label": "Decreasing 1 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Decreasing 1",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "dec_std_2",
+     "cell": "H39",
+     "label": "Decreasing 2 - standard (kPa)",
+     "type": "number",
+     "default": 400,
+     "row": "Decreasing 2",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "dec_eut_2",
+     "cell": "K39",
+     "label": "Decreasing 2 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Decreasing 2",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "dec_std_3",
+     "cell": "H40",
+     "label": "Decreasing 3 - standard (kPa)",
+     "type": "number",
+     "default": 300,
+     "row": "Decreasing 3",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "dec_eut_3",
+     "cell": "K40",
+     "label": "Decreasing 3 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Decreasing 3",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "dec_std_4",
+     "cell": "H41",
+     "label": "Decreasing 4 - standard (kPa)",
+     "type": "number",
+     "default": 200,
+     "row": "Decreasing 4",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "dec_eut_4",
+     "cell": "K41",
+     "label": "Decreasing 4 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Decreasing 4",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "dec_std_5",
+     "cell": "H42",
+     "label": "Decreasing 5 - standard (kPa)",
+     "type": "number",
+     "default": 100,
+     "row": "Decreasing 5",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "dec_eut_5",
+     "cell": "K42",
+     "label": "Decreasing 5 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Decreasing 5",
+     "col": "EUT measured (kPa)"
+    },
+    {
+     "id": "dec_std_6",
+     "cell": "H43",
+     "label": "Decreasing 6 - standard (kPa)",
+     "type": "number",
+     "default": 0,
+     "row": "Decreasing 6",
+     "col": "standard (kPa)"
+    },
+    {
+     "id": "dec_eut_6",
+     "cell": "K43",
+     "label": "Decreasing 6 - EUT measured (kPa)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Decreasing 6",
+     "col": "EUT measured (kPa)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 95
+}

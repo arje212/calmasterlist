@@ -1,0 +1,249 @@
+{
+ "key": "torque_meter",
+ "label": "Torque Meter",
+ "template": "00. Torque Meter_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "torque meter"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16",
+  "percent": true
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L52",
+ "cells": {
+  "B20": "data.verification_method",
+  "L52": "data.physical_condition",
+  "P55": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Measurement value (N)",
+   "fields": [
+    {
+     "id": "std_1",
+     "cell": "H30",
+     "label": "Trial 1 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 1",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_1",
+     "cell": "L30",
+     "label": "Trial 1 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 1",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_2",
+     "cell": "H31",
+     "label": "Trial 2 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 2",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_2",
+     "cell": "L31",
+     "label": "Trial 2 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 2",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_3",
+     "cell": "H32",
+     "label": "Trial 3 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 3",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_3",
+     "cell": "L32",
+     "label": "Trial 3 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 3",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_4",
+     "cell": "H33",
+     "label": "Trial 4 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 4",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_4",
+     "cell": "L33",
+     "label": "Trial 4 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 4",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_5",
+     "cell": "H34",
+     "label": "Trial 5 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 5",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_5",
+     "cell": "L34",
+     "label": "Trial 5 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 5",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_6",
+     "cell": "H35",
+     "label": "Trial 6 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 6",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_6",
+     "cell": "L35",
+     "label": "Trial 6 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 6",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_7",
+     "cell": "H36",
+     "label": "Trial 7 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 7",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_7",
+     "cell": "L36",
+     "label": "Trial 7 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 7",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_8",
+     "cell": "H37",
+     "label": "Trial 8 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 8",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_8",
+     "cell": "L37",
+     "label": "Trial 8 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 8",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_9",
+     "cell": "H38",
+     "label": "Trial 9 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 9",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_9",
+     "cell": "L38",
+     "label": "Trial 9 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 9",
+     "col": "EUT measured (N)"
+    },
+    {
+     "id": "std_10",
+     "cell": "H39",
+     "label": "Trial 10 - standard measured value (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 10",
+     "col": "standard measured value (N)"
+    },
+    {
+     "id": "eut_10",
+     "cell": "L39",
+     "label": "Trial 10 - EUT measured (N)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Trial 10",
+     "col": "EUT measured (N)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

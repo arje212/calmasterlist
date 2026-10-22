@@ -1,0 +1,465 @@
+{
+ "key": "micrometer",
+ "label": "Micrometer",
+ "template": "00. Micrometer_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "micrometer"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L49",
+ "cells": {
+  "B20": "data.verification_method",
+  "L49": "data.physical_condition",
+  "P52": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "L52": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Parallelism (mm)",
+   "fields": [
+    {
+     "id": "par_top",
+     "cell": "K31",
+     "label": "Parallelism (gauge block 10 mm) - Top",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Parallelism (gauge block 10 mm)",
+     "col": "Top"
+    },
+    {
+     "id": "par_middle",
+     "cell": "M31",
+     "label": "Parallelism (gauge block 10 mm) - Middle",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Parallelism (gauge block 10 mm)",
+     "col": "Middle"
+    },
+    {
+     "id": "par_bottom",
+     "cell": "O31",
+     "label": "Parallelism (gauge block 10 mm) - Bottom",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Parallelism (gauge block 10 mm)",
+     "col": "Bottom"
+    }
+   ]
+  },
+  {
+   "title": "Measurement (mm)",
+   "fields": [
+    {
+     "id": "pt1_1",
+     "cell": "I36",
+     "label": "Gauge block 1 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 1 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "pt1_2",
+     "cell": "K36",
+     "label": "Gauge block 1 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 1 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "pt1_3",
+     "cell": "M36",
+     "label": "Gauge block 1 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 1 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "pt1_4",
+     "cell": "O36",
+     "label": "Gauge block 1 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 1 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "pt1_5",
+     "cell": "Q36",
+     "label": "Gauge block 1 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 1 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "pt2_1",
+     "cell": "I37",
+     "label": "Gauge block 2 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 2 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "pt2_2",
+     "cell": "K37",
+     "label": "Gauge block 2 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 2 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "pt2_3",
+     "cell": "M37",
+     "label": "Gauge block 2 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 2 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "pt2_4",
+     "cell": "O37",
+     "label": "Gauge block 2 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 2 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "pt2_5",
+     "cell": "Q37",
+     "label": "Gauge block 2 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 2 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "pt3_1",
+     "cell": "I38",
+     "label": "Gauge block 3 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 3 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "pt3_2",
+     "cell": "K38",
+     "label": "Gauge block 3 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 3 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "pt3_3",
+     "cell": "M38",
+     "label": "Gauge block 3 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 3 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "pt3_4",
+     "cell": "O38",
+     "label": "Gauge block 3 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 3 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "pt3_5",
+     "cell": "Q38",
+     "label": "Gauge block 3 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 3 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "pt4_1",
+     "cell": "I39",
+     "label": "Gauge block 5 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 5 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "pt4_2",
+     "cell": "K39",
+     "label": "Gauge block 5 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 5 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "pt4_3",
+     "cell": "M39",
+     "label": "Gauge block 5 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 5 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "pt4_4",
+     "cell": "O39",
+     "label": "Gauge block 5 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 5 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "pt4_5",
+     "cell": "Q39",
+     "label": "Gauge block 5 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 5 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "pt5_1",
+     "cell": "I40",
+     "label": "Gauge block 10 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 10 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "pt5_2",
+     "cell": "K40",
+     "label": "Gauge block 10 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 10 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "pt5_3",
+     "cell": "M40",
+     "label": "Gauge block 10 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 10 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "pt5_4",
+     "cell": "O40",
+     "label": "Gauge block 10 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 10 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "pt5_5",
+     "cell": "Q40",
+     "label": "Gauge block 10 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 10 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "pt6_1",
+     "cell": "I41",
+     "label": "Gauge block 15 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 15 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "pt6_2",
+     "cell": "K41",
+     "label": "Gauge block 15 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 15 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "pt6_3",
+     "cell": "M41",
+     "label": "Gauge block 15 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 15 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "pt6_4",
+     "cell": "O41",
+     "label": "Gauge block 15 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 15 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "pt6_5",
+     "cell": "Q41",
+     "label": "Gauge block 15 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 15 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "pt7_1",
+     "cell": "I42",
+     "label": "Gauge block 20 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 20 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "pt7_2",
+     "cell": "K42",
+     "label": "Gauge block 20 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 20 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "pt7_3",
+     "cell": "M42",
+     "label": "Gauge block 20 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 20 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "pt7_4",
+     "cell": "O42",
+     "label": "Gauge block 20 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 20 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "pt7_5",
+     "cell": "Q42",
+     "label": "Gauge block 20 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 20 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "pt8_1",
+     "cell": "I43",
+     "label": "Gauge block 25 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 25 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "pt8_2",
+     "cell": "K43",
+     "label": "Gauge block 25 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 25 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "pt8_3",
+     "cell": "M43",
+     "label": "Gauge block 25 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 25 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "pt8_4",
+     "cell": "O43",
+     "label": "Gauge block 25 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 25 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "pt8_5",
+     "cell": "Q43",
+     "label": "Gauge block 25 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Gauge block 25 mm",
+     "col": "reading 5"
+    }
+   ]
+  }
+ ],
+ "print_scale": 80
+}

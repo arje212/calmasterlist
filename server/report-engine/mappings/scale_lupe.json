@@ -1,0 +1,273 @@
+{
+ "key": "scale_lupe",
+ "label": "Scale Lupe",
+ "template": "00. Scale Lupe_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "scale lupe",
+  "lupe",
+  "loupe"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L60",
+ "cells": {
+  "B20": "data.verification_method",
+  "L60": "data.physical_condition",
+  "P63": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "X value : length measurement (mm)",
+   "fields": [
+    {
+     "id": "x_1",
+     "cell": "K31",
+     "label": "X #1 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #1",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_2",
+     "cell": "K32",
+     "label": "X #2 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #2",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_3",
+     "cell": "K33",
+     "label": "X #3 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #3",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_4",
+     "cell": "K34",
+     "label": "X #4 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #4",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_5",
+     "cell": "K35",
+     "label": "X #5 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #5",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_6",
+     "cell": "K36",
+     "label": "X #6 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #6",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_7",
+     "cell": "K37",
+     "label": "X #7 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #7",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_8",
+     "cell": "K38",
+     "label": "X #8 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #8",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_9",
+     "cell": "K39",
+     "label": "X #9 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #9",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_10",
+     "cell": "K40",
+     "label": "X #10 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #10",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "x_11",
+     "cell": "K41",
+     "label": "X #11 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "X #11",
+     "col": "measured value (mm)"
+    }
+   ]
+  },
+  {
+   "title": "Y value : length measurement (mm)",
+   "fields": [
+    {
+     "id": "y_1",
+     "cell": "K47",
+     "label": "Y #1 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #1",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_2",
+     "cell": "K48",
+     "label": "Y #2 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #2",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_3",
+     "cell": "K49",
+     "label": "Y #3 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #3",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_4",
+     "cell": "K50",
+     "label": "Y #4 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #4",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_5",
+     "cell": "K51",
+     "label": "Y #5 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #5",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_6",
+     "cell": "K52",
+     "label": "Y #6 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #6",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_7",
+     "cell": "K53",
+     "label": "Y #7 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #7",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_8",
+     "cell": "K54",
+     "label": "Y #8 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #8",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_9",
+     "cell": "K55",
+     "label": "Y #9 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #9",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_10",
+     "cell": "K56",
+     "label": "Y #10 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #10",
+     "col": "measured value (mm)"
+    },
+    {
+     "id": "y_11",
+     "cell": "K57",
+     "label": "Y #11 - measured value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Y #11",
+     "col": "measured value (mm)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

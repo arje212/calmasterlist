@@ -1,0 +1,4 @@
+import React from 'react';
+import { cn } from '@/lib/utils';
+export function Sheet({ open, onOpenChange, children }) { if (!open) return null; return <div className="fixed inset-0 z-50"><button className="fixed inset-0 bg-black/50" aria-label="Close menu" onClick={() => onOpenChange?.(false)} />{React.Children.map(children, (child) => React.isValidElement(child) ? React.cloneElement(child, { onOpenChange }) : child)}</div>; }
+export function SheetContent({ side = 'right', className, children, onOpenChange }) { return <div className={cn('fixed inset-y-0 z-50 flex w-3/4 max-w-sm flex-col bg-background shadow-lg', side === 'left' ? 'left-0' : 'right-0', className)}>{children}<button aria-label="Close menu" className="absolute right-4 top-4 text-xl" onClick={() => onOpenChange?.(false)}>×</button></div>; }

@@ -1,0 +1,436 @@
+{
+ "key": "balance",
+ "print_scale": 76,
+ "label": "Balance",
+ "template": "00. Balance_Blank Report.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "balance",
+  "weighing scale"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L68",
+ "cells": {
+  "B20": "data.verification_method",
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "L68": "data.physical_condition",
+  "L71": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "P71": "data.result_note"
+ },
+ "input_groups": [
+  {
+   "title": "Standard weights (standard measured value)",
+   "fields": [
+    {
+     "id": "std_w1",
+     "cell": "AJ30",
+     "label": "Standard weight 1 (g)",
+     "type": "number",
+     "default": 0.05
+    },
+    {
+     "id": "std_w2",
+     "cell": "AJ31",
+     "label": "Standard weight 2 (g)",
+     "type": "number",
+     "default": 1
+    },
+    {
+     "id": "std_w3",
+     "cell": "AJ32",
+     "label": "Standard weight 3 (g)",
+     "type": "number",
+     "default": 2
+    },
+    {
+     "id": "std_w4",
+     "cell": "AJ33",
+     "label": "Standard weight 4 (g)",
+     "type": "number",
+     "default": 5
+    },
+    {
+     "id": "std_w5",
+     "cell": "AJ34",
+     "label": "Standard weight 5 (g)",
+     "type": "number",
+     "default": 10
+    },
+    {
+     "id": "std_w6",
+     "cell": "AJ35",
+     "label": "Standard weight 6 (g)",
+     "type": "number",
+     "default": 20
+    },
+    {
+     "id": "std_w7",
+     "cell": "AJ36",
+     "label": "Standard weight 7 (g)",
+     "type": "number",
+     "default": 20
+    },
+    {
+     "id": "std_w8",
+     "cell": "AJ37",
+     "label": "Standard weight 8 (g)",
+     "type": "number",
+     "default": 50
+    },
+    {
+     "id": "std_w9",
+     "cell": "AJ38",
+     "label": "Standard weight 9 (g)",
+     "type": "number",
+     "default": 100
+    },
+    {
+     "id": "std_w10",
+     "cell": "AJ39",
+     "label": "Standard weight 10 (g)",
+     "type": "number",
+     "default": 100
+    }
+   ]
+  },
+  {
+   "title": "1. Departure from nominal value (g)",
+   "fields": [
+    {
+     "id": "eut_1",
+     "cell": "H30",
+     "label": "EUT measured value 1 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_2",
+     "cell": "H31",
+     "label": "EUT measured value 2 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_3",
+     "cell": "H32",
+     "label": "EUT measured value 3 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_4",
+     "cell": "H33",
+     "label": "EUT measured value 4 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_5",
+     "cell": "H34",
+     "label": "EUT measured value 5 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_6",
+     "cell": "H35",
+     "label": "EUT measured value 6 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_7",
+     "cell": "H36",
+     "label": "EUT measured value 7 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_8",
+     "cell": "H37",
+     "label": "EUT measured value 8 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_9",
+     "cell": "H38",
+     "label": "EUT measured value 9 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_10",
+     "cell": "H39",
+     "label": "EUT measured value 10 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_11",
+     "cell": "H40",
+     "label": "EUT measured value 11 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "eut_12",
+     "cell": "H41",
+     "label": "EUT measured value 12 (g)",
+     "type": "number",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "2. Repeatability of reading (g)",
+   "fields": [
+    {
+     "id": "rep_std_on",
+     "cell": "D46",
+     "label": "Standard - Load On (g)",
+     "type": "number",
+     "default": 100
+    },
+    {
+     "id": "rep_std_off",
+     "cell": "G46",
+     "label": "Standard - Load Off (g)",
+     "type": "number",
+     "default": 100
+    },
+    {
+     "id": "rep_on_1",
+     "cell": "J46",
+     "label": "Repeatability - Load On #1",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_2",
+     "cell": "J47",
+     "label": "Repeatability - Load On #2",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_3",
+     "cell": "J48",
+     "label": "Repeatability - Load On #3",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_4",
+     "cell": "J49",
+     "label": "Repeatability - Load On #4",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_5",
+     "cell": "J50",
+     "label": "Repeatability - Load On #5",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_6",
+     "cell": "J51",
+     "label": "Repeatability - Load On #6",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_7",
+     "cell": "J52",
+     "label": "Repeatability - Load On #7",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_8",
+     "cell": "J53",
+     "label": "Repeatability - Load On #8",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_9",
+     "cell": "J54",
+     "label": "Repeatability - Load On #9",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_on_10",
+     "cell": "J55",
+     "label": "Repeatability - Load On #10",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_1",
+     "cell": "M46",
+     "label": "Repeatability - Load Off #1",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_2",
+     "cell": "M47",
+     "label": "Repeatability - Load Off #2",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_3",
+     "cell": "M48",
+     "label": "Repeatability - Load Off #3",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_4",
+     "cell": "M49",
+     "label": "Repeatability - Load Off #4",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_5",
+     "cell": "M50",
+     "label": "Repeatability - Load Off #5",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_6",
+     "cell": "M51",
+     "label": "Repeatability - Load Off #6",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_7",
+     "cell": "M52",
+     "label": "Repeatability - Load Off #7",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_8",
+     "cell": "M53",
+     "label": "Repeatability - Load Off #8",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_9",
+     "cell": "M54",
+     "label": "Repeatability - Load Off #9",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "rep_off_10",
+     "cell": "M55",
+     "label": "Repeatability - Load Off #10",
+     "type": "number",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "3. Off center loading (g)",
+   "fields": [
+    {
+     "id": "off_std",
+     "cell": "D64",
+     "label": "Off-center standard load (g)",
+     "type": "number",
+     "default": 50
+    },
+    {
+     "id": "off_center",
+     "cell": "H64",
+     "label": "Off-center - Center",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "off_back",
+     "cell": "L64",
+     "label": "Off-center - Back",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "off_front",
+     "cell": "P64",
+     "label": "Off-center - Front",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "off_left",
+     "cell": "T64",
+     "label": "Off-center - Left",
+     "type": "number",
+     "clear_if_blank": true
+    },
+    {
+     "id": "off_right",
+     "cell": "X64",
+     "label": "Off-center - Right",
+     "type": "number",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ]
+}

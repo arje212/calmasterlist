@@ -1,0 +1,321 @@
+{
+ "key": "thermohygrometer",
+ "label": "Thermohygrometer",
+ "template": "00. Thermohygrometer_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "thermohygrometer",
+  "thermo-hygrometer",
+  "thermo hygrometer"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": null,
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "application_limit_is_formula": true
+ },
+ "priority": 10,
+ "required_accuracy_cells": [
+  {
+   "sign": "I16",
+   "value": "J16",
+   "unit": "K16"
+  },
+  {
+   "value": "L16",
+   "unit": "M16",
+   "percent": true
+  }
+ ],
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L45",
+ "cells": {
+  "B20": "data.verification_method",
+  "L45": "data.physical_condition",
+  "R48": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Stabilization details (3 locations)",
+   "fields": [
+    {
+     "id": "t_start",
+     "cell": "N26",
+     "label": "Location 1 - time start",
+     "type": "text",
+     "clear_if_blank": true,
+     "row": "Location 1",
+     "col": "time start"
+    },
+    {
+     "id": "t_end",
+     "cell": "P26",
+     "label": "Location 1 - time end",
+     "type": "text",
+     "clear_if_blank": true,
+     "row": "Location 1",
+     "col": "time end"
+    },
+    {
+     "id": "t_start",
+     "cell": "R26",
+     "label": "Location 2 - time start",
+     "type": "text",
+     "clear_if_blank": true,
+     "row": "Location 2",
+     "col": "time start"
+    },
+    {
+     "id": "t_end",
+     "cell": "T26",
+     "label": "Location 2 - time end",
+     "type": "text",
+     "clear_if_blank": true,
+     "row": "Location 2",
+     "col": "time end"
+    },
+    {
+     "id": "t_start",
+     "cell": "V26",
+     "label": "Location 3 - time start",
+     "type": "text",
+     "clear_if_blank": true,
+     "row": "Location 3",
+     "col": "time start"
+    },
+    {
+     "id": "t_end",
+     "cell": "X26",
+     "label": "Location 3 - time end",
+     "type": "text",
+     "clear_if_blank": true,
+     "row": "Location 3",
+     "col": "time end"
+    },
+    {
+     "id": "temp_start_1",
+     "cell": "N27",
+     "label": "Location 1 - start temperature (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Location 1",
+     "col": "start temperature (°C)"
+    },
+    {
+     "id": "temp_start_2",
+     "cell": "R27",
+     "label": "Location 2 - start temperature (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Location 2",
+     "col": "start temperature (°C)"
+    },
+    {
+     "id": "temp_start_3",
+     "cell": "V27",
+     "label": "Location 3 - start temperature (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Location 3",
+     "col": "start temperature (°C)"
+    }
+   ]
+  },
+  {
+   "title": "Test locations",
+   "fields": [
+    {
+     "id": "loc1",
+     "cell": "E32",
+     "label": "Location 1 - temperature test point (End user area)",
+     "type": "text",
+     "default": "End User Area\n()",
+     "row": "Location 1",
+     "col": "temperature test point (End user area)"
+    },
+    {
+     "id": "loc2",
+     "cell": "E33",
+     "label": "Location 2 - temperature test point",
+     "type": "text",
+     "default": "Higher Temp. Area\n()",
+     "row": "Location 2",
+     "col": "temperature test point"
+    },
+    {
+     "id": "loc3",
+     "cell": "E34",
+     "label": "Location 3 - temperature test point",
+     "type": "text",
+     "default": "Lower Temp. Area\n()",
+     "row": "Location 3",
+     "col": "temperature test point"
+    },
+    {
+     "id": "rh_loc2",
+     "cell": "E40",
+     "label": "Location 2 - RH test point",
+     "type": "text",
+     "default": "Higher RH. Area\n()",
+     "row": "Location 2",
+     "col": "RH test point"
+    },
+    {
+     "id": "rh_loc3",
+     "cell": "E41",
+     "label": "Location 3 - RH test point",
+     "type": "text",
+     "default": "Lower RH Area\n()",
+     "row": "Location 3",
+     "col": "RH test point"
+    }
+   ]
+  },
+  {
+   "title": "A. Temperature (°C)",
+   "fields": [
+    {
+     "id": "tstd_1",
+     "cell": "J32",
+     "label": "Temp location 1 - standard (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Temp location 1",
+     "col": "standard (°C)"
+    },
+    {
+     "id": "teut_1",
+     "cell": "M32",
+     "label": "Temp location 1 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Temp location 1",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tstd_2",
+     "cell": "J33",
+     "label": "Temp location 2 - standard (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Temp location 2",
+     "col": "standard (°C)"
+    },
+    {
+     "id": "teut_2",
+     "cell": "M33",
+     "label": "Temp location 2 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Temp location 2",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tstd_3",
+     "cell": "J34",
+     "label": "Temp location 3 - standard (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Temp location 3",
+     "col": "standard (°C)"
+    },
+    {
+     "id": "teut_3",
+     "cell": "M34",
+     "label": "Temp location 3 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Temp location 3",
+     "col": "EUT measured (°C)"
+    }
+   ]
+  },
+  {
+   "title": "B. Relative humidity (%)",
+   "fields": [
+    {
+     "id": "hstd_1",
+     "cell": "J39",
+     "label": "RH location 1 - standard (%)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "RH location 1",
+     "col": "standard (%)"
+    },
+    {
+     "id": "heut_1",
+     "cell": "M39",
+     "label": "RH location 1 - EUT measured (%)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "RH location 1",
+     "col": "EUT measured (%)"
+    },
+    {
+     "id": "hstd_2",
+     "cell": "J40",
+     "label": "RH location 2 - standard (%)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "RH location 2",
+     "col": "standard (%)"
+    },
+    {
+     "id": "heut_2",
+     "cell": "M40",
+     "label": "RH location 2 - EUT measured (%)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "RH location 2",
+     "col": "EUT measured (%)"
+    },
+    {
+     "id": "hstd_3",
+     "cell": "J41",
+     "label": "RH location 3 - standard (%)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "RH location 3",
+     "col": "standard (%)"
+    },
+    {
+     "id": "heut_3",
+     "cell": "M41",
+     "label": "RH location 3 - EUT measured (%)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "RH location 3",
+     "col": "EUT measured (%)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

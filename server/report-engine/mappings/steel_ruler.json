@@ -1,0 +1,336 @@
+{
+ "key": "steel_ruler",
+ "label": "Steel Ruler",
+ "template": "00. Steel Ruler_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "steel ruler"
+ ],
+ "header": {
+  "series": "AG10",
+  "humidity": "AJ10",
+  "application_limit": "AM10",
+  "eut_row": 13,
+  "eut_first_col": "AG",
+  "std_rows": [
+   16
+  ],
+  "std_first_col": "AH"
+ },
+ "required_accuracy_cells": [
+  {
+   "sign": "I16",
+   "value": "J16",
+   "unit": "K16"
+  },
+  {
+   "value": "M16",
+   "unit": "N16"
+  }
+ ],
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "W6",
+   "W7"
+  ],
+  "approved": [
+   "AA6",
+   "AA7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "K79",
+ "cells": {
+  "B20": "data.verification_method",
+  "K79": "data.physical_condition",
+  "N82": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "K82": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "Q24": "data.stabilization.time_start",
+  "V24": "data.stabilization.time_end",
+  "Q25": "data.stabilization.temp_start",
+  "V25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Length measurement (mm)",
+   "fields": [
+    {
+     "id": "mm_meas_1",
+     "cell": "K30",
+     "label": "mm #1 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #1",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_2",
+     "cell": "K31",
+     "label": "mm #2 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #2",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_3",
+     "cell": "K32",
+     "label": "mm #3 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #3",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_4",
+     "cell": "K33",
+     "label": "mm #4 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #4",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_5",
+     "cell": "K34",
+     "label": "mm #5 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #5",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_6",
+     "cell": "K35",
+     "label": "mm #6 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #6",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_7",
+     "cell": "K36",
+     "label": "mm #7 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #7",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_8",
+     "cell": "K37",
+     "label": "mm #8 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #8",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_9",
+     "cell": "K38",
+     "label": "mm #9 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #9",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_10",
+     "cell": "K39",
+     "label": "mm #10 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #10",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_11",
+     "cell": "K40",
+     "label": "mm #11 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #11",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_12",
+     "cell": "K41",
+     "label": "mm #12 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #12",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_13",
+     "cell": "K42",
+     "label": "mm #13 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #13",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_14",
+     "cell": "K43",
+     "label": "mm #14 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #14",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_15",
+     "cell": "K44",
+     "label": "mm #15 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #15",
+     "col": "standard measured value"
+    },
+    {
+     "id": "mm_meas_16",
+     "cell": "K45",
+     "label": "mm #16 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "mm #16",
+     "col": "standard measured value"
+    }
+   ]
+  },
+  {
+   "title": "Length measurement (inch)",
+   "fields": [
+    {
+     "id": "in_meas_1",
+     "cell": "K62",
+     "label": "inch #1 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #1",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_2",
+     "cell": "K63",
+     "label": "inch #2 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #2",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_3",
+     "cell": "K64",
+     "label": "inch #3 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #3",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_4",
+     "cell": "K65",
+     "label": "inch #4 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #4",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_5",
+     "cell": "K66",
+     "label": "inch #5 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #5",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_6",
+     "cell": "K67",
+     "label": "inch #6 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #6",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_7",
+     "cell": "K68",
+     "label": "inch #7 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #7",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_8",
+     "cell": "K69",
+     "label": "inch #8 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #8",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_9",
+     "cell": "K70",
+     "label": "inch #9 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #9",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_10",
+     "cell": "K71",
+     "label": "inch #10 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #10",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_11",
+     "cell": "K72",
+     "label": "inch #11 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #11",
+     "col": "standard measured value"
+    },
+    {
+     "id": "in_meas_12",
+     "cell": "K73",
+     "label": "inch #12 - standard measured value",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "inch #12",
+     "col": "standard measured value"
+    }
+   ]
+  }
+ ],
+ "print_scale": 99
+}

@@ -1,0 +1,320 @@
+{
+ "key": "hp0001re",
+ "label": "HP0001RE - Hot Plate (1 plate)",
+ "template": "HP0001RE_Blank_Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "hp0001re"
+ ],
+ "per_equipment": true,
+ "keep_template_values": true,
+ "due_date_is_formula": true,
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "series": "AE11",
+  "application_limit": "AK11",
+  "humidity": "AH11"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "L60": "data.physical_condition",
+  "P63": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "L60",
+ "input_groups": [
+  {
+   "title": "Temperature Measurement (°C) - One Point Calibration",
+   "fields": [
+    {
+     "id": "t1_r1_E",
+     "cell": "E41",
+     "label": "90 - Range Setting",
+     "type": "number",
+     "row": "90",
+     "col": "Range Setting",
+     "default": 90
+    },
+    {
+     "id": "t1_r1_H",
+     "cell": "H41",
+     "label": "90 - E.U.T Display Value",
+     "type": "number",
+     "row": "90",
+     "col": "E.U.T Display Value",
+     "default": 90
+    },
+    {
+     "id": "t1_r1_K",
+     "cell": "K41",
+     "label": "90 - Standard Measured Value",
+     "type": "number",
+     "row": "90",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_E",
+     "cell": "E42",
+     "label": "100 - Range Setting",
+     "type": "number",
+     "row": "100",
+     "col": "Range Setting",
+     "default": 100
+    },
+    {
+     "id": "t1_r2_H",
+     "cell": "H42",
+     "label": "100 - E.U.T Display Value",
+     "type": "number",
+     "row": "100",
+     "col": "E.U.T Display Value",
+     "default": 100
+    },
+    {
+     "id": "t1_r2_K",
+     "cell": "K42",
+     "label": "100 - Standard Measured Value",
+     "type": "number",
+     "row": "100",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_E",
+     "cell": "E43",
+     "label": "110 - Range Setting",
+     "type": "number",
+     "row": "110",
+     "col": "Range Setting",
+     "default": 110
+    },
+    {
+     "id": "t1_r3_H",
+     "cell": "H43",
+     "label": "110 - E.U.T Display Value",
+     "type": "number",
+     "row": "110",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t1_r3_K",
+     "cell": "K43",
+     "label": "110 - Standard Measured Value",
+     "type": "number",
+     "row": "110",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_E",
+     "cell": "E44",
+     "label": "120 - Range Setting",
+     "type": "number",
+     "row": "120",
+     "col": "Range Setting",
+     "default": 120
+    },
+    {
+     "id": "t1_r4_H",
+     "cell": "H44",
+     "label": "120 - E.U.T Display Value",
+     "type": "number",
+     "row": "120",
+     "col": "E.U.T Display Value",
+     "default": 120
+    },
+    {
+     "id": "t1_r4_K",
+     "cell": "K44",
+     "label": "120 - Standard Measured Value",
+     "type": "number",
+     "row": "120",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_E",
+     "cell": "E45",
+     "label": "130 - Range Setting",
+     "type": "number",
+     "row": "130",
+     "col": "Range Setting",
+     "default": 130
+    },
+    {
+     "id": "t1_r5_H",
+     "cell": "H45",
+     "label": "130 - E.U.T Display Value",
+     "type": "number",
+     "row": "130",
+     "col": "E.U.T Display Value",
+     "default": 130
+    },
+    {
+     "id": "t1_r5_K",
+     "cell": "K45",
+     "label": "130 - Standard Measured Value",
+     "type": "number",
+     "row": "130",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "Temperature Measurement (°C) - Profiling @ 110°C",
+   "fields": [
+    {
+     "id": "t2_r1_H",
+     "cell": "H50",
+     "label": "A - E.U.T Display Value",
+     "type": "number",
+     "row": "A",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t2_r1_K",
+     "cell": "K50",
+     "label": "A - Standard Measured Value",
+     "type": "number",
+     "row": "A",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r2_H",
+     "cell": "H51",
+     "label": "B - E.U.T Display Value",
+     "type": "number",
+     "row": "B",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t2_r2_K",
+     "cell": "K51",
+     "label": "B - Standard Measured Value",
+     "type": "number",
+     "row": "B",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r3_H",
+     "cell": "H52",
+     "label": "C - E.U.T Display Value",
+     "type": "number",
+     "row": "C",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t2_r3_K",
+     "cell": "K52",
+     "label": "C - Standard Measured Value",
+     "type": "number",
+     "row": "C",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r4_H",
+     "cell": "H53",
+     "label": "D - E.U.T Display Value",
+     "type": "number",
+     "row": "D",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t2_r4_K",
+     "cell": "K53",
+     "label": "D - Standard Measured Value",
+     "type": "number",
+     "row": "D",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r5_H",
+     "cell": "H54",
+     "label": "E - E.U.T Display Value",
+     "type": "number",
+     "row": "E",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t2_r5_K",
+     "cell": "K54",
+     "label": "E - Standard Measured Value",
+     "type": "number",
+     "row": "E",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 80,
+ "_notes": [
+  "FIXED: helper column H of 'Temperature Measurement (°C) - One Point Calibration' holds only whole numbers - pre-filled with them (editable)",
+  "SAMPLE: K41 holds '88.8' in the template - it is cleared when no value is entered",
+  "SAMPLE: K42 holds '99.8' in the template - it is cleared when no value is entered",
+  "SAMPLE: K43 holds '109.8' in the template - it is cleared when no value is entered",
+  "SAMPLE: K44 holds '121' in the template - it is cleared when no value is entered",
+  "SAMPLE: K45 holds '128.8' in the template - it is cleared when no value is entered",
+  "FIXED: helper column H of 'Temperature Measurement (°C) - Profiling @ 110°C' holds only whole numbers - pre-filled with them (editable)",
+  "SAMPLE: K50 holds '110.6' in the template - it is cleared when no value is entered",
+  "SAMPLE: K51 holds '110.9' in the template - it is cleared when no value is entered",
+  "SAMPLE: K52 holds '110.5' in the template - it is cleared when no value is entered",
+  "SAMPLE: K53 holds '109.7' in the template - it is cleared when no value is entered",
+  "SAMPLE: K54 holds '110.3' in the template - it is cleared when no value is entered",
+  "PRINT: print scale 80% gives the 1 page(s) the template announces (template says 82%; LibreOffice needs less)",
+  "PER-EQUIPMENT: header / standard cells keep the template's own values when the app has none; images in the template (illustration photos) are kept"
+ ]
+}

@@ -1,0 +1,404 @@
+{
+ "key": "measuring_microscope",
+ "label": "Measuring Microscope",
+ "template": "00. Measuring Microscope_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "measuring microscope",
+  "microscope"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L61",
+ "cells": {
+  "B20": "data.verification_method",
+  "L61": "data.physical_condition",
+  "P64": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "L64": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "O33": {
+   "value": "=IF(AND(ISNUMBER(L33),ISNUMBER(H33)),L33-H33,\"\")"
+  },
+  "R33": {
+   "value": "=IF(ISNUMBER(H33),H33-$J$16,\"\")"
+  },
+  "U33": {
+   "value": "=IF(ISNUMBER(H33),H33+$J$16,\"\")"
+  },
+  "X33": {
+   "value": "=IF(AND(ISNUMBER(L33),ISNUMBER(H33)),IF(AND(L33>=R33,L33<=U33),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O35": {
+   "value": "=IF(AND(ISNUMBER(L35),ISNUMBER(H35)),L35-H35,\"\")"
+  },
+  "R35": {
+   "value": "=IF(ISNUMBER(H35),H35-$J$16,\"\")"
+  },
+  "U35": {
+   "value": "=IF(ISNUMBER(H35),H35+$J$16,\"\")"
+  },
+  "X35": {
+   "value": "=IF(AND(ISNUMBER(L35),ISNUMBER(H35)),IF(AND(L35>=R35,L35<=U35),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O37": {
+   "value": "=IF(AND(ISNUMBER(L37),ISNUMBER(H37)),L37-H37,\"\")"
+  },
+  "R37": {
+   "value": "=IF(ISNUMBER(H37),H37-$J$16,\"\")"
+  },
+  "U37": {
+   "value": "=IF(ISNUMBER(H37),H37+$J$16,\"\")"
+  },
+  "X37": {
+   "value": "=IF(AND(ISNUMBER(L37),ISNUMBER(H37)),IF(AND(L37>=R37,L37<=U37),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O39": {
+   "value": "=IF(AND(ISNUMBER(L39),ISNUMBER(H39)),L39-H39,\"\")"
+  },
+  "R39": {
+   "value": "=IF(ISNUMBER(H39),H39-$J$16,\"\")"
+  },
+  "U39": {
+   "value": "=IF(ISNUMBER(H39),H39+$J$16,\"\")"
+  },
+  "X39": {
+   "value": "=IF(AND(ISNUMBER(L39),ISNUMBER(H39)),IF(AND(L39>=R39,L39<=U39),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O41": {
+   "value": "=IF(AND(ISNUMBER(L41),ISNUMBER(H41)),L41-H41,\"\")"
+  },
+  "R41": {
+   "value": "=IF(ISNUMBER(H41),H41-$J$16,\"\")"
+  },
+  "U41": {
+   "value": "=IF(ISNUMBER(H41),H41+$J$16,\"\")"
+  },
+  "X41": {
+   "value": "=IF(AND(ISNUMBER(L41),ISNUMBER(H41)),IF(AND(L41>=R41,L41<=U41),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O43": {
+   "value": "=IF(AND(ISNUMBER(L43),ISNUMBER(H43)),L43-H43,\"\")"
+  },
+  "R43": {
+   "value": "=IF(ISNUMBER(H43),H43-$J$16,\"\")"
+  },
+  "U43": {
+   "value": "=IF(ISNUMBER(H43),H43+$J$16,\"\")"
+  },
+  "X43": {
+   "value": "=IF(AND(ISNUMBER(L43),ISNUMBER(H43)),IF(AND(L43>=R43,L43<=U43),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O45": {
+   "value": "=IF(AND(ISNUMBER(L45),ISNUMBER(H45)),L45-H45,\"\")"
+  },
+  "R45": {
+   "value": "=IF(ISNUMBER(H45),H45-$J$16,\"\")"
+  },
+  "U45": {
+   "value": "=IF(ISNUMBER(H45),H45+$J$16,\"\")"
+  },
+  "X45": {
+   "value": "=IF(AND(ISNUMBER(L45),ISNUMBER(H45)),IF(AND(L45>=R45,L45<=U45),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O47": {
+   "value": "=IF(AND(ISNUMBER(L47),ISNUMBER(H47)),L47-H47,\"\")"
+  },
+  "R47": {
+   "value": "=IF(ISNUMBER(H47),H47-$J$16,\"\")"
+  },
+  "U47": {
+   "value": "=IF(ISNUMBER(H47),H47+$J$16,\"\")"
+  },
+  "X47": {
+   "value": "=IF(AND(ISNUMBER(L47),ISNUMBER(H47)),IF(AND(L47>=R47,L47<=U47),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O49": {
+   "value": "=IF(AND(ISNUMBER(L49),ISNUMBER(H49)),L49-H49,\"\")"
+  },
+  "R49": {
+   "value": "=IF(ISNUMBER(H49),H49-$J$16,\"\")"
+  },
+  "U49": {
+   "value": "=IF(ISNUMBER(H49),H49+$J$16,\"\")"
+  },
+  "X49": {
+   "value": "=IF(AND(ISNUMBER(L49),ISNUMBER(H49)),IF(AND(L49>=R49,L49<=U49),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O51": {
+   "value": "=IF(AND(ISNUMBER(L51),ISNUMBER(H51)),L51-H51,\"\")"
+  },
+  "R51": {
+   "value": "=IF(ISNUMBER(H51),H51-$J$16,\"\")"
+  },
+  "U51": {
+   "value": "=IF(ISNUMBER(H51),H51+$J$16,\"\")"
+  },
+  "X51": {
+   "value": "=IF(AND(ISNUMBER(L51),ISNUMBER(H51)),IF(AND(L51>=R51,L51<=U51),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "O53": {
+   "value": "=IF(AND(ISNUMBER(L53),ISNUMBER(H53)),L53-H53,\"\")"
+  },
+  "R53": {
+   "value": "=IF(ISNUMBER(H53),H53-$J$16,\"\")"
+  },
+  "U53": {
+   "value": "=IF(ISNUMBER(H53),H53+$J$16,\"\")"
+  },
+  "X53": {
+   "value": "=IF(AND(ISNUMBER(L53),ISNUMBER(H53)),IF(AND(L53>=R53,L53<=U53),\"PASSED\",\"FAILED\"),\"\")"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Length measurement (mm)",
+   "fields": [
+    {
+     "id": "spec_1",
+     "cell": "H33",
+     "label": "Length X #1 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #1",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_1",
+     "cell": "L33",
+     "label": "Length X #1 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #1",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_2",
+     "cell": "H35",
+     "label": "Length X #2 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #2",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_2",
+     "cell": "L35",
+     "label": "Length X #2 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #2",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_3",
+     "cell": "H37",
+     "label": "Length X #3 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #3",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_3",
+     "cell": "L37",
+     "label": "Length X #3 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #3",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_4",
+     "cell": "H39",
+     "label": "Length X #4 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #4",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_4",
+     "cell": "L39",
+     "label": "Length X #4 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #4",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_5",
+     "cell": "H41",
+     "label": "Length X #5 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #5",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_5",
+     "cell": "L41",
+     "label": "Length X #5 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #5",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_6",
+     "cell": "H43",
+     "label": "Length X #6 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #6",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_6",
+     "cell": "L43",
+     "label": "Length X #6 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length X #6",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_7",
+     "cell": "H45",
+     "label": "Length Y #7 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #7",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_7",
+     "cell": "L45",
+     "label": "Length Y #7 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #7",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_8",
+     "cell": "H47",
+     "label": "Length Y #8 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #8",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_8",
+     "cell": "L47",
+     "label": "Length Y #8 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #8",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_9",
+     "cell": "H49",
+     "label": "Length Y #9 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #9",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_9",
+     "cell": "L49",
+     "label": "Length Y #9 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #9",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_10",
+     "cell": "H51",
+     "label": "Length Y #10 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #10",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_10",
+     "cell": "L51",
+     "label": "Length Y #10 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #10",
+     "col": "EUT measured (mm)"
+    },
+    {
+     "id": "spec_11",
+     "cell": "H53",
+     "label": "Length Y #11 - standard specified value (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #11",
+     "col": "standard specified value (mm)"
+    },
+    {
+     "id": "eut_11",
+     "cell": "L53",
+     "label": "Length Y #11 - EUT measured (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Length Y #11",
+     "col": "EUT measured (mm)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

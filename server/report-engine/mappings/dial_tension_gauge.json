@@ -1,0 +1,343 @@
+{
+ "key": "dial_tension_gauge",
+ "label": "Dial Tension Gauge",
+ "template": "Dial Tension Gauge_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "dial tension gauge",
+  "tension gauge"
+ ],
+ "header": {
+  "series": "AF11",
+  "humidity": "AI11",
+  "application_limit": "AL11",
+  "eut_row": 14,
+  "eut_first_col": "AF",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AG"
+ },
+ "due_date_is_formula": true,
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L42",
+ "cells": {
+  "B20": "data.verification_method",
+  "L42": "data.physical_condition",
+  "O45": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "V24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "V25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "AE61": {
+   "value": "=IF(AL11=\"\",\"\",AL11)"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Measurement result (g)",
+   "fields": [
+    {
+     "id": "std_1",
+     "cell": "F31",
+     "label": "Test point 1 - standard measured value (g)",
+     "type": "number",
+     "default": 100,
+     "row": "Test point 1",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_1",
+     "cell": "J31",
+     "label": "Test point 1 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 1",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_1",
+     "cell": "N31",
+     "label": "Test point 1 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 1",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_2",
+     "cell": "F32",
+     "label": "Test point 2 - standard measured value (g)",
+     "type": "number",
+     "default": 140,
+     "row": "Test point 2",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_2",
+     "cell": "J32",
+     "label": "Test point 2 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 2",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_2",
+     "cell": "N32",
+     "label": "Test point 2 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 2",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_3",
+     "cell": "F33",
+     "label": "Test point 3 - standard measured value (g)",
+     "type": "number",
+     "default": 200,
+     "row": "Test point 3",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_3",
+     "cell": "J33",
+     "label": "Test point 3 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 3",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_3",
+     "cell": "N33",
+     "label": "Test point 3 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 3",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_4",
+     "cell": "F34",
+     "label": "Test point 4 - standard measured value (g)",
+     "type": "number",
+     "default": 220,
+     "row": "Test point 4",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_4",
+     "cell": "J34",
+     "label": "Test point 4 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 4",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_4",
+     "cell": "N34",
+     "label": "Test point 4 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 4",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_5",
+     "cell": "F35",
+     "label": "Test point 5 - standard measured value (g)",
+     "type": "number",
+     "default": 260,
+     "row": "Test point 5",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_5",
+     "cell": "J35",
+     "label": "Test point 5 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 5",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_5",
+     "cell": "N35",
+     "label": "Test point 5 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 5",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_6",
+     "cell": "F36",
+     "label": "Test point 6 - standard measured value (g)",
+     "type": "number",
+     "default": 300,
+     "row": "Test point 6",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_6",
+     "cell": "J36",
+     "label": "Test point 6 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 6",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_6",
+     "cell": "N36",
+     "label": "Test point 6 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 6",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_7",
+     "cell": "F37",
+     "label": "Test point 7 - standard measured value (g)",
+     "type": "number",
+     "default": 340,
+     "row": "Test point 7",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_7",
+     "cell": "J37",
+     "label": "Test point 7 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 7",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_7",
+     "cell": "N37",
+     "label": "Test point 7 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 7",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_8",
+     "cell": "F38",
+     "label": "Test point 8 - standard measured value (g)",
+     "type": "number",
+     "default": 400,
+     "row": "Test point 8",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_8",
+     "cell": "J38",
+     "label": "Test point 8 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 8",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_8",
+     "cell": "N38",
+     "label": "Test point 8 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 8",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_9",
+     "cell": "F39",
+     "label": "Test point 9 - standard measured value (g)",
+     "type": "number",
+     "default": 440,
+     "row": "Test point 9",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_9",
+     "cell": "J39",
+     "label": "Test point 9 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 9",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_9",
+     "cell": "N39",
+     "label": "Test point 9 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 9",
+     "col": "EUT CCW (g)"
+    },
+    {
+     "id": "std_10",
+     "cell": "F40",
+     "label": "Test point 10 - standard measured value (g)",
+     "type": "number",
+     "default": 500.004,
+     "row": "Test point 10",
+     "col": "standard measured value (g)"
+    },
+    {
+     "id": "cw_10",
+     "cell": "J40",
+     "label": "Test point 10 - EUT CW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 10",
+     "col": "EUT CW (g)"
+    },
+    {
+     "id": "ccw_10",
+     "cell": "N40",
+     "label": "Test point 10 - EUT CCW (g)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 10",
+     "col": "EUT CCW (g)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 105
+}

@@ -1,0 +1,550 @@
+{
+ "key": "lcr_meter",
+ "label": "LCR Meter",
+ "template": "00__LCR_Meter___Blank_Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "lcr meter",
+  "lcr"
+ ],
+ "due_date_is_formula": true,
+ "header": {
+  "eut_row": 13,
+  "eut_first_col": "AF",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AG",
+  "series": "AF10",
+  "application_limit": "AL10",
+  "humidity": "AI10",
+  "application_limit_is_formula": true
+ },
+ "people": {
+  "verified": [
+   "S6",
+   "S7"
+  ],
+  "reviewed": [
+   "W6",
+   "W7"
+  ],
+  "approved": [
+   "AA6",
+   "AA7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "J44": "data.physical_condition",
+  "J47": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "Q47": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "R24": "data.stabilization.time_start",
+  "U24": "data.stabilization.time_end",
+  "R25": "data.stabilization.temp_start",
+  "U25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "J44",
+ "input_groups": [
+  {
+   "title": "Inductance Measurement",
+   "fields": [
+    {
+     "id": "t1_r1_F",
+     "cell": "F30",
+     "label": "Row 1 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 1",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_J",
+     "cell": "J30",
+     "label": "Row 1 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 1",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_AG",
+     "cell": "AG30",
+     "label": "Row 1 - ACCURACY",
+     "type": "number",
+     "row": "Row 1",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r2_F",
+     "cell": "F31",
+     "label": "Row 2 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 2",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_J",
+     "cell": "J31",
+     "label": "Row 2 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 2",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_AG",
+     "cell": "AG31",
+     "label": "Row 2 - ACCURACY",
+     "type": "number",
+     "row": "Row 2",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r3_F",
+     "cell": "F32",
+     "label": "Row 3 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 3",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_J",
+     "cell": "J32",
+     "label": "Row 3 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 3",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_AG",
+     "cell": "AG32",
+     "label": "Row 3 - ACCURACY",
+     "type": "number",
+     "row": "Row 3",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r4_F",
+     "cell": "F33",
+     "label": "Row 4 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 4",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_J",
+     "cell": "J33",
+     "label": "Row 4 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 4",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_AG",
+     "cell": "AG33",
+     "label": "Row 4 - ACCURACY",
+     "type": "number",
+     "row": "Row 4",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r5_F",
+     "cell": "F34",
+     "label": "Row 5 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 5",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_J",
+     "cell": "J34",
+     "label": "Row 5 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 5",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_AG",
+     "cell": "AG34",
+     "label": "Row 5 - ACCURACY",
+     "type": "number",
+     "row": "Row 5",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r6_F",
+     "cell": "F35",
+     "label": "Row 6 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 6",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_J",
+     "cell": "J35",
+     "label": "Row 6 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 6",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_AG",
+     "cell": "AG35",
+     "label": "Row 6 - ACCURACY",
+     "type": "number",
+     "row": "Row 6",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r7_F",
+     "cell": "F36",
+     "label": "Row 7 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 7",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_J",
+     "cell": "J36",
+     "label": "Row 7 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 7",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_AG",
+     "cell": "AG36",
+     "label": "Row 7 - ACCURACY",
+     "type": "number",
+     "row": "Row 7",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r8_F",
+     "cell": "F37",
+     "label": "Row 8 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 8",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_J",
+     "cell": "J37",
+     "label": "Row 8 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 8",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_AG",
+     "cell": "AG37",
+     "label": "Row 8 - ACCURACY",
+     "type": "number",
+     "row": "Row 8",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r9_F",
+     "cell": "F38",
+     "label": "Row 9 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 9",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_J",
+     "cell": "J38",
+     "label": "Row 9 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 9",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_AG",
+     "cell": "AG38",
+     "label": "Row 9 - ACCURACY",
+     "type": "number",
+     "row": "Row 9",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r10_F",
+     "cell": "F39",
+     "label": "Row 10 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 10",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_J",
+     "cell": "J39",
+     "label": "Row 10 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 10",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_AG",
+     "cell": "AG39",
+     "label": "Row 10 - ACCURACY",
+     "type": "number",
+     "row": "Row 10",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r11_F",
+     "cell": "F40",
+     "label": "Row 11 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 11",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_J",
+     "cell": "J40",
+     "label": "Row 11 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 11",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_AG",
+     "cell": "AG40",
+     "label": "Row 11 - ACCURACY",
+     "type": "number",
+     "row": "Row 11",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r12_F",
+     "cell": "F41",
+     "label": "Row 12 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 12",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_J",
+     "cell": "J41",
+     "label": "Row 12 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 12",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_AG",
+     "cell": "AG41",
+     "label": "Row 12 - ACCURACY",
+     "type": "number",
+     "row": "Row 12",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r13_F",
+     "cell": "F42",
+     "label": "Row 13 - Standard Measured Value",
+     "type": "number",
+     "row": "Row 13",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_J",
+     "cell": "J42",
+     "label": "Row 13 - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 13",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_AG",
+     "cell": "AG42",
+     "label": "Row 13 - ACCURACY",
+     "type": "number",
+     "row": "Row 13",
+     "col": "ACCURACY",
+     "default": 3.0
+    },
+    {
+     "id": "t1_r1_C",
+     "cell": "C30",
+     "label": "Row 1 - Unit",
+     "type": "text",
+     "row": "Row 1",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_C",
+     "cell": "C31",
+     "label": "Row 2 - Unit",
+     "type": "text",
+     "row": "Row 2",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_C",
+     "cell": "C32",
+     "label": "Row 3 - Unit",
+     "type": "text",
+     "row": "Row 3",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_C",
+     "cell": "C33",
+     "label": "Row 4 - Unit",
+     "type": "text",
+     "row": "Row 4",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_C",
+     "cell": "C34",
+     "label": "Row 5 - Unit",
+     "type": "text",
+     "row": "Row 5",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_C",
+     "cell": "C35",
+     "label": "Row 6 - Unit",
+     "type": "text",
+     "row": "Row 6",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_C",
+     "cell": "C36",
+     "label": "Row 7 - Unit",
+     "type": "text",
+     "row": "Row 7",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_C",
+     "cell": "C37",
+     "label": "Row 8 - Unit",
+     "type": "text",
+     "row": "Row 8",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_C",
+     "cell": "C38",
+     "label": "Row 9 - Unit",
+     "type": "text",
+     "row": "Row 9",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_C",
+     "cell": "C39",
+     "label": "Row 10 - Unit",
+     "type": "text",
+     "row": "Row 10",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_C",
+     "cell": "C40",
+     "label": "Row 11 - Unit",
+     "type": "text",
+     "row": "Row 11",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_C",
+     "cell": "C41",
+     "label": "Row 12 - Unit",
+     "type": "text",
+     "row": "Row 12",
+     "col": "Unit",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_C",
+     "cell": "C42",
+     "label": "Row 13 - Unit",
+     "type": "text",
+     "row": "Row 13",
+     "col": "Unit",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 92,
+ "_notes": [
+  "PRINT: print scale 92% gives the 1 page(s) the template announces"
+ ]
+}

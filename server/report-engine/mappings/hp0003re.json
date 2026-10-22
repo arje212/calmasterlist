@@ -1,0 +1,625 @@
+{
+ "key": "hp0003re",
+ "label": "HP0003RE - Hot Plate (3 plates)",
+ "template": "HP0003RE_Blank_Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "hp0003re"
+ ],
+ "per_equipment": true,
+ "keep_template_values": true,
+ "due_date_is_formula": true,
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "series": "AE11",
+  "application_limit": "AK11",
+  "humidity": "AH11"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "L102": "data.physical_condition",
+  "P105": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "L102",
+ "input_groups": [
+  {
+   "title": "Temperature Measurement (°C) - One Point Calibration @ 1A",
+   "fields": [
+    {
+     "id": "t1_r1_H",
+     "cell": "H41",
+     "label": "90 - E.U.T Display Value",
+     "type": "number",
+     "row": "90",
+     "col": "E.U.T Display Value",
+     "default": 90
+    },
+    {
+     "id": "t1_r1_K",
+     "cell": "K41",
+     "label": "90 - Standard Measured Value",
+     "type": "number",
+     "row": "90",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_H",
+     "cell": "H42",
+     "label": "100 - E.U.T Display Value",
+     "type": "number",
+     "row": "100",
+     "col": "E.U.T Display Value",
+     "default": 100
+    },
+    {
+     "id": "t1_r2_K",
+     "cell": "K42",
+     "label": "100 - Standard Measured Value",
+     "type": "number",
+     "row": "100",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_H",
+     "cell": "H43",
+     "label": "110 - E.U.T Display Value",
+     "type": "number",
+     "row": "110",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t1_r3_K",
+     "cell": "K43",
+     "label": "110 - Standard Measured Value",
+     "type": "number",
+     "row": "110",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_H",
+     "cell": "H44",
+     "label": "120 - E.U.T Display Value",
+     "type": "number",
+     "row": "120",
+     "col": "E.U.T Display Value",
+     "default": 120
+    },
+    {
+     "id": "t1_r4_K",
+     "cell": "K44",
+     "label": "120 - Standard Measured Value",
+     "type": "number",
+     "row": "120",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_H",
+     "cell": "H45",
+     "label": "130 - E.U.T Display Value",
+     "type": "number",
+     "row": "130",
+     "col": "E.U.T Display Value",
+     "default": 130
+    },
+    {
+     "id": "t1_r5_K",
+     "cell": "K45",
+     "label": "130 - Standard Measured Value",
+     "type": "number",
+     "row": "130",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "Temperature Measurement (°C) - One Point Calibration @ 1B",
+   "fields": [
+    {
+     "id": "t2_r1_H",
+     "cell": "H50",
+     "label": "90 - E.U.T Display Value",
+     "type": "number",
+     "row": "90",
+     "col": "E.U.T Display Value",
+     "default": 90
+    },
+    {
+     "id": "t2_r1_K",
+     "cell": "K50",
+     "label": "90 - Standard Measured Value",
+     "type": "number",
+     "row": "90",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r2_H",
+     "cell": "H51",
+     "label": "100 - E.U.T Display Value",
+     "type": "number",
+     "row": "100",
+     "col": "E.U.T Display Value",
+     "default": 100
+    },
+    {
+     "id": "t2_r2_K",
+     "cell": "K51",
+     "label": "100 - Standard Measured Value",
+     "type": "number",
+     "row": "100",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r3_H",
+     "cell": "H52",
+     "label": "110 - E.U.T Display Value",
+     "type": "number",
+     "row": "110",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t2_r3_K",
+     "cell": "K52",
+     "label": "110 - Standard Measured Value",
+     "type": "number",
+     "row": "110",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r4_H",
+     "cell": "H53",
+     "label": "120 - E.U.T Display Value",
+     "type": "number",
+     "row": "120",
+     "col": "E.U.T Display Value",
+     "default": 120
+    },
+    {
+     "id": "t2_r4_K",
+     "cell": "K53",
+     "label": "120 - Standard Measured Value",
+     "type": "number",
+     "row": "120",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r5_H",
+     "cell": "H54",
+     "label": "130 - E.U.T Display Value",
+     "type": "number",
+     "row": "130",
+     "col": "E.U.T Display Value",
+     "default": 130
+    },
+    {
+     "id": "t2_r5_K",
+     "cell": "K54",
+     "label": "130 - Standard Measured Value",
+     "type": "number",
+     "row": "130",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "Temperature Measurement (°C) - One Point Calibration @ 1C",
+   "fields": [
+    {
+     "id": "t3_r1_H",
+     "cell": "H67",
+     "label": "90 - E.U.T Display Value",
+     "type": "number",
+     "row": "90",
+     "col": "E.U.T Display Value",
+     "default": 90
+    },
+    {
+     "id": "t3_r1_K",
+     "cell": "K67",
+     "label": "90 - Standard Measured Value",
+     "type": "number",
+     "row": "90",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r2_H",
+     "cell": "H68",
+     "label": "100 - E.U.T Display Value",
+     "type": "number",
+     "row": "100",
+     "col": "E.U.T Display Value",
+     "default": 100
+    },
+    {
+     "id": "t3_r2_K",
+     "cell": "K68",
+     "label": "100 - Standard Measured Value",
+     "type": "number",
+     "row": "100",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r3_H",
+     "cell": "H69",
+     "label": "110 - E.U.T Display Value",
+     "type": "number",
+     "row": "110",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t3_r3_K",
+     "cell": "K69",
+     "label": "110 - Standard Measured Value",
+     "type": "number",
+     "row": "110",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r4_H",
+     "cell": "H70",
+     "label": "120 - E.U.T Display Value",
+     "type": "number",
+     "row": "120",
+     "col": "E.U.T Display Value",
+     "default": 120
+    },
+    {
+     "id": "t3_r4_K",
+     "cell": "K70",
+     "label": "120 - Standard Measured Value",
+     "type": "number",
+     "row": "120",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r5_H",
+     "cell": "H71",
+     "label": "130 - E.U.T Display Value",
+     "type": "number",
+     "row": "130",
+     "col": "E.U.T Display Value",
+     "default": 130
+    },
+    {
+     "id": "t3_r5_K",
+     "cell": "K71",
+     "label": "130 - Standard Measured Value",
+     "type": "number",
+     "row": "130",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "Temperature Measurement (°C) - Profiling @ 110 °C",
+   "fields": [
+    {
+     "id": "t4_r1_H",
+     "cell": "H86",
+     "label": "A - E.U.T Display Value",
+     "type": "number",
+     "row": "A",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r1_K",
+     "cell": "K86",
+     "label": "A - Standard Measured Value",
+     "type": "number",
+     "row": "A",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r2_H",
+     "cell": "H87",
+     "label": "B - E.U.T Display Value",
+     "type": "number",
+     "row": "B",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r2_K",
+     "cell": "K87",
+     "label": "B - Standard Measured Value",
+     "type": "number",
+     "row": "B",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r3_H",
+     "cell": "H88",
+     "label": "C - E.U.T Display Value",
+     "type": "number",
+     "row": "C",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r3_K",
+     "cell": "K88",
+     "label": "C - Standard Measured Value",
+     "type": "number",
+     "row": "C",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r4_H",
+     "cell": "H89",
+     "label": "D - E.U.T Display Value",
+     "type": "number",
+     "row": "D",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r4_K",
+     "cell": "K89",
+     "label": "D - Standard Measured Value",
+     "type": "number",
+     "row": "D",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r5_H",
+     "cell": "H90",
+     "label": "E - E.U.T Display Value",
+     "type": "number",
+     "row": "E",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r5_K",
+     "cell": "K90",
+     "label": "E - Standard Measured Value",
+     "type": "number",
+     "row": "E",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r6_H",
+     "cell": "H91",
+     "label": "F - E.U.T Display Value",
+     "type": "number",
+     "row": "F",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r6_K",
+     "cell": "K91",
+     "label": "F - Standard Measured Value",
+     "type": "number",
+     "row": "F",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r7_H",
+     "cell": "H92",
+     "label": "G - E.U.T Display Value",
+     "type": "number",
+     "row": "G",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r7_K",
+     "cell": "K92",
+     "label": "G - Standard Measured Value",
+     "type": "number",
+     "row": "G",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r8_H",
+     "cell": "H93",
+     "label": "H - E.U.T Display Value",
+     "type": "number",
+     "row": "H",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r8_K",
+     "cell": "K93",
+     "label": "H - Standard Measured Value",
+     "type": "number",
+     "row": "H",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r9_H",
+     "cell": "H94",
+     "label": "I - E.U.T Display Value",
+     "type": "number",
+     "row": "I",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r9_K",
+     "cell": "K94",
+     "label": "I - Standard Measured Value",
+     "type": "number",
+     "row": "I",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r10_H",
+     "cell": "H95",
+     "label": "J - E.U.T Display Value",
+     "type": "number",
+     "row": "J",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r10_K",
+     "cell": "K95",
+     "label": "J - Standard Measured Value",
+     "type": "number",
+     "row": "J",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r11_H",
+     "cell": "H96",
+     "label": "K - E.U.T Display Value",
+     "type": "number",
+     "row": "K",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r11_K",
+     "cell": "K96",
+     "label": "K - Standard Measured Value",
+     "type": "number",
+     "row": "K",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r12_H",
+     "cell": "H97",
+     "label": "L - E.U.T Display Value",
+     "type": "number",
+     "row": "L",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r12_K",
+     "cell": "K97",
+     "label": "L - Standard Measured Value",
+     "type": "number",
+     "row": "L",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t4_r13_H",
+     "cell": "H98",
+     "label": "M - E.U.T Display Value",
+     "type": "number",
+     "row": "M",
+     "col": "E.U.T Display Value",
+     "default": 110
+    },
+    {
+     "id": "t4_r13_K",
+     "cell": "K98",
+     "label": "M - Standard Measured Value",
+     "type": "number",
+     "row": "M",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 80,
+ "_notes": [
+  "SAMPLE: K41 holds '89.9' in the template - it is cleared when no value is entered",
+  "SAMPLE: K42 holds '100.3' in the template - it is cleared when no value is entered",
+  "SAMPLE: K43 holds '109.8' in the template - it is cleared when no value is entered",
+  "SAMPLE: K44 holds '120.1' in the template - it is cleared when no value is entered",
+  "SAMPLE: K45 holds '130.3' in the template - it is cleared when no value is entered",
+  "SAMPLE: K50 holds '89.5' in the template - it is cleared when no value is entered",
+  "SAMPLE: K51 holds '99.8' in the template - it is cleared when no value is entered",
+  "SAMPLE: K52 holds '109.8' in the template - it is cleared when no value is entered",
+  "SAMPLE: K53 holds '119.9' in the template - it is cleared when no value is entered",
+  "SAMPLE: K54 holds '129.6' in the template - it is cleared when no value is entered",
+  "SAMPLE: K67 holds '90.1' in the template - it is cleared when no value is entered",
+  "SAMPLE: K68 holds '100.5' in the template - it is cleared when no value is entered",
+  "SAMPLE: K69 holds '110.7' in the template - it is cleared when no value is entered",
+  "SAMPLE: K70 holds '120.2' in the template - it is cleared when no value is entered",
+  "SAMPLE: K71 holds '130.8' in the template - it is cleared when no value is entered",
+  "SAMPLE: K86 holds '110.2' in the template - it is cleared when no value is entered",
+  "SAMPLE: K87 holds '110.5' in the template - it is cleared when no value is entered",
+  "SAMPLE: K88 holds '109.5' in the template - it is cleared when no value is entered",
+  "SAMPLE: K89 holds '110.4' in the template - it is cleared when no value is entered",
+  "SAMPLE: K90 holds '109.9' in the template - it is cleared when no value is entered",
+  "SAMPLE: K91 holds '110.3' in the template - it is cleared when no value is entered",
+  "SAMPLE: K92 holds '111.4' in the template - it is cleared when no value is entered",
+  "SAMPLE: K93 holds '110.2' in the template - it is cleared when no value is entered",
+  "SAMPLE: K94 holds '110.6' in the template - it is cleared when no value is entered",
+  "SAMPLE: K95 holds '109.8' in the template - it is cleared when no value is entered",
+  "SAMPLE: K96 holds '109.2' in the template - it is cleared when no value is entered",
+  "SAMPLE: K97 holds '109.1' in the template - it is cleared when no value is entered",
+  "SAMPLE: K98 holds '110.4' in the template - it is cleared when no value is entered",
+  "PRINT: print scale 80% gives the 2 page(s) the template announces (template says 82%; LibreOffice needs less)",
+  "PER-EQUIPMENT: header / standard cells keep the template's own values when the app has none; images in the template (illustration photos) are kept"
+ ]
+}

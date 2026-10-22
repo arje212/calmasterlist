@@ -1,0 +1,277 @@
+{
+ "key": "handheld_multimeter",
+ "label": "Handheld Multimeter",
+ "template": "00. Handheld Multimeter_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "handheld multimeter",
+  "multimeter"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "application_limit_is_formula": true
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16",
+  "percent": true
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L56",
+ "cells": {
+  "B20": "data.verification_method",
+  "L56": "data.physical_condition",
+  "P59": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "AK11": {
+   "value": "=CONCATENATE(\"DCR : \", L29, \"Ω ~ \", L40, \"kΩ \", \"/ DCV : \", L44, \"V ~ \", L53, \"V\")"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Resistance measurement",
+   "fields": [
+    {
+     "id": "res_1",
+     "cell": "L29",
+     "label": "Resistance 1 (Ω) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 1 (Ω)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_2",
+     "cell": "L30",
+     "label": "Resistance 2 (Ω) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 2 (Ω)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_3",
+     "cell": "L31",
+     "label": "Resistance 3 (Ω) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 3 (Ω)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_4",
+     "cell": "L32",
+     "label": "Resistance 4 (Ω) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 4 (Ω)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_5",
+     "cell": "L33",
+     "label": "Resistance 5 (kΩ) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 5 (kΩ)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_6",
+     "cell": "L34",
+     "label": "Resistance 6 (kΩ) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 6 (kΩ)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_7",
+     "cell": "L35",
+     "label": "Resistance 7 (kΩ) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 7 (kΩ)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_8",
+     "cell": "L36",
+     "label": "Resistance 8 (kΩ) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 8 (kΩ)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_9",
+     "cell": "L37",
+     "label": "Resistance 9 (kΩ) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 9 (kΩ)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_10",
+     "cell": "L38",
+     "label": "Resistance 10 (kΩ) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 10 (kΩ)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_11",
+     "cell": "L39",
+     "label": "Resistance 11 (kΩ) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 11 (kΩ)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "res_12",
+     "cell": "L40",
+     "label": "Resistance 12 (kΩ) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Resistance 12 (kΩ)",
+     "col": "EUT measured"
+    }
+   ]
+  },
+  {
+   "title": "Voltage measurement (DCV)",
+   "fields": [
+    {
+     "id": "dcv_1",
+     "cell": "L44",
+     "label": "DCV 1 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 1 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_2",
+     "cell": "L45",
+     "label": "DCV 2 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 2 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_3",
+     "cell": "L46",
+     "label": "DCV 3 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 3 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_4",
+     "cell": "L47",
+     "label": "DCV 4 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 4 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_5",
+     "cell": "L48",
+     "label": "DCV 5 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 5 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_6",
+     "cell": "L49",
+     "label": "DCV 6 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 6 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_7",
+     "cell": "L50",
+     "label": "DCV 7 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 7 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_8",
+     "cell": "L51",
+     "label": "DCV 8 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 8 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_9",
+     "cell": "L52",
+     "label": "DCV 9 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 9 (V)",
+     "col": "EUT measured"
+    },
+    {
+     "id": "dcv_10",
+     "cell": "L53",
+     "label": "DCV 10 (V) - EUT measured",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "DCV 10 (V)",
+     "col": "EUT measured"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

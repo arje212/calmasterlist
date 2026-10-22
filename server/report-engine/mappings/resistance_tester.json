@@ -1,0 +1,432 @@
+{
+ "key": "resistance_tester",
+ "label": "Resistance Tester",
+ "template": "00__Resistance_Tester_Blank_Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "resistance tester"
+ ],
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "Q",
+  "std_rows": [
+   16
+  ],
+  "std_first_col": "Q",
+  "series": "Q11",
+  "application_limit": "V11",
+  "humidity": "T11",
+  "application_limit_is_formula": true
+ },
+ "people": {
+  "verified": [
+   "J6",
+   "J7"
+  ],
+  "reviewed": [
+   "L6",
+   "L7"
+  ],
+  "approved": [
+   "N6",
+   "N7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "E16",
+  "value": "F16",
+  "unit": "G16",
+  "percent": true
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "G43": "data.physical_condition",
+  "G46": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "K46": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "J24": "data.stabilization.time_start",
+  "L24": "data.stabilization.time_end",
+  "J25": "data.stabilization.temp_start",
+  "L25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "G43",
+ "input_groups": [
+  {
+   "title": "Measurement table 1",
+   "fields": [
+    {
+     "id": "t1_r1_E",
+     "cell": "E29",
+     "label": "3 - Standard Sourced Value",
+     "type": "number",
+     "row": "3",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_G",
+     "cell": "G29",
+     "label": "3 - E.U.T Measured Value",
+     "type": "number",
+     "row": "3",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_E",
+     "cell": "E30",
+     "label": "30 - Standard Sourced Value",
+     "type": "number",
+     "row": "30",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_G",
+     "cell": "G30",
+     "label": "30 - E.U.T Measured Value",
+     "type": "number",
+     "row": "30",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_E",
+     "cell": "E31",
+     "label": "Row 3 (30) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 3 (30)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_G",
+     "cell": "G31",
+     "label": "Row 3 (30) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 3 (30)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_E",
+     "cell": "E32",
+     "label": "Row 4 (30) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 4 (30)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_G",
+     "cell": "G32",
+     "label": "Row 4 (30) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 4 (30)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_E",
+     "cell": "E33",
+     "label": "300 - Standard Sourced Value",
+     "type": "number",
+     "row": "300",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_G",
+     "cell": "G33",
+     "label": "300 - E.U.T Measured Value",
+     "type": "number",
+     "row": "300",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_E",
+     "cell": "E34",
+     "label": "Row 6 (300) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 6 (300)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_G",
+     "cell": "G34",
+     "label": "Row 6 (300) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 6 (300)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_E",
+     "cell": "E35",
+     "label": "Row 7 (300) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 7 (300)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_G",
+     "cell": "G35",
+     "label": "Row 7 (300) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 7 (300)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_E",
+     "cell": "E36",
+     "label": "Row 8 (300) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 8 (300)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_G",
+     "cell": "G36",
+     "label": "Row 8 (300) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 8 (300)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_E",
+     "cell": "E37",
+     "label": "Row 9 (300) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 9 (300)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_G",
+     "cell": "G37",
+     "label": "Row 9 (300) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 9 (300)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_E",
+     "cell": "E38",
+     "label": "Row 10 (300) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 10 (300)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_G",
+     "cell": "G38",
+     "label": "Row 10 (300) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 10 (300)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_E",
+     "cell": "E39",
+     "label": "Row 11 (300) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 11 (300)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_G",
+     "cell": "G39",
+     "label": "Row 11 (300) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 11 (300)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_E",
+     "cell": "E40",
+     "label": "Row 12 (300) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 12 (300)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_G",
+     "cell": "G40",
+     "label": "Row 12 (300) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 12 (300)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_E",
+     "cell": "E41",
+     "label": "Row 13 (300) - Standard Sourced Value",
+     "type": "number",
+     "row": "Row 13 (300)",
+     "col": "Standard Sourced Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_G",
+     "cell": "G41",
+     "label": "Row 13 (300) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 13 (300)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_D",
+     "cell": "D29",
+     "label": "Row 1 - Unit",
+     "type": "text",
+     "row": "3",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r2_D",
+     "cell": "D30",
+     "label": "Row 2 - Unit",
+     "type": "text",
+     "row": "30",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r3_D",
+     "cell": "D31",
+     "label": "Row 3 - Unit",
+     "type": "text",
+     "row": "Row 3 (30)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r4_D",
+     "cell": "D32",
+     "label": "Row 4 - Unit",
+     "type": "text",
+     "row": "Row 4 (30)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r5_D",
+     "cell": "D33",
+     "label": "Row 5 - Unit",
+     "type": "text",
+     "row": "300",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r6_D",
+     "cell": "D34",
+     "label": "Row 6 - Unit",
+     "type": "text",
+     "row": "Row 6 (300)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r7_D",
+     "cell": "D35",
+     "label": "Row 7 - Unit",
+     "type": "text",
+     "row": "Row 7 (300)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r8_D",
+     "cell": "D36",
+     "label": "Row 8 - Unit",
+     "type": "text",
+     "row": "Row 8 (300)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r9_D",
+     "cell": "D37",
+     "label": "Row 9 - Unit",
+     "type": "text",
+     "row": "Row 9 (300)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r10_D",
+     "cell": "D38",
+     "label": "Row 10 - Unit",
+     "type": "text",
+     "row": "Row 10 (300)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r11_D",
+     "cell": "D39",
+     "label": "Row 11 - Unit",
+     "type": "text",
+     "row": "Row 11 (300)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r12_D",
+     "cell": "D40",
+     "label": "Row 12 - Unit",
+     "type": "text",
+     "row": "Row 12 (300)",
+     "col": "Unit",
+     "default": "Ω"
+    },
+    {
+     "id": "t1_r13_D",
+     "cell": "D41",
+     "label": "Row 13 - Unit",
+     "type": "text",
+     "row": "Row 13 (300)",
+     "col": "Unit",
+     "default": "Ω"
+    }
+   ]
+  }
+ ],
+ "print_scale": 90,
+ "_notes": [
+  "PRINT: print scale 90% gives the 1 page(s) the template announces"
+ ]
+}

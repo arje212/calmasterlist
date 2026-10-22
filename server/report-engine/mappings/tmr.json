@@ -1,0 +1,476 @@
+{
+ "key": "tmr",
+ "label": "TMR",
+ "template": "00. TMR_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "tmr"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L55",
+ "cells": {
+  "B20": "data.verification_method",
+  "L55": "data.physical_condition",
+  "P58": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "T61": {
+   "value": "=AP14"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Temperature measurement (°C)",
+   "fields": [
+    {
+     "id": "std_1",
+     "cell": "F31",
+     "label": "Point 1 - standard source value (°C)",
+     "type": "number",
+     "default": 0,
+     "row": "Point 1",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_1",
+     "cell": "I31",
+     "label": "Point 1 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 1",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_1",
+     "cell": "AF31",
+     "label": "Point 1 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 1",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_2",
+     "cell": "F32",
+     "label": "Point 2 - standard source value (°C)",
+     "type": "number",
+     "default": 10,
+     "row": "Point 2",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_2",
+     "cell": "I32",
+     "label": "Point 2 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 2",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_2",
+     "cell": "AF32",
+     "label": "Point 2 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 2",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_3",
+     "cell": "F33",
+     "label": "Point 3 - standard source value (°C)",
+     "type": "number",
+     "default": 50,
+     "row": "Point 3",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_3",
+     "cell": "I33",
+     "label": "Point 3 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 3",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_3",
+     "cell": "AF33",
+     "label": "Point 3 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 3",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_4",
+     "cell": "F34",
+     "label": "Point 4 - standard source value (°C)",
+     "type": "number",
+     "default": 80,
+     "row": "Point 4",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_4",
+     "cell": "I34",
+     "label": "Point 4 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 4",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_4",
+     "cell": "AF34",
+     "label": "Point 4 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 4",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_5",
+     "cell": "F35",
+     "label": "Point 5 - standard source value (°C)",
+     "type": "number",
+     "default": 100,
+     "row": "Point 5",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_5",
+     "cell": "I35",
+     "label": "Point 5 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 5",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_5",
+     "cell": "AF35",
+     "label": "Point 5 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 5",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_6",
+     "cell": "F36",
+     "label": "Point 6 - standard source value (°C)",
+     "type": "number",
+     "default": 150,
+     "row": "Point 6",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_6",
+     "cell": "I36",
+     "label": "Point 6 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 6",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_6",
+     "cell": "AF36",
+     "label": "Point 6 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 6",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_7",
+     "cell": "F37",
+     "label": "Point 7 - standard source value (°C)",
+     "type": "number",
+     "default": 200,
+     "row": "Point 7",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_7",
+     "cell": "I37",
+     "label": "Point 7 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 7",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_7",
+     "cell": "AF37",
+     "label": "Point 7 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 7",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_8",
+     "cell": "F38",
+     "label": "Point 8 - standard source value (°C)",
+     "type": "number",
+     "default": 250,
+     "row": "Point 8",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_8",
+     "cell": "I38",
+     "label": "Point 8 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 8",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_8",
+     "cell": "AF38",
+     "label": "Point 8 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 8",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_9",
+     "cell": "F39",
+     "label": "Point 9 - standard source value (°C)",
+     "type": "number",
+     "default": 300,
+     "row": "Point 9",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_9",
+     "cell": "I39",
+     "label": "Point 9 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 9",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_9",
+     "cell": "AF39",
+     "label": "Point 9 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 9",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_10",
+     "cell": "F40",
+     "label": "Point 10 - standard source value (°C)",
+     "type": "number",
+     "default": 350,
+     "row": "Point 10",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_10",
+     "cell": "I40",
+     "label": "Point 10 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 10",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_10",
+     "cell": "AF40",
+     "label": "Point 10 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 10",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_11",
+     "cell": "F41",
+     "label": "Point 11 - standard source value (°C)",
+     "type": "number",
+     "default": 400,
+     "row": "Point 11",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_11",
+     "cell": "I41",
+     "label": "Point 11 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 11",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_11",
+     "cell": "AF41",
+     "label": "Point 11 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 11",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_12",
+     "cell": "F42",
+     "label": "Point 12 - standard source value (°C)",
+     "type": "number",
+     "default": 450,
+     "row": "Point 12",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_12",
+     "cell": "I42",
+     "label": "Point 12 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 12",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_12",
+     "cell": "AF42",
+     "label": "Point 12 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 12",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_13",
+     "cell": "F43",
+     "label": "Point 13 - standard source value (°C)",
+     "type": "number",
+     "default": 500,
+     "row": "Point 13",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_13",
+     "cell": "I43",
+     "label": "Point 13 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 13",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_13",
+     "cell": "AF43",
+     "label": "Point 13 - accuracy (±°C)",
+     "type": "number",
+     "default": 5,
+     "row": "Point 13",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_14",
+     "cell": "F44",
+     "label": "Point 14 - standard source value (°C)",
+     "type": "number",
+     "default": 550,
+     "row": "Point 14",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_14",
+     "cell": "I44",
+     "label": "Point 14 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 14",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_14",
+     "cell": "AF44",
+     "label": "Point 14 - accuracy (±°C)",
+     "type": "number",
+     "default": 8,
+     "row": "Point 14",
+     "col": "accuracy (±°C)"
+    },
+    {
+     "id": "std_15",
+     "cell": "F45",
+     "label": "Point 15 - standard source value (°C)",
+     "type": "number",
+     "default": 600,
+     "row": "Point 15",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_15",
+     "cell": "I45",
+     "label": "Point 15 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Point 15",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "tol_15",
+     "cell": "AF45",
+     "label": "Point 15 - accuracy (±°C)",
+     "type": "number",
+     "default": 8,
+     "row": "Point 15",
+     "col": "accuracy (±°C)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

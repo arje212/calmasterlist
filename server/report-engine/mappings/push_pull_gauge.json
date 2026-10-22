@@ -1,0 +1,243 @@
+{
+ "key": "push_pull_gauge",
+ "label": "Push Pull Gauge Digital",
+ "template": "00. Push Pull Gauge Digital_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "push pull gauge",
+  "push-pull",
+  "push pull"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L47",
+ "cells": {
+  "B20": "data.verification_method",
+  "L47": "data.physical_condition",
+  "P50": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "L50": {
+   "value": "=UPPER(I17)"
+  },
+  "L51": {
+   "value": "=AK11"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Standard weights (hidden table AJ32:AJ38)",
+   "fields": [
+    {
+     "id": "w1",
+     "cell": "AJ32",
+     "label": "Standard weight 1 (nominal 5 g) - actual value (g)",
+     "type": "number",
+     "default": 5,
+     "row": "Standard weight 1 (nominal 5 g)",
+     "col": "actual value (g)"
+    },
+    {
+     "id": "w2",
+     "cell": "AJ33",
+     "label": "Standard weight 2 (nominal 10 g) - actual value (g)",
+     "type": "number",
+     "default": 10,
+     "row": "Standard weight 2 (nominal 10 g)",
+     "col": "actual value (g)"
+    },
+    {
+     "id": "w3",
+     "cell": "AJ34",
+     "label": "Standard weight 3 (nominal 20 g) - actual value (g)",
+     "type": "number",
+     "default": 20,
+     "row": "Standard weight 3 (nominal 20 g)",
+     "col": "actual value (g)"
+    },
+    {
+     "id": "w4",
+     "cell": "AJ35",
+     "label": "Standard weight 4 (nominal 50 g) - actual value (g)",
+     "type": "number",
+     "default": 50,
+     "row": "Standard weight 4 (nominal 50 g)",
+     "col": "actual value (g)"
+    },
+    {
+     "id": "w5",
+     "cell": "AJ36",
+     "label": "Standard weight 5 (nominal 50 g) - actual value (g)",
+     "type": "number",
+     "default": 50,
+     "row": "Standard weight 5 (nominal 50 g)",
+     "col": "actual value (g)"
+    },
+    {
+     "id": "w6",
+     "cell": "AJ37",
+     "label": "Standard weight 6 (nominal 100 g) - actual value (g)",
+     "type": "number",
+     "default": 100,
+     "row": "Standard weight 6 (nominal 100 g)",
+     "col": "actual value (g)"
+    },
+    {
+     "id": "w7",
+     "cell": "AJ38",
+     "label": "Standard weight 7 (nominal 100 g) - actual value (g)",
+     "type": "number",
+     "default": 100,
+     "row": "Standard weight 7 (nominal 100 g)",
+     "col": "actual value (g)"
+    }
+   ]
+  },
+  {
+   "title": "Mass measurement (g-f)",
+   "fields": [
+    {
+     "id": "eut_1",
+     "cell": "K31",
+     "label": "Test point 1 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 1",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_2",
+     "cell": "K32",
+     "label": "Test point 2 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 2",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_3",
+     "cell": "K33",
+     "label": "Test point 3 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 3",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_4",
+     "cell": "K34",
+     "label": "Test point 4 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 4",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_5",
+     "cell": "K35",
+     "label": "Test point 5 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 5",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_6",
+     "cell": "K36",
+     "label": "Test point 6 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 6",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_7",
+     "cell": "K37",
+     "label": "Test point 7 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 7",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_8",
+     "cell": "K38",
+     "label": "Test point 8 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 8",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_9",
+     "cell": "K39",
+     "label": "Test point 9 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 9",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_10",
+     "cell": "K40",
+     "label": "Test point 10 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 10",
+     "col": "EUT measured (g-f)"
+    },
+    {
+     "id": "eut_11",
+     "cell": "K41",
+     "label": "Test point 11 - EUT measured (g-f)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 11",
+     "col": "EUT measured (g-f)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

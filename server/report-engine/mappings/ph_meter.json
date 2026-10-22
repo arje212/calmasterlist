@@ -1,0 +1,207 @@
+{
+ "key": "ph_meter",
+ "label": "pH Meter",
+ "template": "00. pH Meter_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "ph meter",
+  "ph-meter"
+ ],
+ "header": {
+  "series": "AI11",
+  "humidity": "AL11",
+  "application_limit": "AO11",
+  "eut_row": 14,
+  "eut_first_col": "AI",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AJ",
+  "application_limit_is_formula": true
+ },
+ "fixed_standard": true,
+ "due_date_is_formula": true,
+ "required_accuracy_cells": {
+  "sign": "J16",
+  "value": "K16",
+  "unit": "L16"
+ },
+ "people": {
+  "verified": [
+   "T6",
+   "T7"
+  ],
+  "reviewed": [
+   "X6",
+   "X7"
+  ],
+  "approved": [
+   "AB6",
+   "AB7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "M39",
+ "cells": {
+  "B19": "data.verification_method",
+  "M39": "data.physical_condition",
+  "R42": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "S23": "data.stabilization.time_start",
+  "W23": "data.stabilization.time_end",
+  "S24": "data.stabilization.temp_start",
+  "W24": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "pH measurement",
+   "fields": [
+    {
+     "id": "buf1",
+     "cell": "E28",
+     "label": "Buffer 1 - indicated value (pH)",
+     "type": "number",
+     "default": 4,
+     "row": "Buffer 1",
+     "col": "indicated value (pH)"
+    },
+    {
+     "id": "buf2",
+     "cell": "E31",
+     "label": "Buffer 2 - indicated value (pH)",
+     "type": "number",
+     "default": 7.03,
+     "row": "Buffer 2",
+     "col": "indicated value (pH)"
+    },
+    {
+     "id": "buf3",
+     "cell": "E34",
+     "label": "Buffer 3 - indicated value (pH)",
+     "type": "number",
+     "default": 10.06,
+     "row": "Buffer 3",
+     "col": "indicated value (pH)"
+    },
+    {
+     "id": "t1",
+     "cell": "I28",
+     "label": "Buffer 1 - temperature (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 1",
+     "col": "temperature (°C)"
+    },
+    {
+     "id": "t2",
+     "cell": "I31",
+     "label": "Buffer 2 - temperature (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 2",
+     "col": "temperature (°C)"
+    },
+    {
+     "id": "t3",
+     "cell": "I34",
+     "label": "Buffer 3 - temperature (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 3",
+     "col": "temperature (°C)"
+    },
+    {
+     "id": "eut_1_1",
+     "cell": "L28",
+     "label": "Buffer 1 - EUT reading 1 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 1",
+     "col": "EUT reading 1 (pH)"
+    },
+    {
+     "id": "eut_1_2",
+     "cell": "L29",
+     "label": "Buffer 1 - EUT reading 2 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 1",
+     "col": "EUT reading 2 (pH)"
+    },
+    {
+     "id": "eut_1_3",
+     "cell": "L30",
+     "label": "Buffer 1 - EUT reading 3 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 1",
+     "col": "EUT reading 3 (pH)"
+    },
+    {
+     "id": "eut_2_1",
+     "cell": "L31",
+     "label": "Buffer 2 - EUT reading 1 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 2",
+     "col": "EUT reading 1 (pH)"
+    },
+    {
+     "id": "eut_2_2",
+     "cell": "L32",
+     "label": "Buffer 2 - EUT reading 2 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 2",
+     "col": "EUT reading 2 (pH)"
+    },
+    {
+     "id": "eut_2_3",
+     "cell": "L33",
+     "label": "Buffer 2 - EUT reading 3 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 2",
+     "col": "EUT reading 3 (pH)"
+    },
+    {
+     "id": "eut_3_1",
+     "cell": "L34",
+     "label": "Buffer 3 - EUT reading 1 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 3",
+     "col": "EUT reading 1 (pH)"
+    },
+    {
+     "id": "eut_3_2",
+     "cell": "L35",
+     "label": "Buffer 3 - EUT reading 2 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 3",
+     "col": "EUT reading 2 (pH)"
+    },
+    {
+     "id": "eut_3_3",
+     "cell": "L36",
+     "label": "Buffer 3 - EUT reading 3 (pH)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Buffer 3",
+     "col": "EUT reading 3 (pH)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 94
+}

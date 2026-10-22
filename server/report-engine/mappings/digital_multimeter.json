@@ -1,0 +1,693 @@
+{
+ "key": "digital_multimeter",
+ "label": "Digital Multimeter",
+ "template": "Digital_Multimeter_Blank_form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "digital multimeter"
+ ],
+ "cells": {
+  "M5": {
+   "value": "=CONCATENATE(\": CAL-\",I12,\"-\",AF11)"
+  },
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "L80": "data.physical_condition",
+  "L83": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "R83": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "T87": {
+   "value": "=AQ14"
+  },
+  "R24": "data.stabilization.time_start",
+  "V24": "data.stabilization.time_end",
+  "R25": "data.stabilization.temp_start",
+  "V25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AF",
+  "std_rows": [
+   16,
+   17
+  ],
+  "std_first_col": "AF",
+  "series": "AF11",
+  "application_limit": "AK11",
+  "humidity": "AI11"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "AA6",
+   "AA7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16",
+  "percent": true
+ },
+ "physical_condition_cell": "L80",
+ "input_groups": [
+  {
+   "title": "Current Measurement (DCI)",
+   "fields": [
+    {
+     "id": "t1_r1_E",
+     "cell": "E31",
+     "label": "mA - Standard Measured Value",
+     "type": "number",
+     "row": "mA",
+     "col": "Standard Measured Value",
+     "default": 1
+    },
+    {
+     "id": "t1_r1_I",
+     "cell": "I31",
+     "label": "mA - E.U.T Measured Value",
+     "type": "number",
+     "row": "mA",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_E",
+     "cell": "E32",
+     "label": "Row 2 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 2 (mA)",
+     "col": "Standard Measured Value",
+     "default": 3
+    },
+    {
+     "id": "t1_r2_I",
+     "cell": "I32",
+     "label": "Row 2 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 2 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_E",
+     "cell": "E33",
+     "label": "Row 3 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 3 (mA)",
+     "col": "Standard Measured Value",
+     "default": 5
+    },
+    {
+     "id": "t1_r3_I",
+     "cell": "I33",
+     "label": "Row 3 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 3 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_E",
+     "cell": "E34",
+     "label": "Row 4 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 4 (mA)",
+     "col": "Standard Measured Value",
+     "default": 10
+    },
+    {
+     "id": "t1_r4_I",
+     "cell": "I34",
+     "label": "Row 4 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 4 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_E",
+     "cell": "E35",
+     "label": "Row 5 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 5 (mA)",
+     "col": "Standard Measured Value",
+     "default": 15
+    },
+    {
+     "id": "t1_r5_I",
+     "cell": "I35",
+     "label": "Row 5 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 5 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_E",
+     "cell": "E36",
+     "label": "Row 6 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 6 (mA)",
+     "col": "Standard Measured Value",
+     "default": 20
+    },
+    {
+     "id": "t1_r6_I",
+     "cell": "I36",
+     "label": "Row 6 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 6 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_E",
+     "cell": "E37",
+     "label": "Row 7 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 7 (mA)",
+     "col": "Standard Measured Value",
+     "default": 50
+    },
+    {
+     "id": "t1_r7_I",
+     "cell": "I37",
+     "label": "Row 7 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 7 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_E",
+     "cell": "E38",
+     "label": "Row 8 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 8 (mA)",
+     "col": "Standard Measured Value",
+     "default": 100
+    },
+    {
+     "id": "t1_r8_I",
+     "cell": "I38",
+     "label": "Row 8 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 8 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_E",
+     "cell": "E39",
+     "label": "Row 9 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 9 (mA)",
+     "col": "Standard Measured Value",
+     "default": 150
+    },
+    {
+     "id": "t1_r9_I",
+     "cell": "I39",
+     "label": "Row 9 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 9 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_E",
+     "cell": "E40",
+     "label": "Row 10 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 10 (mA)",
+     "col": "Standard Measured Value",
+     "default": 200
+    },
+    {
+     "id": "t1_r10_I",
+     "cell": "I40",
+     "label": "Row 10 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 10 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_E",
+     "cell": "E41",
+     "label": "Row 11 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 11 (mA)",
+     "col": "Standard Measured Value",
+     "default": 300
+    },
+    {
+     "id": "t1_r11_I",
+     "cell": "I41",
+     "label": "Row 11 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 11 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_E",
+     "cell": "E42",
+     "label": "Row 12 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 12 (mA)",
+     "col": "Standard Measured Value",
+     "default": 500
+    },
+    {
+     "id": "t1_r12_I",
+     "cell": "I42",
+     "label": "Row 12 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 12 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_E",
+     "cell": "E43",
+     "label": "Row 13 (mA) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 13 (mA)",
+     "col": "Standard Measured Value",
+     "default": 1000
+    },
+    {
+     "id": "t1_r13_I",
+     "cell": "I43",
+     "label": "Row 13 (mA) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 13 (mA)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "Voltage Measurement (DCV -V )",
+   "fields": [
+    {
+     "id": "t2_r1_E",
+     "cell": "E53",
+     "label": "mV - Standard Measured Value",
+     "type": "number",
+     "row": "mV",
+     "col": "Standard Measured Value",
+     "default": 1
+    },
+    {
+     "id": "t2_r1_I",
+     "cell": "I53",
+     "label": "mV - E.U.T Measured Value",
+     "type": "number",
+     "row": "mV",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r2_E",
+     "cell": "E54",
+     "label": "Row 2 (mV) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 2 (mV)",
+     "col": "Standard Measured Value",
+     "default": 50
+    },
+    {
+     "id": "t2_r2_I",
+     "cell": "I54",
+     "label": "Row 2 (mV) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 2 (mV)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r3_E",
+     "cell": "E55",
+     "label": "Row 3 (mV) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 3 (mV)",
+     "col": "Standard Measured Value",
+     "default": 100
+    },
+    {
+     "id": "t2_r3_I",
+     "cell": "I55",
+     "label": "Row 3 (mV) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 3 (mV)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r4_E",
+     "cell": "E56",
+     "label": "Row 4 (mV) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 4 (mV)",
+     "col": "Standard Measured Value",
+     "default": 300
+    },
+    {
+     "id": "t2_r4_I",
+     "cell": "I56",
+     "label": "Row 4 (mV) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 4 (mV)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r5_E",
+     "cell": "E57",
+     "label": "Row 5 (mV) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 5 (mV)",
+     "col": "Standard Measured Value",
+     "default": 500
+    },
+    {
+     "id": "t2_r5_I",
+     "cell": "I57",
+     "label": "Row 5 (mV) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 5 (mV)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r6_E",
+     "cell": "E58",
+     "label": "Row 6 (mV) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 6 (mV)",
+     "col": "Standard Measured Value",
+     "default": 1000
+    },
+    {
+     "id": "t2_r6_I",
+     "cell": "I58",
+     "label": "Row 6 (mV) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 6 (mV)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r7_E",
+     "cell": "E59",
+     "label": "V - Standard Measured Value",
+     "type": "number",
+     "row": "V",
+     "col": "Standard Measured Value",
+     "default": 3
+    },
+    {
+     "id": "t2_r7_I",
+     "cell": "I59",
+     "label": "V - E.U.T Measured Value",
+     "type": "number",
+     "row": "V",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r8_E",
+     "cell": "E60",
+     "label": "Row 8 (V) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 8 (V)",
+     "col": "Standard Measured Value",
+     "default": 5
+    },
+    {
+     "id": "t2_r8_I",
+     "cell": "I60",
+     "label": "Row 8 (V) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 8 (V)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r9_E",
+     "cell": "E61",
+     "label": "Row 9 (V) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 9 (V)",
+     "col": "Standard Measured Value",
+     "default": 8
+    },
+    {
+     "id": "t2_r9_I",
+     "cell": "I61",
+     "label": "Row 9 (V) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 9 (V)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r10_E",
+     "cell": "E62",
+     "label": "Row 10 (V) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 10 (V)",
+     "col": "Standard Measured Value",
+     "default": 10
+    },
+    {
+     "id": "t2_r10_I",
+     "cell": "I62",
+     "label": "Row 10 (V) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 10 (V)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "Resistance Measurement (DCR - Ω)",
+   "fields": [
+    {
+     "id": "t3_r1_E",
+     "cell": "E66",
+     "label": "Ω - Standard Measured Value",
+     "type": "number",
+     "row": "Ω",
+     "col": "Standard Measured Value",
+     "default": 10
+    },
+    {
+     "id": "t3_r1_I",
+     "cell": "I66",
+     "label": "Ω - E.U.T Measured Value",
+     "type": "number",
+     "row": "Ω",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r2_E",
+     "cell": "E67",
+     "label": "Row 2 (Ω) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 2 (Ω)",
+     "col": "Standard Measured Value",
+     "default": 50
+    },
+    {
+     "id": "t3_r2_I",
+     "cell": "I67",
+     "label": "Row 2 (Ω) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 2 (Ω)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r3_E",
+     "cell": "E68",
+     "label": "Row 3 (Ω) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 3 (Ω)",
+     "col": "Standard Measured Value",
+     "default": 100
+    },
+    {
+     "id": "t3_r3_I",
+     "cell": "I68",
+     "label": "Row 3 (Ω) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 3 (Ω)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r4_E",
+     "cell": "E69",
+     "label": "Row 4 (Ω) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 4 (Ω)",
+     "col": "Standard Measured Value",
+     "default": 200
+    },
+    {
+     "id": "t3_r4_I",
+     "cell": "I69",
+     "label": "Row 4 (Ω) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 4 (Ω)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r5_E",
+     "cell": "E70",
+     "label": "Row 5 (Ω) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 5 (Ω)",
+     "col": "Standard Measured Value",
+     "default": 500
+    },
+    {
+     "id": "t3_r5_I",
+     "cell": "I70",
+     "label": "Row 5 (Ω) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 5 (Ω)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r6_E",
+     "cell": "E71",
+     "label": "Row 6 (Ω) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 6 (Ω)",
+     "col": "Standard Measured Value",
+     "default": 1000
+    },
+    {
+     "id": "t3_r6_I",
+     "cell": "I71",
+     "label": "Row 6 (Ω) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 6 (Ω)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r7_E",
+     "cell": "E72",
+     "label": "Row 7 (Ω) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 7 (Ω)",
+     "col": "Standard Measured Value",
+     "default": 1500
+    },
+    {
+     "id": "t3_r7_I",
+     "cell": "I72",
+     "label": "Row 7 (Ω) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 7 (Ω)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r8_E",
+     "cell": "E73",
+     "label": "kΩ - Standard Measured Value",
+     "type": "number",
+     "row": "kΩ",
+     "col": "Standard Measured Value",
+     "default": 3
+    },
+    {
+     "id": "t3_r8_I",
+     "cell": "I73",
+     "label": "kΩ - E.U.T Measured Value",
+     "type": "number",
+     "row": "kΩ",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r9_E",
+     "cell": "E74",
+     "label": "Row 9 (kΩ) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 9 (kΩ)",
+     "col": "Standard Measured Value",
+     "default": 10
+    },
+    {
+     "id": "t3_r9_I",
+     "cell": "I74",
+     "label": "Row 9 (kΩ) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 9 (kΩ)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t3_r10_E",
+     "cell": "E75",
+     "label": "Row 10 (kΩ) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 10 (kΩ)",
+     "col": "Standard Measured Value",
+     "default": 20
+    },
+    {
+     "id": "t3_r10_I",
+     "cell": "I75",
+     "label": "Row 10 (kΩ) - E.U.T Measured Value",
+     "type": "number",
+     "row": "Row 10 (kΩ)",
+     "col": "E.U.T Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 85,
+ "_notes": [
+  "HEADER: the Report No. formula in M5 has no '-' before the series - fixed",
+  "BODY: 'Equipment issued to' read AW14, but the issued-to cell is AQ14 - fixed",
+  "PRINT: print scale 85% gives the 2 page(s) the template announces (template says 89%; LibreOffice needs less)"
+ ]
+}

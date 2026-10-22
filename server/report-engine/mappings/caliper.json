@@ -1,0 +1,140 @@
+{
+ "key": "caliper",
+ "label": "Caliper",
+ "template": "00. Caliper_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "caliper",
+  "vernier"
+ ],
+ "header": {
+  "series": "P10",
+  "humidity": "S10",
+  "application_limit": "V10",
+  "eut_row": 13,
+  "eut_first_col": "P",
+  "std_rows": [
+   16
+  ],
+  "std_first_col": "Q"
+ },
+ "required_accuracy_cells": {
+  "sign": "D15",
+  "value": "E15",
+  "unit": "F15"
+ },
+ "people": {
+  "verified": [
+   "I5",
+   "I6"
+  ],
+  "reviewed": [
+   "K5",
+   "K6"
+  ],
+  "approved": [
+   "M5",
+   "M6"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "F99",
+ "cells": {
+  "A19": "data.verification_method",
+  "G23": "data.stabilization.time_start",
+  "I23": "data.stabilization.time_end",
+  "G24": "data.stabilization.temp_start",
+  "I24": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "F99": "data.physical_condition",
+  "F102": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "I102": "data.result_note"
+ },
+ "tables": [
+  {
+   "id": "external",
+   "source": "data.measurement_sections[title=External Measurement (mm)].rows",
+   "first_row": 29,
+   "rows": 12,
+   "columns": {
+    "B": "gauge",
+    "C": "specified",
+    "D": "measured_1",
+    "E": "measured_2",
+    "F": "measured_3",
+    "G": "measured_4",
+    "H": "measured_5"
+   }
+  },
+  {
+   "id": "internal",
+   "source": "data.measurement_sections[title=Internal Measurement (mm)].rows",
+   "first_row": 45,
+   "rows": 11,
+   "columns": {
+    "B": "gauge",
+    "C": "specified",
+    "D": "measured_1",
+    "E": "measured_2",
+    "F": "measured_3",
+    "G": "measured_4",
+    "H": "measured_5"
+   }
+  },
+  {
+   "id": "step",
+   "source": "data.measurement_sections[title=Step Measurement (mm)].rows",
+   "first_row": 65,
+   "rows": 11,
+   "columns": {
+    "B": "gauge",
+    "C": "specified",
+    "D": "measured_1",
+    "E": "measured_2",
+    "F": "measured_3",
+    "G": "measured_4",
+    "H": "measured_5"
+   }
+  },
+  {
+   "id": "depth",
+   "source": "data.measurement_sections[title=Depth Measurement (mm)].rows",
+   "first_row": 80,
+   "rows": 11,
+   "columns": {
+    "B": "gauge",
+    "C": "specified",
+    "D": "measured_1",
+    "E": "measured_2",
+    "F": "measured_3",
+    "G": "measured_4",
+    "H": "measured_5"
+   }
+  },
+  {
+   "id": "parallelism",
+   "source": "data.parallelism",
+   "first_row": 95,
+   "rows": 2,
+   "columns": {
+    "B": "gauge",
+    "C": "specified",
+    "D": "measurement",
+    "F": "top",
+    "G": "middle",
+    "H": "bottom"
+   }
+  }
+ ],
+ "print_scale": 82
+}

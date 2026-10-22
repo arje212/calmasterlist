@@ -1,0 +1,284 @@
+{
+ "key": "flat_bar",
+ "label": "Flat Bar",
+ "template": "00. Flat Bar_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "flat bar"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L54",
+ "cells": {
+  "B20": "data.verification_method",
+  "L54": "data.physical_condition",
+  "P57": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "Q24": "data.stabilization.time_start",
+  "U24": "data.stabilization.time_end",
+  "Q25": "data.stabilization.temp_start",
+  "U25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Flatness measurement (mm)",
+   "fields": [
+    {
+     "id": "a_1",
+     "cell": "J39",
+     "label": "Test point 1 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 1",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_1",
+     "cell": "M39",
+     "label": "Test point 1 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 1",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_2",
+     "cell": "J40",
+     "label": "Test point 2 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 2",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_2",
+     "cell": "M40",
+     "label": "Test point 2 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 2",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_3",
+     "cell": "J41",
+     "label": "Test point 3 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 3",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_3",
+     "cell": "M41",
+     "label": "Test point 3 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 3",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_4",
+     "cell": "J42",
+     "label": "Test point 4 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 4",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_4",
+     "cell": "M42",
+     "label": "Test point 4 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 4",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_5",
+     "cell": "J43",
+     "label": "Test point 5 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 5",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_5",
+     "cell": "M43",
+     "label": "Test point 5 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 5",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_6",
+     "cell": "J44",
+     "label": "Test point 6 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 6",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_6",
+     "cell": "M44",
+     "label": "Test point 6 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 6",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_7",
+     "cell": "J45",
+     "label": "Test point 7 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 7",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_7",
+     "cell": "M45",
+     "label": "Test point 7 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 7",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_8",
+     "cell": "J46",
+     "label": "Test point 8 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 8",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_8",
+     "cell": "M46",
+     "label": "Test point 8 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 8",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_9",
+     "cell": "J47",
+     "label": "Test point 9 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 9",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_9",
+     "cell": "M47",
+     "label": "Test point 9 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 9",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_10",
+     "cell": "J48",
+     "label": "Test point 10 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 10",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_10",
+     "cell": "M48",
+     "label": "Test point 10 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 10",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_11",
+     "cell": "J49",
+     "label": "Test point 11 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 11",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_11",
+     "cell": "M49",
+     "label": "Test point 11 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 11",
+     "col": "Point B (mm)"
+    },
+    {
+     "id": "a_12",
+     "cell": "J50",
+     "label": "Test point 12 - Point A (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 12",
+     "col": "Point A (mm)"
+    },
+    {
+     "id": "b_12",
+     "cell": "M50",
+     "label": "Test point 12 - Point B (mm)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 12",
+     "col": "Point B (mm)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 80
+}

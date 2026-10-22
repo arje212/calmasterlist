@@ -1,0 +1,658 @@
+{
+ "key": "digimatic_indicator",
+ "label": "Digimatic Indicator",
+ "template": "00. Digimatic Indicator_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "digimatic indicator",
+  "digimatic"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "due_date_is_formula": true,
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "M44",
+ "cells": {
+  "B20": "data.verification_method",
+  "M44": "data.physical_condition",
+  "Q47": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "V24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "V25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "P55": {
+   "value": "=AK11"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Height measurement (mm) - EUT readings per gauge block",
+   "fields": [
+    {
+     "id": "gb1_1",
+     "cell": "H30",
+     "label": "GB 1 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 1 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb1_2",
+     "cell": "J30",
+     "label": "GB 1 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 1 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb1_3",
+     "cell": "L30",
+     "label": "GB 1 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 1 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb1_4",
+     "cell": "N30",
+     "label": "GB 1 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 1 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb1_5",
+     "cell": "P30",
+     "label": "GB 1 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 1 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb2_1",
+     "cell": "H31",
+     "label": "GB 2 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 2 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb2_2",
+     "cell": "J31",
+     "label": "GB 2 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 2 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb2_3",
+     "cell": "L31",
+     "label": "GB 2 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 2 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb2_4",
+     "cell": "N31",
+     "label": "GB 2 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 2 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb2_5",
+     "cell": "P31",
+     "label": "GB 2 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 2 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb3_1",
+     "cell": "H32",
+     "label": "GB 3 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 3 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb3_2",
+     "cell": "J32",
+     "label": "GB 3 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 3 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb3_3",
+     "cell": "L32",
+     "label": "GB 3 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 3 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb3_4",
+     "cell": "N32",
+     "label": "GB 3 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 3 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb3_5",
+     "cell": "P32",
+     "label": "GB 3 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 3 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb4_1",
+     "cell": "H33",
+     "label": "GB 4 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 4 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb4_2",
+     "cell": "J33",
+     "label": "GB 4 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 4 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb4_3",
+     "cell": "L33",
+     "label": "GB 4 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 4 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb4_4",
+     "cell": "N33",
+     "label": "GB 4 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 4 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb4_5",
+     "cell": "P33",
+     "label": "GB 4 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 4 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb5_1",
+     "cell": "H34",
+     "label": "GB 5 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 5 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb5_2",
+     "cell": "J34",
+     "label": "GB 5 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 5 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb5_3",
+     "cell": "L34",
+     "label": "GB 5 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 5 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb5_4",
+     "cell": "N34",
+     "label": "GB 5 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 5 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb5_5",
+     "cell": "P34",
+     "label": "GB 5 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 5 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb6_1",
+     "cell": "H35",
+     "label": "GB 6 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 6 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb6_2",
+     "cell": "J35",
+     "label": "GB 6 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 6 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb6_3",
+     "cell": "L35",
+     "label": "GB 6 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 6 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb6_4",
+     "cell": "N35",
+     "label": "GB 6 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 6 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb6_5",
+     "cell": "P35",
+     "label": "GB 6 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 6 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb7_1",
+     "cell": "H36",
+     "label": "GB 7 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 7 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb7_2",
+     "cell": "J36",
+     "label": "GB 7 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 7 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb7_3",
+     "cell": "L36",
+     "label": "GB 7 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 7 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb7_4",
+     "cell": "N36",
+     "label": "GB 7 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 7 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb7_5",
+     "cell": "P36",
+     "label": "GB 7 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 7 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb8_1",
+     "cell": "H37",
+     "label": "GB 8 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 8 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb8_2",
+     "cell": "J37",
+     "label": "GB 8 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 8 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb8_3",
+     "cell": "L37",
+     "label": "GB 8 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 8 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb8_4",
+     "cell": "N37",
+     "label": "GB 8 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 8 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb8_5",
+     "cell": "P37",
+     "label": "GB 8 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 8 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb9_1",
+     "cell": "H38",
+     "label": "GB 9 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 9 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb9_2",
+     "cell": "J38",
+     "label": "GB 9 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 9 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb9_3",
+     "cell": "L38",
+     "label": "GB 9 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 9 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb9_4",
+     "cell": "N38",
+     "label": "GB 9 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 9 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb9_5",
+     "cell": "P38",
+     "label": "GB 9 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 9 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb10_1",
+     "cell": "H39",
+     "label": "GB 10 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 10 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb10_2",
+     "cell": "J39",
+     "label": "GB 10 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 10 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb10_3",
+     "cell": "L39",
+     "label": "GB 10 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 10 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb10_4",
+     "cell": "N39",
+     "label": "GB 10 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 10 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb10_5",
+     "cell": "P39",
+     "label": "GB 10 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 10 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb11_1",
+     "cell": "H40",
+     "label": "GB 11 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 11 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb11_2",
+     "cell": "J40",
+     "label": "GB 11 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 11 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb11_3",
+     "cell": "L40",
+     "label": "GB 11 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 11 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb11_4",
+     "cell": "N40",
+     "label": "GB 11 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 11 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb11_5",
+     "cell": "P40",
+     "label": "GB 11 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 11 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb12_1",
+     "cell": "H41",
+     "label": "GB 12 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb12_2",
+     "cell": "J41",
+     "label": "GB 12 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb12_3",
+     "cell": "L41",
+     "label": "GB 12 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb12_4",
+     "cell": "N41",
+     "label": "GB 12 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb12_5",
+     "cell": "P41",
+     "label": "GB 12 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12 mm",
+     "col": "reading 5"
+    },
+    {
+     "id": "gb13_1",
+     "cell": "H42",
+     "label": "GB 12.5 mm - reading 1",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12.5 mm",
+     "col": "reading 1"
+    },
+    {
+     "id": "gb13_2",
+     "cell": "J42",
+     "label": "GB 12.5 mm - reading 2",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12.5 mm",
+     "col": "reading 2"
+    },
+    {
+     "id": "gb13_3",
+     "cell": "L42",
+     "label": "GB 12.5 mm - reading 3",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12.5 mm",
+     "col": "reading 3"
+    },
+    {
+     "id": "gb13_4",
+     "cell": "N42",
+     "label": "GB 12.5 mm - reading 4",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12.5 mm",
+     "col": "reading 4"
+    },
+    {
+     "id": "gb13_5",
+     "cell": "P42",
+     "label": "GB 12.5 mm - reading 5",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "GB 12.5 mm",
+     "col": "reading 5"
+    }
+   ]
+  }
+ ],
+ "print_scale": 92
+}

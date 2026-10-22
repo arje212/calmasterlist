@@ -1,0 +1,90 @@
+{
+ "key": "polarity_tester",
+ "label": "Polarity Tester",
+ "template": "00__Polarity_Tester_Blank_Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "polarity tester",
+  "polarity"
+ ],
+ "standard_cells": {
+  "equipment_type": "X10",
+  "maker_model": "X11",
+  "control_number": "Y12",
+  "serial_number": "X13",
+  "accuracy": "X14",
+  "calibrated_by": "X15",
+  "traceability": "X16",
+  "certificate_number": "X17"
+ },
+ "due_date_is_formula": true,
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AH",
+  "series": "AH11",
+  "application_limit": "AN11",
+  "humidity": "AK11"
+ },
+ "people": {
+  "verified": [
+   "T6",
+   "T7"
+  ],
+  "reviewed": [
+   "X6",
+   "X7"
+  ],
+  "approved": [
+   "AB6",
+   "AB7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "J16",
+  "value": "K16",
+  "unit": "L16"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "O46": "data.physical_condition",
+  "O49": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "T49": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "Q24": "data.stabilization.time_start",
+  "U24": "data.stabilization.time_end",
+  "Q25": "data.stabilization.temp_start",
+  "U25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "O46",
+ "photo_boxes": [
+  {
+   "id": "test_data",
+   "from": "B27",
+   "to": "AC44"
+  }
+ ],
+ "default_attachment_slot": "body",
+ "print_scale": 86,
+ "_notes": [
+  "HEADER: the standard-equipment block is typed straight into visible cells (no hidden data block) - mapped as standard_cells",
+  "FREE-FORM: no measurement formulas - the body (B27:AC44) is a photo box",
+  "PRINT: print scale 86% gives the 1 page(s) the template announces (template says 90%; LibreOffice needs less)"
+ ]
+}

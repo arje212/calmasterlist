@@ -1,0 +1,428 @@
+{
+ "key": "temperature_tester",
+ "label": "Temperature Tester",
+ "template": "00. Temperature Tester_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "temperature tester"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L53",
+ "cells": {
+  "B20": "data.verification_method",
+  "L53": "data.physical_condition",
+  "P56": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  },
+  "N32": {
+   "value": "=IF(ISNUMBER(J32),J32-G32,\"\")"
+  },
+  "W32": {
+   "value": "=IF(ISNUMBER(J32),IF(AND(J32>=Q32,J32<=T32),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N33": {
+   "value": "=IF(ISNUMBER(J33),J33-G33,\"\")"
+  },
+  "W33": {
+   "value": "=IF(ISNUMBER(J33),IF(AND(J33>=Q33,J33<=T33),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N34": {
+   "value": "=IF(ISNUMBER(J34),J34-G34,\"\")"
+  },
+  "W34": {
+   "value": "=IF(ISNUMBER(J34),IF(AND(J34>=Q34,J34<=T34),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N35": {
+   "value": "=IF(ISNUMBER(J35),J35-G35,\"\")"
+  },
+  "W35": {
+   "value": "=IF(ISNUMBER(J35),IF(AND(J35>=Q35,J35<=T35),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N36": {
+   "value": "=IF(ISNUMBER(J36),J36-G36,\"\")"
+  },
+  "W36": {
+   "value": "=IF(ISNUMBER(J36),IF(AND(J36>=Q36,J36<=T36),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N37": {
+   "value": "=IF(ISNUMBER(J37),J37-G37,\"\")"
+  },
+  "W37": {
+   "value": "=IF(ISNUMBER(J37),IF(AND(J37>=Q37,J37<=T37),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N38": {
+   "value": "=IF(ISNUMBER(J38),J38-G38,\"\")"
+  },
+  "W38": {
+   "value": "=IF(ISNUMBER(J38),IF(AND(J38>=Q38,J38<=T38),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N39": {
+   "value": "=IF(ISNUMBER(J39),J39-G39,\"\")"
+  },
+  "W39": {
+   "value": "=IF(ISNUMBER(J39),IF(AND(J39>=Q39,J39<=T39),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N40": {
+   "value": "=IF(ISNUMBER(J40),J40-G40,\"\")"
+  },
+  "W40": {
+   "value": "=IF(ISNUMBER(J40),IF(AND(J40>=Q40,J40<=T40),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N41": {
+   "value": "=IF(ISNUMBER(J41),J41-G41,\"\")"
+  },
+  "W41": {
+   "value": "=IF(ISNUMBER(J41),IF(AND(J41>=Q41,J41<=T41),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N42": {
+   "value": "=IF(ISNUMBER(J42),J42-G42,\"\")"
+  },
+  "W42": {
+   "value": "=IF(ISNUMBER(J42),IF(AND(J42>=Q42,J42<=T42),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N43": {
+   "value": "=IF(ISNUMBER(J43),J43-G43,\"\")"
+  },
+  "W43": {
+   "value": "=IF(ISNUMBER(J43),IF(AND(J43>=Q43,J43<=T43),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N44": {
+   "value": "=IF(ISNUMBER(J44),J44-G44,\"\")"
+  },
+  "W44": {
+   "value": "=IF(ISNUMBER(J44),IF(AND(J44>=Q44,J44<=T44),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N45": {
+   "value": "=IF(ISNUMBER(J45),J45-G45,\"\")"
+  },
+  "W45": {
+   "value": "=IF(ISNUMBER(J45),IF(AND(J45>=Q45,J45<=T45),\"PASSED\",\"FAILED\"),\"\")"
+  },
+  "N46": {
+   "value": "=IF(ISNUMBER(J46),J46-G46,\"\")"
+  },
+  "W46": {
+   "value": "=IF(ISNUMBER(J46),IF(AND(J46>=Q46,J46<=T46),\"PASSED\",\"FAILED\"),\"\")"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Temperature measurement (°C)",
+   "fields": [
+    {
+     "id": "std_1",
+     "cell": "G32",
+     "label": "Test point 1 - standard source value (°C)",
+     "type": "number",
+     "default": -50,
+     "row": "Test point 1",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_1",
+     "cell": "J32",
+     "label": "Test point 1 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 1",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_2",
+     "cell": "G33",
+     "label": "Test point 2 - standard source value (°C)",
+     "type": "number",
+     "default": -30,
+     "row": "Test point 2",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_2",
+     "cell": "J33",
+     "label": "Test point 2 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 2",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_3",
+     "cell": "G34",
+     "label": "Test point 3 - standard source value (°C)",
+     "type": "number",
+     "default": -10,
+     "row": "Test point 3",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_3",
+     "cell": "J34",
+     "label": "Test point 3 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 3",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_4",
+     "cell": "G35",
+     "label": "Test point 4 - standard source value (°C)",
+     "type": "number",
+     "default": 0,
+     "row": "Test point 4",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_4",
+     "cell": "J35",
+     "label": "Test point 4 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 4",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_5",
+     "cell": "G36",
+     "label": "Test point 5 - standard source value (°C)",
+     "type": "number",
+     "default": 10,
+     "row": "Test point 5",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_5",
+     "cell": "J36",
+     "label": "Test point 5 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 5",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_6",
+     "cell": "G37",
+     "label": "Test point 6 - standard source value (°C)",
+     "type": "number",
+     "default": 30,
+     "row": "Test point 6",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_6",
+     "cell": "J37",
+     "label": "Test point 6 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 6",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_7",
+     "cell": "G38",
+     "label": "Test point 7 - standard source value (°C)",
+     "type": "number",
+     "default": 50,
+     "row": "Test point 7",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_7",
+     "cell": "J38",
+     "label": "Test point 7 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 7",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_8",
+     "cell": "G39",
+     "label": "Test point 8 - standard source value (°C)",
+     "type": "number",
+     "default": 100,
+     "row": "Test point 8",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_8",
+     "cell": "J39",
+     "label": "Test point 8 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 8",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_9",
+     "cell": "G40",
+     "label": "Test point 9 - standard source value (°C)",
+     "type": "number",
+     "default": 150,
+     "row": "Test point 9",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_9",
+     "cell": "J40",
+     "label": "Test point 9 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 9",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_10",
+     "cell": "G41",
+     "label": "Test point 10 - standard source value (°C)",
+     "type": "number",
+     "default": 200,
+     "row": "Test point 10",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_10",
+     "cell": "J41",
+     "label": "Test point 10 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 10",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_11",
+     "cell": "G42",
+     "label": "Test point 11 - standard source value (°C)",
+     "type": "number",
+     "default": 300,
+     "row": "Test point 11",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_11",
+     "cell": "J42",
+     "label": "Test point 11 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 11",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_12",
+     "cell": "G43",
+     "label": "Test point 12 - standard source value (°C)",
+     "type": "number",
+     "default": 400,
+     "row": "Test point 12",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_12",
+     "cell": "J43",
+     "label": "Test point 12 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 12",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_13",
+     "cell": "G44",
+     "label": "Test point 13 - standard source value (°C)",
+     "type": "number",
+     "default": 500,
+     "row": "Test point 13",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_13",
+     "cell": "J44",
+     "label": "Test point 13 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 13",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_14",
+     "cell": "G45",
+     "label": "Test point 14 - standard source value (°C)",
+     "type": "number",
+     "default": 750,
+     "row": "Test point 14",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_14",
+     "cell": "J45",
+     "label": "Test point 14 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 14",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_15",
+     "cell": "G46",
+     "label": "Test point 15 - standard source value (°C)",
+     "type": "number",
+     "default": 1000,
+     "row": "Test point 15",
+     "col": "standard source value (°C)"
+    },
+    {
+     "id": "eut_15",
+     "cell": "J46",
+     "label": "Test point 15 - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 15",
+     "col": "EUT measured (°C)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}

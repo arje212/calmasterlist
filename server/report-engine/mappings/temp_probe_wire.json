@@ -1,0 +1,312 @@
+{
+ "key": "temp_probe_wire",
+ "label": "Temp. Probe (Wire)",
+ "template": "00. Temp.Probe Wire_Blank Form.xlsx",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "temp probe wire",
+  "temp.probe wire",
+  "wire probe",
+  "probe wire"
+ ],
+ "header": {
+  "series": "AE11",
+  "humidity": "AH11",
+  "application_limit": "AK11",
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "application_limit_is_formula": true
+ },
+ "priority": 5,
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "physical_condition_cell": "L46",
+ "cells": {
+  "B20": "data.verification_method",
+  "L46": "data.physical_condition",
+  "P49": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "L49": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "Q24": "data.stabilization.time_start",
+  "U24": "data.stabilization.time_end",
+  "Q25": "data.stabilization.temp_start",
+  "U25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "input_groups": [
+  {
+   "title": "Temperature measurement (°C)",
+   "fields": [
+    {
+     "id": "std_1",
+     "cell": "H31",
+     "label": "Test point -20 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point -20 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_1",
+     "cell": "K31",
+     "label": "Test point -20 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point -20 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_2",
+     "cell": "H32",
+     "label": "Test point 20 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 20 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_2",
+     "cell": "K32",
+     "label": "Test point 20 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 20 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_3",
+     "cell": "H33",
+     "label": "Test point 50 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 50 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_3",
+     "cell": "K33",
+     "label": "Test point 50 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 50 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_4",
+     "cell": "H34",
+     "label": "Test point 60 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 60 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_4",
+     "cell": "K34",
+     "label": "Test point 60 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 60 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_5",
+     "cell": "H35",
+     "label": "Test point 70 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 70 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_5",
+     "cell": "K35",
+     "label": "Test point 70 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 70 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_6",
+     "cell": "H36",
+     "label": "Test point 80 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 80 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_6",
+     "cell": "K36",
+     "label": "Test point 80 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 80 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_7",
+     "cell": "H37",
+     "label": "Test point 90 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 90 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_7",
+     "cell": "K37",
+     "label": "Test point 90 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 90 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_8",
+     "cell": "H38",
+     "label": "Test point 100 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 100 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_8",
+     "cell": "K38",
+     "label": "Test point 100 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 100 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_9",
+     "cell": "H39",
+     "label": "Test point 110 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 110 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_9",
+     "cell": "K39",
+     "label": "Test point 110 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 110 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_10",
+     "cell": "H40",
+     "label": "Test point 120 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 120 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_10",
+     "cell": "K40",
+     "label": "Test point 120 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 120 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_11",
+     "cell": "H41",
+     "label": "Test point 150 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 150 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_11",
+     "cell": "K41",
+     "label": "Test point 150 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 150 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_12",
+     "cell": "H42",
+     "label": "Test point 200 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 200 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_12",
+     "cell": "K42",
+     "label": "Test point 200 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 200 °C",
+     "col": "EUT measured (°C)"
+    },
+    {
+     "id": "std_13",
+     "cell": "H43",
+     "label": "Test point 250 °C - standard measured value (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 250 °C",
+     "col": "standard measured value (°C)"
+    },
+    {
+     "id": "eut_13",
+     "cell": "K43",
+     "label": "Test point 250 °C - EUT measured (°C)",
+     "type": "number",
+     "clear_if_blank": true,
+     "row": "Test point 250 °C",
+     "col": "EUT measured (°C)"
+    }
+   ]
+  }
+ ],
+ "print_scale": 82
+}
