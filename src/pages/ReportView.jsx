@@ -82,7 +82,7 @@ export default function ReportView() {
           {canEdit && <Button variant="outline" asChild className="gap-2"><Link to={`/reports/${r.id}/edit`}><Pencil className="h-4 w-4" />Edit</Link></Button>}
           <Button variant="outline" className="gap-2" onClick={printPdf} disabled={busy === 'print'}>{busy === 'print' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Printer className="h-4 w-4" />}Print</Button>
           <Button variant="outline" className="gap-2" onClick={savePdf} disabled={busy === 'pdf'}>{busy === 'pdf' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}PDF</Button>
-          {r.status === 'approved' && <Button asChild className="gap-2"><Link to={`/sticker/${r.id}`}><Tag className="h-4 w-4" />Sticker</Link></Button>}
+          <Button asChild className="gap-2"><Link to={`/sticker/${r.id}`}><Tag className="h-4 w-4" />Sticker</Link></Button>
           {canEdit && <Button variant="ghost" size="icon" className="text-red-600" onClick={() => setConfirmDel(true)}><Trash2 className="h-4 w-4" /></Button>}
         </div>
       </div>

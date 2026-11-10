@@ -1,0 +1,329 @@
+{
+ "key": "ftg0008jg",
+ "label": "FTG0008JG",
+ "template": "FTG0008JG_Blank Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "ftg0008jg"
+ ],
+ "per_equipment": true,
+ "keep_template_values": true,
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "series": "AE11",
+  "application_limit": "AK11",
+  "humidity": "AH11"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "L68": "data.physical_condition",
+  "P71": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "L68",
+ "input_groups": [
+  {
+   "title": "Measurement table 1",
+   "fields": [
+    {
+     "id": "t1_r1_N",
+     "cell": "N40",
+     "label": "A1 · Ground Lead - STD Measured Value",
+     "type": "number",
+     "row": "A1 · Ground Lead",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_N",
+     "cell": "N41",
+     "label": "Row 2 (A1 · Ground Lead) - STD Measured Value",
+     "type": "number",
+     "row": "Row 2 (A1 · Ground Lead)",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_N",
+     "cell": "N42",
+     "label": "A1 · V1 - STD Measured Value",
+     "type": "number",
+     "row": "A1 · V1",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_N",
+     "cell": "N43",
+     "label": "Row 4 (A1 · V1) - STD Measured Value",
+     "type": "number",
+     "row": "Row 4 (A1 · V1)",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_N",
+     "cell": "N44",
+     "label": "A1 · V2 - STD Measured Value",
+     "type": "number",
+     "row": "A1 · V2",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_N",
+     "cell": "N45",
+     "label": "Row 6 (A1 · V2) - STD Measured Value",
+     "type": "number",
+     "row": "Row 6 (A1 · V2)",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_N",
+     "cell": "N46",
+     "label": "A1 · V3 - STD Measured Value",
+     "type": "number",
+     "row": "A1 · V3",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_N",
+     "cell": "N47",
+     "label": "Row 8 (A1 · V3) - STD Measured Value",
+     "type": "number",
+     "row": "Row 8 (A1 · V3)",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_N",
+     "cell": "N48",
+     "label": "A1 · V4 - STD Measured Value",
+     "type": "number",
+     "row": "A1 · V4",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_N",
+     "cell": "N49",
+     "label": "Row 10 (A1 · V4) - STD Measured Value",
+     "type": "number",
+     "row": "Row 10 (A1 · V4)",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r11_N",
+     "cell": "N50",
+     "label": "A1 · V in - STD Measured Value",
+     "type": "number",
+     "row": "A1 · V in",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_N",
+     "cell": "N51",
+     "label": "Row 12 (A1 · V in) - STD Measured Value",
+     "type": "number",
+     "row": "Row 12 (A1 · V in)",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_N",
+     "cell": "N52",
+     "label": "A2 · -- - STD Measured Value",
+     "type": "number",
+     "row": "A2 · --",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r14_N",
+     "cell": "N53",
+     "label": "Row 14 (A2 · --) - STD Measured Value",
+     "type": "number",
+     "row": "Row 14 (A2 · --)",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r15_N",
+     "cell": "N54",
+     "label": "B - STD Measured Value",
+     "type": "number",
+     "row": "B",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r16_N",
+     "cell": "N55",
+     "label": "C - STD Measured Value",
+     "type": "number",
+     "row": "C",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r17_N",
+     "cell": "N56",
+     "label": "D - STD Measured Value",
+     "type": "number",
+     "row": "D",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r18_N",
+     "cell": "N57",
+     "label": "E - STD Measured Value",
+     "type": "number",
+     "row": "E",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r19_N",
+     "cell": "N58",
+     "label": "F - STD Measured Value",
+     "type": "number",
+     "row": "F",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r20_N",
+     "cell": "N59",
+     "label": "G - STD Measured Value",
+     "type": "number",
+     "row": "G",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r21_N",
+     "cell": "N60",
+     "label": "H · Ground Lead - STD Measured Value",
+     "type": "number",
+     "row": "H · Ground Lead",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r21_J",
+     "cell": "J62",
+     "label": "H · Ground Lead - E.U.T Specified Value",
+     "type": "number",
+     "row": "H · Ground Lead",
+     "col": "E.U.T Specified Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r21_M",
+     "cell": "M62",
+     "label": "H · Ground Lead - E.U.T Specified Value",
+     "type": "number",
+     "row": "H · Ground Lead",
+     "col": "E.U.T Specified Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r22_N",
+     "cell": "N61",
+     "label": "H · V1 - STD Measured Value",
+     "type": "number",
+     "row": "H · V1",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r23_N",
+     "cell": "N62",
+     "label": "H · V2 - STD Measured Value",
+     "type": "number",
+     "row": "H · V2",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r24_N",
+     "cell": "N63",
+     "label": "H · V3 - STD Measured Value",
+     "type": "number",
+     "row": "H · V3",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r25_N",
+     "cell": "N64",
+     "label": "H · V4 - STD Measured Value",
+     "type": "number",
+     "row": "H · V4",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r26_N",
+     "cell": "N65",
+     "label": "H · V in - STD Measured Value",
+     "type": "number",
+     "row": "H · V in",
+     "col": "STD Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 75,
+ "needs_review": true,
+ "_notes": [
+  "SAMPLE: J62 holds '1.1' in the template - it is cleared when no value is entered",
+  "SAMPLE: M62 holds '0.05' in the template - it is cleared when no value is entered",
+  "PRINT: print scale 75% gives the 1 page(s) the template announces (template says 77%; LibreOffice needs less)",
+  "PER-EQUIPMENT: header / standard cells keep the template's own values when the app has none; images in the template (illustration photos) are kept",
+  "DUPLICATE: 'H · Ground Lead' / 'E.U.T Specified Value' appears twice in 'Measurement table 1' (J62 and M62) - rename a row"
+ ],
+ "published_at": "2026-11-10T23:27:24.358Z"
+}

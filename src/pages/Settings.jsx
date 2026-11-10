@@ -28,11 +28,20 @@ export default function Settings() {
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
   const upload = async (file) => {
-    if (!file || !['image/png', 'image/jpeg', 'image/svg+xml', 'image/webp'].includes(file.type)) return setError('Logo must be PNG, JPG, SVG or WEBP');
+    if (!file) return;
+    if (!['image/png', 'image/jpeg', 'image/svg+xml', 'image/webp'].includes(file.type)) return setError('Logo must be PNG, JPG, SVG or WEBP');
+    if (file.size > 512 * 1024) return setError('Logo must be 512 KB or smaller');
+    setError('');
     setUploading(true);
-    const { file_url } = await apiClient.integrations.Core.UploadPublicFile({ file });
-    setForm((f) => ({ ...f, org_logo_url: file_url }));
-    setUploading(false);
+    try {
+      const { file_url } = await apiClient.integrations.Core.UploadPublicFile({ file });
+      setForm((f) => ({ ...f, org_logo_url: file_url }));
+    } catch (uploadError) {
+      setError(uploadError.message || 'Could not upload the logo');
+      toast.error(uploadError.message || 'Could not upload the logo');
+    } finally {
+      setUploading(false);
+    }
   };
 
   const save = async () => {
@@ -69,7 +78,7 @@ export default function Settings() {
           </div>
           <div className="flex items-center gap-4">
             <div className="h-16 w-16 rounded-lg border bg-slate-50 flex items-center justify-center overflow-hidden">{form.org_logo_url ? <img src={form.org_logo_url} alt="logo" className="h-full w-full object-contain" /> : <span className="text-[10px] text-muted-foreground">No logo</span>}</div>
-            <label className="inline-flex items-center gap-2 text-sm cursor-pointer rounded-md border px-3 py-2 hover:bg-slate-50">{uploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}Upload logo<input type="file" accept="image/*" className="hidden" onChange={(e) => upload(e.target.files?.[0])} /></label>
+            <label className={`inline-flex items-center gap-2 text-sm rounded-md border px-3 py-2 hover:bg-slate-50 ${uploading ? 'pointer-events-none opacity-60' : 'cursor-pointer'}`}>{uploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}Upload logo<input type="file" accept="image/png,image/jpeg,image/svg+xml,image/webp" className="hidden" disabled={uploading} onChange={(e) => upload(e.target.files?.[0])} /></label>
             {form.org_logo_url && <Button variant="ghost" size="sm" onClick={() => setForm({ ...form, org_logo_url: '' })}>Remove</Button>}
           </div>
         </section>

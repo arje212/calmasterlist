@@ -19,7 +19,7 @@ export default function InviteUserDialog({ open, onClose, me }) {
   const invite = async () => {
     const trimmed = idNumber.trim();
     if (!trimmed) return setError('Enter an ID number');
-    if (!password) return setError('Enter an initial password');
+    if (password.length < 8) return setError('Use a temporary password with at least 8 characters');
     setBusy(true);
     setError('');
     try {
@@ -41,7 +41,7 @@ export default function InviteUserDialog({ open, onClose, me }) {
         <DialogHeader><DialogTitle>Create User</DialogTitle><DialogDescription>Create an account with an ID number and temporary password. Share it directly with the user.</DialogDescription></DialogHeader>
         <div className="space-y-4">
           <div className="space-y-1.5"><Label className="text-xs">ID Number</Label><Input type="text" value={idNumber} onChange={(e) => setIdNumber(e.target.value)} placeholder="Enter ID number" /></div>
-          <div className="space-y-1.5"><Label className="text-xs">Temporary Password</Label><Input type="password" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} /></div>
+          <div className="space-y-1.5"><Label className="text-xs">Temporary Password</Label><Input type="password" autoComplete="new-password" minLength={8} maxLength={256} value={password} onChange={(e) => setPassword(e.target.value)} /><p className="text-xs text-muted-foreground">Use 8–256 characters.</p></div>
           <div className="space-y-1.5"><Label className="text-xs">Role</Label>
             <Select value={role} onValueChange={setRole}><SelectTrigger><SelectValue /></SelectTrigger>
               <SelectContent><SelectItem value="user">STAFF / INSPECTOR</SelectItem><SelectItem value="sr_staff">SR. STAFF</SelectItem><SelectItem value="qa_manager">QA MANAGER</SelectItem><SelectItem value="admin">ADMIN</SelectItem></SelectContent>

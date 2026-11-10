@@ -100,9 +100,7 @@ def put(ws, addr, value, text=False):
     if type(c).__name__ == "MergedCell":
         raise ValueError(f"{addr} is inside a merged range - use the anchor cell")
     fmt = c.number_format or ""
-    if isinstance(value, str) and value.startswith("="):
-        pass                                                     # a formula written by the mapping ("value": "=AT14")
-    elif value is not None and "%" in fmt and isinstance(num(value), (int, float)):
+    if value is not None and "%" in fmt and isinstance(num(value), (int, float)):
         value = num(value) / 100.0                              # humidity cells are formatted 0%
     elif value is not None and ("d-mmm" in fmt or "d\\-mmm" in fmt or "yy" in fmt):
         value = parse_date(value)
@@ -113,6 +111,8 @@ def put(ws, addr, value, text=False):
     else:
         value = num(value) if value is not None else None
     c.value = value if value not in ("",) else None             # [7] real blank, not ""
+    if isinstance(c.value, str) and c.value.startswith("="):
+        c.data_type = "s"
 
 def split_control(code):
     m = re.match(r"^\s*([A-Za-z]+)\s*0*(\d+)\s*([A-Za-z]+)\s*$", str(code or ""))

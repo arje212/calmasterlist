@@ -4,7 +4,6 @@ import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { apiClient } from '@/api/apiClient';
 import { useMe, useInvalidate } from '@/hooks/useCalData';
-import { logAudit } from '@/lib/audit';
 import RejectDialog from '@/components/reports/RejectDialog';
 
 export default function ReviewActions({ report }) {
@@ -17,14 +16,11 @@ export default function ReviewActions({ report }) {
   const canReview = isAdmin || me?.role === 'sr_staff';
   const canApprove = isAdmin || me?.role === 'qa_manager';
   if ((report.status === 'submitted' && !canReview) || (report.status === 'reviewed' && !canApprove)) return null;
-  const name = me?.full_name || me?.email;
-  const now = new Date().toISOString();
 
-  const act = async (action, data, label, details = '') => {
+  const act = async (data, label) => {
     setBusy(true);
     try {
       await apiClient.entities.Report.update(report.id, data);
-      await logAudit(me, { action, entity_type: 'Report', entity_id: report.id, equipment_id: report.equipment_id, entity_label: report.report_number, changes: [{ field: 'Report Status', from: report.status, to: data.status }], details });
       invalidate('reports');
       setRejecting(false);
       toast.success(label);
@@ -41,12 +37,12 @@ export default function ReviewActions({ report }) {
       <p className="text-sm text-muted-foreground mb-4">{isAdmin ? 'Manage this report and override its workflow status.' : report.status === 'submitted' ? 'Review this report before sending it to the QA Manager.' : 'Approve or reject this reviewed report.'}</p>
       <div className="flex flex-wrap gap-2">
         {report.status === 'submitted' && canReview && (
-          <Button variant="outline" disabled={busy} className="gap-2" onClick={() => act('report_review', { status: 'reviewed', reviewed_by: report.reviewed_by || name, reviewed_at: now }, 'Report marked as reviewed')}><Eye className="h-4 w-4" />Mark Reviewed</Button>
+          <Button variant="outline" disabled={busy} className="gap-2" onClick={() => act({ status: 'reviewed' }, 'Report marked as reviewed')}><Eye className="h-4 w-4" />Mark Reviewed</Button>
         )}
-        {canApprove && (report.status === 'reviewed' || isAdmin) && <Button disabled={busy} className="gap-2 bg-emerald-600 hover:bg-emerald-700" onClick={() => act('report_approve', { status: 'approved', approved_by: report.approved_by || name, approved_at: now, rejection_reason: '' }, 'Report approved — sticker is now available')}><CheckCheck className="h-4 w-4" />Approve</Button>}
+        {canApprove && (report.status === 'reviewed' || isAdmin) && <Button disabled={busy} className="gap-2 bg-emerald-600 hover:bg-emerald-700" onClick={() => act({ status: 'approved', rejection_reason: '' }, 'Report approved — sticker is now available')}><CheckCheck className="h-4 w-4" />Approve</Button>}
         {(canReview || canApprove) && <Button disabled={busy} variant="outline" className="gap-2 text-red-600 border-red-200 hover:bg-red-50" onClick={() => setRejecting(true)}><XCircle className="h-4 w-4" />Reject</Button>}
       </div>
-      <RejectDialog open={rejecting} busy={busy} onClose={() => setRejecting(false)} onConfirm={(reason) => act('report_reject', { status: 'rejected', rejection_reason: reason, reviewed_by: report.reviewed_by || name, reviewed_at: now }, 'Report rejected', reason)} />
+      <RejectDialog open={rejecting} busy={busy} onClose={() => setRejecting(false)} onConfirm={(reason) => act({ status: 'rejected', rejection_reason: reason }, 'Report rejected')} />
     </div>
   );
 }

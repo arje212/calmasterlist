@@ -48,7 +48,7 @@ export function createReportEngine({ listEntity, updateEntity, send, isAdmin, ge
     templateDir: process.env.REPORT_TEMPLATE_DIR || options.templateDir || path.join(here, 'report-engine', 'templates'),
     mappingDir: process.env.REPORT_MAPPING_DIR || options.mappingDir || path.join(here, 'report-engine', 'mappings'),
     script: options.script || path.join(here, 'report-engine', 'fill_report.py'),
-    // app-owned storage. Keep this OUTSIDE the folders people use (e.g. D:\calibratrack-data), writable only by the service account.
+    // app-owned storage. Keep this OUTSIDE the folders people use (e.g. D:\nikkoshi-system-data), writable only by the service account.
     dataDir: process.env.REPORT_DATA_DIR || options.dataDir || path.join(projectRoot, 'report-data'),
     python: process.env.PYTHON_PATH || options.python || (process.platform === 'win32' ? 'python' : 'python3'),
     soffice: process.env.SOFFICE_PATH || options.soffice || '',   // e.g. C:\Program Files\LibreOffice\program\soffice.exe

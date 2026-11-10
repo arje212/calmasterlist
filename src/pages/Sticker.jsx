@@ -233,9 +233,7 @@ const NiphcoSticker = forwardRef(function NiphcoSticker({ report = {}, settings 
   );
 });
 
-/* ═════════════════════════════════════════════════════════════
-   PAGE (walang binago sa layout, buttons, at PDF/print)
-   ═════════════════════════════════════════════════════════════ */
+
 export default function Sticker() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -246,7 +244,7 @@ export default function Sticker() {
 
   if (isLoading) return <LoadingState />;
   const r = reports.find((x) => x.id === id);
-  if (!r || r.status !== 'approved') return <div className="panel"><EmptyState icon={Lock} title="Sticker unavailable" description="Stickers can be generated once the report is approved." /></div>;
+  if (!r) return <div className="panel"><EmptyState icon={Lock} title="Sticker unavailable" description="Create a verification report before generating its sticker." /></div>;
 
   const pdf = async () => { setBusy(true); await downloadElementPdf(ref.current, `sticker-${r.report_number}.pdf`, STICKER_SIZES[size]); setBusy(false); };
 
@@ -257,6 +255,11 @@ export default function Sticker() {
         <Button variant="outline" className="gap-2" onClick={() => window.print()}><Printer className="h-4 w-4" />Print Sticker</Button>
         <Button className="gap-2" onClick={pdf} disabled={busy}>{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}Download PDF</Button>
       </PageHeader>
+      {r.status !== 'approved' && (
+        <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 no-print">
+          Report status: <strong>{r.status}</strong>. You can print this sticker now; if the report details change during review, generate a new sticker.
+        </div>
+      )}
       <div className="flex flex-wrap gap-2 mb-6 no-print">
         {Object.entries(STICKER_SIZES).map(([k, v]) => (
           <button key={k} onClick={() => setSize(k)} className={`rounded-full px-4 py-1.5 text-xs font-medium border transition-all ${size === k ? 'bg-slate-900 text-white border-slate-900' : 'bg-white hover:border-slate-400'}`}>{v.label}</button>

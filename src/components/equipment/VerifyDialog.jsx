@@ -30,18 +30,29 @@ export default function VerifyDialog({ open, onClose, equipment: e, onSaved }) {
     if (file && file.size > 10 * 1024 * 1024) return setError('Attachment must be 10 MB or smaller.');
     setSaving(true);
     setError('');
+    let uploadedFileUri = '';
     try {
     let attachment = {};
     if (file) {
-      const { file_uri } = await apiClient.integrations.Core.UploadPrivateFile({ file });
-      attachment = { attachment_uri: file_uri, attachment_name: file.name };
+      const uploaded = await apiClient.integrations.Core.UploadPrivateFile({ file });
+      uploadedFileUri = uploaded.file_uri;
+      attachment = { attachment_uri: uploaded.file_uri, attachment_name: uploaded.file_name };
     }
     const data = Object.fromEntries(Object.entries({
       equipment_id: e.id, equipment_code: e.equipment_code, equipment_name: e.equipment_name,
       previous_verification_date: e.last_date, previous_due_date: e.next_due, ...form, ...attachment,
       verified_by_name: me?.full_name || me?.email, verified_by_email: me?.email,
     }).filter(([, v]) => v));
-    const vr = await apiClient.entities.VerificationRecord.create(data);
+    let vr;
+    try {
+      vr = await apiClient.entities.VerificationRecord.create(data);
+    } catch (createError) {
+      if (uploadedFileUri) {
+        try { await apiClient.integrations.Core.DeletePrivateFile({ file_uri: uploadedFileUri }); }
+        catch (cleanupError) { console.error('Could not clean up an unused verification attachment:', cleanupError); }
+      }
+      throw createError;
+    }
     if (me?.role === 'admin') {
       await apiClient.entities.Equipment.update(e.id, { last_verification_date: form.verification_date, next_due_date: form.next_due_date, last_result: form.result, updated_by_name: me?.full_name || me?.email });
     }

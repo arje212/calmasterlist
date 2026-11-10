@@ -127,8 +127,8 @@ export default function ReportEditor() {
     else saved = await apiClient.entities.Report.create({ ...payload, created_by_name: me?.full_name || me?.email });
     const rid = existing?.id || saved.id;
     const action = !existing ? 'report_create' : status === 'submitted' && existing.status !== 'submitted' ? 'report_submit' : 'report_update';
-    await logAudit(me, { action, entity_type: 'Report', entity_id: rid, equipment_id: vr.equipment_id, entity_label: num, details: `Status: ${status}` });
-    if (!existing && status === 'submitted') await logAudit(me, { action: 'report_submit', entity_type: 'Report', entity_id: rid, equipment_id: vr.equipment_id, entity_label: num });
+    const submitted = status === 'submitted' && existing?.status !== 'submitted';
+    if (!submitted) await logAudit(me, { action, entity_type: 'Report', entity_id: rid, equipment_id: vr.equipment_id, entity_label: num, details: `Status: ${status}` });
     invalidate('reports');
     toast.success(status === 'submitted' && !keepStatus ? 'Report submitted for review' : 'Report saved');
     navigate(`/reports/${rid}`);

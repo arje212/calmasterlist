@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Toaster } from "@/components/ui/toaster"
 import { Toaster as SonnerToaster } from "@/components/ui/sonner"
 import { QueryClientProvider } from '@tanstack/react-query'
@@ -10,27 +11,27 @@ import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import AppLayout from '@/components/layout/AppLayout';
 import AdminRoute from '@/components/layout/AdminRoute';
-// Add page imports here
-import Login from '@/pages/Login';
-import ForgotPassword from '@/pages/ForgotPassword';
-import ResetPassword from '@/pages/ResetPassword';
-import Dashboard from '@/pages/Dashboard';
-import Masterlist from '@/pages/Masterlist';
-import StandardMasterlist from '@/pages/StandardMasterlist';
-import ExternalCalibrations from '@/pages/ExternalCalibrations';
-import EquipmentDetail from '@/pages/EquipmentDetail';
-import CalendarView from '@/pages/CalendarView';
-import Reports from '@/pages/Reports';
-import ReportEditor from '@/pages/ReportEditor';
-import ReportView from '@/pages/ReportView';
-import Sticker from '@/pages/Sticker';
-import Analytics from '@/pages/Analytics';
-import Notifications from '@/pages/Notifications';
-import AuditLogs from '@/pages/AuditLogs';
-import Users from '@/pages/Users';
-import Settings from '@/pages/Settings';
-import Tasks from '@/pages/Tasks';
-import BudgetEntry from '@/pages/BudgetEntry';
+const Login = lazy(() => import('@/pages/Login'));
+const ForgotPassword = lazy(() => import('@/pages/ForgotPassword'));
+const ResetPassword = lazy(() => import('@/pages/ResetPassword'));
+const Dashboard = lazy(() => import('@/pages/Dashboard'));
+const Masterlist = lazy(() => import('@/pages/Masterlist'));
+const StandardMasterlist = lazy(() => import('@/pages/StandardMasterlist'));
+const ExternalCalibrations = lazy(() => import('@/pages/ExternalCalibrations'));
+const EquipmentDetail = lazy(() => import('@/pages/EquipmentDetail'));
+const CalendarView = lazy(() => import('@/pages/CalendarView'));
+const Reports = lazy(() => import('@/pages/Reports'));
+const ReportEditor = lazy(() => import('@/pages/ReportEditor'));
+const ReportView = lazy(() => import('@/pages/ReportView'));
+const Sticker = lazy(() => import('@/pages/Sticker'));
+const Analytics = lazy(() => import('@/pages/Analytics'));
+const Notifications = lazy(() => import('@/pages/Notifications'));
+const AuditLogs = lazy(() => import('@/pages/AuditLogs'));
+const Users = lazy(() => import('@/pages/Users'));
+const Settings = lazy(() => import('@/pages/Settings'));
+const Tasks = lazy(() => import('@/pages/Tasks'));
+const BudgetEntry = lazy(() => import('@/pages/BudgetEntry'));
+const ProcedureLibrary = lazy(() => import('@/pages/ProcedureLibrary'));
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -57,6 +58,7 @@ const AuthenticatedApp = () => {
 
   // Render the main app
   return (
+    <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-slate-200 border-t-slate-800" /></div>}>
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Navigate to="/login" replace />} />
@@ -71,12 +73,16 @@ const AuthenticatedApp = () => {
           <Route path="/equipment/:id" element={<EquipmentDetail />} />
           <Route path="/calendar" element={<CalendarView />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/procedures" element={<ProcedureLibrary documentType="procedure" />} />
+          <Route path="/process-instructions" element={<ProcedureLibrary documentType="process_instruction" />} />
           <Route path="/reports/new" element={<ReportEditor />} />
           <Route path="/reports/:id/edit" element={<ReportEditor />} />
           <Route path="/reports/:id" element={<ReportView />} />
           <Route path="/sticker/:id" element={<Sticker />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/budget" element={<BudgetEntry />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/assistant" element={<Navigate to="/" replace />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route element={<AdminRoute />}>
             <Route path="/audit-logs" element={<AuditLogs />} />
@@ -86,8 +92,8 @@ const AuthenticatedApp = () => {
         </Route>
       </Route>
       <Route path="*" element={<PageNotFound />} />
-      <Route path="/tasks" element={<Tasks />} />
     </Routes>
+    </Suspense>
   );
 };
 

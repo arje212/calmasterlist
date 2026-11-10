@@ -2,7 +2,7 @@ import { useMemo, useEffect, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { apiClient } from '@/api/apiClient';
 import { DEFAULT_SETTINGS, enrichEquipment } from '@/lib/calibration';
-import { buildNotifications, getReadIds } from '@/lib/notifications';
+import { buildNotifications, getReadIds, markRead } from '@/lib/notifications';
 
 export const useMe = () => useQuery({ queryKey: ['me'], queryFn: () => apiClient.auth.me(), staleTime: 5 * 60e3 });
 
@@ -44,14 +44,62 @@ export function useInvalidate() {
 }
 
 export function useNotifications() {
-  const { equipment, reports, settings, isLoading } = useCalibrationData();
+  const { equipment, settings, isLoading } = useCalibrationData();
   const { data: me } = useMe();
   const [readIds, setReadIds] = useState(getReadIds());
+  const queryClient = useQueryClient();
+  const notificationQuery = useQuery({
+    queryKey: ['notifications', me?.id],
+    queryFn: () => apiClient.notifications.list(),
+    enabled: Boolean(me?.id),
+  });
   useEffect(() => {
     const h = () => setReadIds(getReadIds());
     window.addEventListener('notifications-read', h);
     return () => window.removeEventListener('notifications-read', h);
   }, []);
-  const items = useMemo(() => (me ? buildNotifications({ equipment, reports, settings, me }) : []), [equipment, reports, settings, me]);
-  return { items, readIds, unread: items.filter((i) => !readIds.has(i.id)).length, isLoading, settings };
+  const equipmentAlerts = useMemo(() => buildNotifications({ equipment, settings }), [equipment, settings]);
+  const storedItems = notificationQuery.data?.items || [];
+  const items = useMemo(() => [
+    ...storedItems.map((notification) => ({
+      ...notification,
+      id: notification.id,
+      type: notification.category,
+      date: notification.created_at,
+      link: notification.report_url,
+      persisted: true,
+    })),
+    ...equipmentAlerts,
+  ].sort((a, b) => String(b.date || '').localeCompare(String(a.date || ''))), [storedItems, equipmentAlerts]);
+  const allReadIds = useMemo(() => new Set([
+    ...readIds,
+    ...storedItems.filter((notification) => notification.is_read).map((notification) => notification.id),
+  ]), [readIds, storedItems]);
+  const markNotificationRead = async (item) => {
+    if (item.persisted) {
+      await apiClient.notifications.markRead(item.id);
+      await queryClient.invalidateQueries({ queryKey: ['notifications', me?.id] });
+    } else {
+      markRead([item.id]);
+    }
+  };
+  const markAllNotificationsRead = async () => {
+    await apiClient.notifications.markAllRead();
+    markRead(equipmentAlerts.map((item) => item.id));
+    await queryClient.invalidateQueries({ queryKey: ['notifications', me?.id] });
+  };
+  const serverUnread = notificationQuery.data?.unread
+    ?? storedItems.filter((notification) => !notification.is_read).length;
+  const equipmentUnread = equipmentAlerts.filter((item) => !readIds.has(item.id)).length;
+  const unread = serverUnread + equipmentUnread;
+  return {
+    items,
+    readIds: allReadIds,
+    unread,
+    isLoading: isLoading || notificationQuery.isLoading,
+    notificationError: notificationQuery.error,
+    refetchNotifications: notificationQuery.refetch,
+    markNotificationRead,
+    markAllNotificationsRead,
+  };
 }

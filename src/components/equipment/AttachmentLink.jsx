@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Paperclip, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 import { apiClient } from '@/api/apiClient';
 
 export default function AttachmentLink({ uri, name }) {
@@ -7,10 +8,22 @@ export default function AttachmentLink({ uri, name }) {
   if (!uri) return null;
   const open = async (ev) => {
     ev.stopPropagation();
+    const popup = window.open('about:blank', '_blank');
+    if (!popup) {
+      toast.error('Allow pop-ups to open this attachment');
+      return;
+    }
     setBusy(true);
-    const { signed_url } = await apiClient.integrations.Core.CreateFileSignedUrl({ file_uri: uri, expires_in: 300 });
-    setBusy(false);
-    window.open(signed_url, '_blank');
+    try {
+      const { signed_url } = await apiClient.integrations.Core.CreateFileSignedUrl({ file_uri: uri, expires_in: 300 });
+      popup.location.href = signed_url;
+      window.setTimeout(() => URL.revokeObjectURL(signed_url), 60_000);
+    } catch (error) {
+      popup.close();
+      toast.error(error.message || 'Could not open attachment');
+    } finally {
+      setBusy(false);
+    }
   };
   return (
     <button onClick={open} className="inline-flex items-center gap-1 text-[11px] text-primary hover:underline max-w-[180px]">

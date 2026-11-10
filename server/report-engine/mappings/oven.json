@@ -1,0 +1,338 @@
+{
+ "key": "oven",
+ "label": "Oven",
+ "template": "00. Oven_Blank Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "oven"
+ ],
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "series": "AE11",
+  "application_limit": "AK11",
+  "humidity": "AH11",
+  "application_limit_is_formula": true
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "required_accuracy_cells": {
+  "sign": "I16",
+  "value": "J16",
+  "unit": "K16"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "L61": "data.physical_condition",
+  "L64": {
+   "path": "data.verification_result",
+   "fallback": "data.status",
+   "upper": true
+  },
+  "Q64": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "L61",
+ "input_groups": [
+  {
+   "title": "Temperature Measurement (°C) - One Point Calibration",
+   "fields": [
+    {
+     "id": "t1_r1_H",
+     "cell": "H42",
+     "label": "°C - E.U.T Actual Display",
+     "type": "number",
+     "row": "°C",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r1_K",
+     "cell": "K42",
+     "label": "°C - Standard Measured Value",
+     "type": "number",
+     "row": "°C",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_H",
+     "cell": "H43",
+     "label": "Row 2 (°C) - E.U.T Actual Display",
+     "type": "number",
+     "row": "Row 2 (°C)",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_K",
+     "cell": "K43",
+     "label": "Row 2 (°C) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 2 (°C)",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_H",
+     "cell": "H44",
+     "label": "Row 3 (°C) - E.U.T Actual Display",
+     "type": "number",
+     "row": "Row 3 (°C)",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_K",
+     "cell": "K44",
+     "label": "Row 3 (°C) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 3 (°C)",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_H",
+     "cell": "H45",
+     "label": "Row 4 (°C) - E.U.T Actual Display",
+     "type": "number",
+     "row": "Row 4 (°C)",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_K",
+     "cell": "K45",
+     "label": "Row 4 (°C) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 4 (°C)",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_H",
+     "cell": "H46",
+     "label": "Row 5 (°C) - E.U.T Actual Display",
+     "type": "number",
+     "row": "Row 5 (°C)",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_K",
+     "cell": "K46",
+     "label": "Row 5 (°C) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 5 (°C)",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_H",
+     "cell": "H47",
+     "label": "Row 6 (°C) - E.U.T Actual Display",
+     "type": "number",
+     "row": "Row 6 (°C)",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_K",
+     "cell": "K47",
+     "label": "Row 6 (°C) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 6 (°C)",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_H",
+     "cell": "H48",
+     "label": "Row 7 (°C) - E.U.T Actual Display",
+     "type": "number",
+     "row": "Row 7 (°C)",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_K",
+     "cell": "K48",
+     "label": "Row 7 (°C) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 7 (°C)",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_H",
+     "cell": "H49",
+     "label": "Row 8 (°C) - E.U.T Actual Display",
+     "type": "number",
+     "row": "Row 8 (°C)",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_K",
+     "cell": "K49",
+     "label": "Row 8 (°C) - Standard Measured Value",
+     "type": "number",
+     "row": "Row 8 (°C)",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  },
+  {
+   "title": "Temperature Measuremen - Oven Profiling",
+   "fields": [
+    {
+     "id": "t2_r1_H",
+     "cell": "H54",
+     "label": "A. Left Plane - E.U.T Actual Display",
+     "type": "number",
+     "row": "A. Left Plane",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r1_K",
+     "cell": "K54",
+     "label": "A. Left Plane - Standard Measured Value",
+     "type": "number",
+     "row": "A. Left Plane",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r2_H",
+     "cell": "H55",
+     "label": "B. Rear Plane - E.U.T Actual Display",
+     "type": "number",
+     "row": "B. Rear Plane",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r2_K",
+     "cell": "K55",
+     "label": "B. Rear Plane - Standard Measured Value",
+     "type": "number",
+     "row": "B. Rear Plane",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r3_H",
+     "cell": "H56",
+     "label": "C. Right Plane - E.U.T Actual Display",
+     "type": "number",
+     "row": "C. Right Plane",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r3_K",
+     "cell": "K56",
+     "label": "C. Right Plane - Standard Measured Value",
+     "type": "number",
+     "row": "C. Right Plane",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r4_H",
+     "cell": "H57",
+     "label": "D. Front Plane - E.U.T Actual Display",
+     "type": "number",
+     "row": "D. Front Plane",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r4_K",
+     "cell": "K57",
+     "label": "D. Front Plane - Standard Measured Value",
+     "type": "number",
+     "row": "D. Front Plane",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r5_H",
+     "cell": "H58",
+     "label": "E. Top Plane - E.U.T Actual Display",
+     "type": "number",
+     "row": "E. Top Plane",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r5_K",
+     "cell": "K58",
+     "label": "E. Top Plane - Standard Measured Value",
+     "type": "number",
+     "row": "E. Top Plane",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r6_H",
+     "cell": "H59",
+     "label": "F. Bottom Plane - E.U.T Actual Display",
+     "type": "number",
+     "row": "F. Bottom Plane",
+     "col": "E.U.T Actual Display",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t2_r6_K",
+     "cell": "K59",
+     "label": "F. Bottom Plane - Standard Measured Value",
+     "type": "number",
+     "row": "F. Bottom Plane",
+     "col": "Standard Measured Value",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 80,
+ "_notes": [
+  "PRINT: print scale 80% gives the 1 page(s) the template announces (template says 82%; LibreOffice needs less)"
+ ],
+ "published_at": "2026-11-03T00:07:36.404Z"
+}

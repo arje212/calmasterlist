@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, ListChecks, CalendarDays, FileText, BarChart3, Bell, ScrollText, Users, Settings, LogOut, Gauge, Ruler, KeyRound, Truck } from 'lucide-react';
+import { LayoutDashboard, ListChecks, CalendarDays, FileText, BarChart3, Bell, ScrollText, Users, Settings, LogOut, Gauge, Ruler, KeyRound, Truck, ClipboardList, PiggyBank, BookOpen, ClipboardCheck } from 'lucide-react';
 
 const NAV = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard, end: true },
@@ -8,8 +8,12 @@ const NAV = [
   { to: '/external-calibrations', label: 'External Calibration', icon: Truck },
   { to: '/standard-masterlist', label: 'Standard Masterlist', icon: Ruler },
   { to: '/calendar', label: 'Calendar', icon: CalendarDays },
+  { to: '/tasks', label: 'Tasks', icon: ClipboardList },
   { to: '/reports', label: 'Reports', icon: FileText },
+  { to: '/procedures', label: 'Procedures', icon: BookOpen },
+  { to: '/process-instructions', label: 'Process Instructions', icon: ClipboardCheck },
   { to: '/analytics', label: 'Analytics', icon: BarChart3 },
+  { to: '/budget', label: 'Budget Entry', icon: PiggyBank },
   { to: '/notifications', label: 'Notifications', icon: Bell, badge: true },
   { to: '/reset-password', label: 'Change Password', icon: KeyRound },
   { to: '/audit-logs', label: 'Audit Logs', icon: ScrollText, admin: true },

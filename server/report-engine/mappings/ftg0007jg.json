@@ -1,0 +1,546 @@
+{
+ "key": "ftg0007jg",
+ "label": "FTG0007JG",
+ "template": "FTG0007JG_Blank Form.xlsm",
+ "sheet": "VERIFICATION_REPORT",
+ "match": [
+  "ftg0007jg"
+ ],
+ "per_equipment": true,
+ "keep_template_values": true,
+ "header": {
+  "eut_row": 14,
+  "eut_first_col": "AE",
+  "std_rows": [
+   17
+  ],
+  "std_first_col": "AF",
+  "series": "AE11",
+  "application_limit": "AK11",
+  "humidity": "AH11"
+ },
+ "people": {
+  "verified": [
+   "R6",
+   "R7"
+  ],
+  "reviewed": [
+   "V6",
+   "V7"
+  ],
+  "approved": [
+   "Z6",
+   "Z7"
+  ]
+ },
+ "default_positions": {
+  "verified": "QA Sr. Staff",
+  "reviewed": "QA Sr. Staff",
+  "approved": "QA Superintendent"
+ },
+ "cells": {
+  "B20": {
+   "path": "data.verification_method",
+   "keep_if_blank": true
+  },
+  "L70": "data.physical_condition",
+  "P73": {
+   "path": "data.result_note",
+   "keep_if_blank": true
+  },
+  "P24": "data.stabilization.time_start",
+  "T24": "data.stabilization.time_end",
+  "P25": "data.stabilization.temp_start",
+  "T25": {
+   "path": "data.stabilization.temp_end",
+   "fallback": "data.temperature"
+  }
+ },
+ "physical_condition_cell": "L70",
+ "input_groups": [
+  {
+   "title": "Measurement table 1",
+   "fields": [
+    {
+     "id": "t1_r1_H",
+     "cell": "H40",
+     "label": "A - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "A",
+     "col": "E.U.T Specified \nValue",
+     "default": 45
+    },
+    {
+     "id": "t1_r1_J",
+     "cell": "J40",
+     "label": "A - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "A",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.1
+    },
+    {
+     "id": "t1_r1_L",
+     "cell": "L40",
+     "label": "A - STD Measured\nValue",
+     "type": "number",
+     "row": "A",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r2_H",
+     "cell": "H41",
+     "label": "B - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "B",
+     "col": "E.U.T Specified \nValue",
+     "default": 2.5
+    },
+    {
+     "id": "t1_r2_J",
+     "cell": "J41",
+     "label": "B - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "B",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.03
+    },
+    {
+     "id": "t1_r2_L",
+     "cell": "L41",
+     "label": "B - STD Measured\nValue",
+     "type": "number",
+     "row": "B",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r3_H",
+     "cell": "H42",
+     "label": "C - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "C",
+     "col": "E.U.T Specified \nValue",
+     "default": 2.5
+    },
+    {
+     "id": "t1_r3_J",
+     "cell": "J42",
+     "label": "C - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "C",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.03
+    },
+    {
+     "id": "t1_r3_L",
+     "cell": "L42",
+     "label": "C - STD Measured\nValue",
+     "type": "number",
+     "row": "C",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r4_H",
+     "cell": "H43",
+     "label": "D - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "D",
+     "col": "E.U.T Specified \nValue",
+     "default": 2.5
+    },
+    {
+     "id": "t1_r4_J",
+     "cell": "J43",
+     "label": "D - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "D",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.03
+    },
+    {
+     "id": "t1_r4_L",
+     "cell": "L43",
+     "label": "D - STD Measured\nValue",
+     "type": "number",
+     "row": "D",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r5_H",
+     "cell": "H44",
+     "label": "E - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "E",
+     "col": "E.U.T Specified \nValue",
+     "default": 5
+    },
+    {
+     "id": "t1_r5_J",
+     "cell": "J44",
+     "label": "E - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "E",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.1
+    },
+    {
+     "id": "t1_r5_L",
+     "cell": "L44",
+     "label": "E - STD Measured\nValue",
+     "type": "number",
+     "row": "E",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r6_H",
+     "cell": "H45",
+     "label": "F - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "F",
+     "col": "E.U.T Specified \nValue",
+     "default": 2.5
+    },
+    {
+     "id": "t1_r6_J",
+     "cell": "J45",
+     "label": "F - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "F",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.03
+    },
+    {
+     "id": "t1_r6_L",
+     "cell": "L45",
+     "label": "F - STD Measured\nValue",
+     "type": "number",
+     "row": "F",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r7_H",
+     "cell": "H46",
+     "label": "G - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "G",
+     "col": "E.U.T Specified \nValue",
+     "default": 2.5
+    },
+    {
+     "id": "t1_r7_J",
+     "cell": "J46",
+     "label": "G - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "G",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.03
+    },
+    {
+     "id": "t1_r7_L",
+     "cell": "L46",
+     "label": "G - STD Measured\nValue",
+     "type": "number",
+     "row": "G",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r8_H",
+     "cell": "H47",
+     "label": "H - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "H",
+     "col": "E.U.T Specified \nValue",
+     "default": 17.5
+    },
+    {
+     "id": "t1_r8_J",
+     "cell": "J47",
+     "label": "H - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "H",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.1
+    },
+    {
+     "id": "t1_r8_L",
+     "cell": "L47",
+     "label": "H - STD Measured\nValue",
+     "type": "number",
+     "row": "H",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r9_H",
+     "cell": "H48",
+     "label": "I - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "I",
+     "col": "E.U.T Specified \nValue",
+     "default": 17.5
+    },
+    {
+     "id": "t1_r9_J",
+     "cell": "J48",
+     "label": "I - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "I",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.1
+    },
+    {
+     "id": "t1_r9_L",
+     "cell": "L48",
+     "label": "I - STD Measured\nValue",
+     "type": "number",
+     "row": "I",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_L",
+     "cell": "L49",
+     "label": "J · 1 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 1",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r10_H",
+     "cell": "H53",
+     "label": "J · 1 - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "J · 1",
+     "col": "E.U.T Specified \nValue",
+     "default": 8.2
+    },
+    {
+     "id": "t1_r10_J",
+     "cell": "J53",
+     "label": "J · 1 - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "J · 1",
+     "col": "E.U.T Specified \nValue",
+     "default": 0.1
+    },
+    {
+     "id": "t1_r11_L",
+     "cell": "L50",
+     "label": "J · 2 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 2",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r12_L",
+     "cell": "L51",
+     "label": "J · 3 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 3",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r13_L",
+     "cell": "L52",
+     "label": "J · 4 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 4",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r14_L",
+     "cell": "L53",
+     "label": "J · 5 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 5",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r15_L",
+     "cell": "L54",
+     "label": "J · 6 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 6",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r16_L",
+     "cell": "L55",
+     "label": "J · 7 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 7",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r17_L",
+     "cell": "L56",
+     "label": "J · 8 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 8",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r18_L",
+     "cell": "L57",
+     "label": "J · 9 - STD Measured\nValue",
+     "type": "number",
+     "row": "J · 9",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r19_L",
+     "cell": "L58",
+     "label": "K · 1 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 1",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r19_H",
+     "cell": "H63",
+     "label": "K · 1 - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "K · 1",
+     "col": "E.U.T Specified \nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r19_K",
+     "cell": "K63",
+     "label": "K · 1 - E.U.T Specified \nValue",
+     "type": "number",
+     "row": "K · 1",
+     "col": "E.U.T Specified \nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r20_L",
+     "cell": "L59",
+     "label": "K · 2 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 2",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r21_L",
+     "cell": "L60",
+     "label": "K · 3 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 3",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r22_L",
+     "cell": "L61",
+     "label": "K · 4 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 4",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r23_L",
+     "cell": "L62",
+     "label": "K · 5 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 5",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r24_L",
+     "cell": "L63",
+     "label": "K · 6 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 6",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r25_L",
+     "cell": "L64",
+     "label": "K · 7 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 7",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r26_L",
+     "cell": "L65",
+     "label": "K · 8 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 8",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r27_L",
+     "cell": "L66",
+     "label": "K · 9 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 9",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r28_L",
+     "cell": "L67",
+     "label": "K · 10 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 10",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    },
+    {
+     "id": "t1_r29_L",
+     "cell": "L68",
+     "label": "K · 11 - STD Measured\nValue",
+     "type": "number",
+     "row": "K · 11",
+     "col": "STD Measured\nValue",
+     "clear_if_blank": true
+    }
+   ]
+  }
+ ],
+ "print_scale": 75,
+ "needs_review": true,
+ "_notes": [
+  "SAMPLE: H63 holds '1.1' in the template - it is cleared when no value is entered",
+  "SAMPLE: K63 holds '0.05' in the template - it is cleared when no value is entered",
+  "PRINT: print scale 75% gives the 1 page(s) the template announces (template says 77%; LibreOffice needs less)",
+  "PER-EQUIPMENT: header / standard cells keep the template's own values when the app has none; images in the template (illustration photos) are kept",
+  "DUPLICATE: 'A' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H40 and J40) - rename a row",
+  "DUPLICATE: 'B' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H41 and J41) - rename a row",
+  "DUPLICATE: 'C' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H42 and J42) - rename a row",
+  "DUPLICATE: 'D' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H43 and J43) - rename a row",
+  "DUPLICATE: 'E' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H44 and J44) - rename a row",
+  "DUPLICATE: 'F' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H45 and J45) - rename a row",
+  "DUPLICATE: 'G' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H46 and J46) - rename a row",
+  "DUPLICATE: 'H' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H47 and J47) - rename a row",
+  "DUPLICATE: 'I' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H48 and J48) - rename a row",
+  "DUPLICATE: 'J · 1' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H53 and J53) - rename a row",
+  "DUPLICATE: 'K · 1' / 'E.U.T Specified \nValue' appears twice in 'Measurement table 1' (H63 and K63) - rename a row"
+ ],
+ "published_at": "2026-11-10T23:11:39.500Z"
+}

@@ -17,10 +17,14 @@ export default function HistoryTable({ history, reports }) {
   const reportFor = (vr) => reports.filter((r) => r.verification_id === vr.id).sort((a, b) => b.created_date.localeCompare(a.created_date))[0];
 
   const removeAttachment = async (vr) => {
-    await apiClient.entities.VerificationRecord.update(vr.id, { attachment_uri: '', attachment_name: '' });
-    await logAudit(me, { action: 'attachment_remove', entity_type: 'VerificationRecord', entity_id: vr.id, equipment_id: vr.equipment_id, entity_label: vr.equipment_code, details: vr.attachment_name });
-    invalidate('verifications');
-    toast.success('Attachment removed');
+    try {
+      await apiClient.entities.VerificationRecord.update(vr.id, { attachment_uri: '', attachment_name: '' });
+      await logAudit(me, { action: 'attachment_remove', entity_type: 'VerificationRecord', entity_id: vr.id, equipment_id: vr.equipment_id, entity_label: vr.equipment_code, details: vr.attachment_name });
+      invalidate('verifications');
+      toast.success('Attachment removed');
+    } catch (error) {
+      toast.error(error.message || 'Could not remove attachment');
+    }
   };
 
   return (

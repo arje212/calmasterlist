@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Plus, Trash2, Info } from 'lucide-react';
+import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -7,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { apiClient } from '@/api/apiClient';
 import ReportAttachments from '@/components/reports/ReportAttachments';
+import ReportTemplateUploadDialog from '@/components/reports/ReportTemplateUploadDialog';
 
 /* ============================================================================
    Shared helpers (also imported by CaliperReportDocumentStyled.jsx)
@@ -368,10 +370,22 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
   const isCaliper = data.template === 'caliper';
 
   const configuredTemplates = templates.filter((t) => t.mapping_configured && t.template_exists);
+  const sortedStandardTemplates = configuredTemplates
+    .filter((t) => !t.per_equipment)
+    .sort((a, b) => a.label.localeCompare(b.label, undefined, { numeric: true, sensitivity: 'base' }));
+  const equipmentCode = normText(equipment?.equipment_code).replace(/ /g, '');
+  const individualTemplate = configuredTemplates.find((t) =>
+    t.per_equipment && normText(t.key).replace(/ /g, '') === equipmentCode);
   const activeTemplateKey = configuredTemplates.some((t) => t.key === form.report_template)
     ? form.report_template
     : pickTemplate(configuredTemplates, equipment) || (isCaliper ? 'caliper' : '');
   const activeTemplate = configuredTemplates.find((t) => t.key === activeTemplateKey);
+  const missingTemplate = (() => {
+    const selected = templates.find((t) => t.key === form.report_template && t.mapping_configured);
+    if (selected) return selected.template_exists ? null : selected;
+    const matchedKey = pickTemplate(templates.filter((t) => t.mapping_configured), equipment);
+    return templates.find((t) => t.key === matchedKey && !t.template_exists) || null;
+  })();
 
   // functional updates: several fields can change in the same tick without overwriting each other
   const setData = (key, value) => setForm((f) => ({ ...f, report_data: { ...(f.report_data || data), [key]: value } }));
@@ -385,9 +399,15 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
 
   useEffect(() => {
     let live = true;
-    apiClient.reports.templates().then((items) => { if (live) setTemplates(items); }).catch(() => {});
+    apiClient.reports.templates().then((items) => { if (live) setTemplates(items); }).catch((e) => {
+      if (live) toast.error(e?.message || 'Could not load report templates');
+    });
     return () => { live = false; };
   }, []);
+  const refreshTemplates = async () => {
+    const items = await apiClient.reports.templates();
+    setTemplates(items);
+  };
 
   // remember which template this report uses (the server reads report_template when it builds the Excel / PDF)
   useEffect(() => {
@@ -467,13 +487,33 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
       </div>
 
       <div className="rounded-lg border bg-blue-50/40 p-4 space-y-2">
-        <p className="eyebrow">Report Template</p>
-        <Select value={activeTemplate ? activeTemplateKey : undefined} onValueChange={switchTemplate} disabled={disabled}>
-          <SelectTrigger className="h-9 text-xs max-w-sm"><SelectValue placeholder="Choose a template">{activeTemplate?.label}</SelectValue></SelectTrigger>
-          <SelectContent>
-            {configuredTemplates.filter((t) => !t.per_equipment || t.key === activeTemplateKey).map((t) => <SelectItem key={t.key} value={t.key}>{t.label}</SelectItem>)}
-          </SelectContent>
-        </Select>
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div className="space-y-2">
+            <p className="eyebrow">Report Template</p>
+            <Select value={activeTemplate ? activeTemplateKey : undefined} onValueChange={switchTemplate} disabled={disabled}>
+              <SelectTrigger className="h-9 text-xs max-w-sm"><SelectValue placeholder="Choose a template">{activeTemplate?.label}</SelectValue></SelectTrigger>
+              <SelectContent>
+                {sortedStandardTemplates.map((t) => <SelectItem key={t.key} value={t.key}>{t.label}</SelectItem>)}
+                {individualTemplate && <SelectItem key={individualTemplate.key} value={individualTemplate.key}>Individual · {individualTemplate.label}</SelectItem>}
+                {activeTemplate?.per_equipment && !individualTemplate && (
+                  <SelectItem key={activeTemplate.key} value={activeTemplate.key}>Individual · {activeTemplate.label}</SelectItem>
+                )}
+              </SelectContent>
+            </Select>
+            <p className="text-[11px] text-muted-foreground">
+              {individualTemplate
+                ? `Individual template matched to ${equipment?.equipment_code}; otherwise the standard equipment template is used.`
+                : 'Standard template is used unless an individual template matching this equipment control number is available.'}
+            </p>
+          </div>
+          {isAdmin && <ReportTemplateUploadDialog onPublished={refreshTemplates} templates={templates} />}
+        </div>
+        {missingTemplate && (
+          <Notice>
+            May existing mapping para sa <strong>{missingTemplate.label}</strong>, pero wala ang Excel template file na <strong>{missingTemplate.template}</strong>. Hindi pa ito mapipili o magagamit sa report hanggang ma-upload at ma-review ang blank form.
+            {isAdmin ? ' Gamitin ang Upload Template button sa itaas at panatilihin ang eksaktong filename.' : ' Ipa-upload ito sa administrator.'}
+          </Notice>
+        )}
       </div>
 
       <div className="rounded-lg border bg-slate-50/70 p-4 space-y-4"><p className="eyebrow">Environmental Conditions</p><div className="grid sm:grid-cols-2 gap-4">{field('Temperature (°C)', data.temperature, (e) => setData('temperature', e.target.value))}{field('Humidity (%)', data.humidity, (e) => setData('humidity', e.target.value), 'Whole number, e.g. 55')}</div></div>

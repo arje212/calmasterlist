@@ -22,6 +22,10 @@ function authHeaders() {
   return headers;
 }
 
+/**
+ * @param {string} path
+ * @param {{ method?: string, body?: BodyInit | null, headers?: Record<string, string> }} [options]
+ */
 async function request(path, { method = 'GET', body, headers } = {}) {
   const response = await fetch(`${baseUrl()}${path}`, { method, body, credentials: 'include', headers: { ...authHeaders(), ...headers } });
   if (!response.ok) {
@@ -34,6 +38,11 @@ async function request(path, { method = 'GET', body, headers } = {}) {
 
 export const listAttachments = async (reportId) => (await request(`/api/reports/${reportId}/attachments`)).json();
 
+/**
+ * @param {string} reportId
+ * @param {Blob} blob
+ * @param {{ caption?: string, slot?: string }} [options]
+ */
 export const uploadAttachment = async (reportId, blob, { caption = '', slot } = {}) =>
   (await request(`/api/reports/${reportId}/attachments`, {
     method: 'POST', body: blob,

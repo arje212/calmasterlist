@@ -8,8 +8,12 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 1735,
     watch: {
-      ignored: ['**/external/**', '**/*.xls', '**/*.XLS', '**/*.xlsx', '**/*.XLSX', '**/*.xlsm', '**/*.XLSM', '**/*.sqlite'],
-    },
+  ignored: [
+    '**/external/**',
+    '**/report-data/**',
+    '**/*.xls', '**/*.XLS', '**/*.xlsx', '**/*.XLSX', '**/*.xlsm', '**/*.XLSM', '**/*.sqlite',
+  ],
+},
     proxy: {
       '/api': `http://127.0.0.1:${process.env.API_PORT || 3001}`,
     },
