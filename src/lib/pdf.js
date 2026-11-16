@@ -1,8 +1,9 @@
-import html2canvas from 'html2canvas';
-import { jsPDF } from 'jspdf';
-
 // size: { w, h } in mm for fixed-size output (stickers); omitted = A4 multi-page
 export async function downloadElementPdf(el, filename, size) {
+  const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
+    import('html2canvas'),
+    import('jspdf'),
+  ]);
   const canvas = await html2canvas(el, { scale: 3, useCORS: true, backgroundColor: '#ffffff' });
   const img = canvas.toDataURL('image/png');
   if (size) {

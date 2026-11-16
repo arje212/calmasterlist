@@ -56,8 +56,8 @@ const NiphcoSticker = forwardRef(function NiphcoSticker({ report = {}, settings 
   const line = `max(${u(2)}, .25mm) solid ${INK}`;
 
   // ── FIELD MAPPING: dagdagan o palitan ang mga pangalan ayon sa database mo ──
-  // Kung walang control field, kunin mula sa report number: "CAL-PR0001ME_26-01" -> "PR0001ME"
-  const fromReportNo = /^CAL-(.+?)_\d{2}-\d+$/i.exec(str(report.report_number, ''))?.[1];
+  // Support both legacy "CAL-PR0001ME_26-01" and current "PR0001ME_26-01" report names.
+  const fromReportNo = /^(?:CAL-)?(.+?)_\d{2}-\d+$/i.exec(str(report.report_number, ''))?.[1];
   const control = str(
     pick(
       snap.asset_id, snap.control_number, snap.control_no, snap.equipment_id, snap.tag_number, snap.id_number,

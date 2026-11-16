@@ -13,10 +13,10 @@ import PageHeader from '@/components/common/PageHeader';
 import LoadingState from '@/components/common/LoadingState';
 import EmptyState from '@/components/common/EmptyState';
 import ExternalCalibrationWorkflowDialog from '@/components/equipment/ExternalCalibrationWorkflowDialog';
-import fastDeliveryIcon from '@/assets/external-calibration/fast-delivery.gif';
-import courierIcon from '@/assets/external-calibration/courier.gif';
-import doorDeliveryIcon from '@/assets/external-calibration/door-delivery.gif';
-import clipboardIcon from '@/assets/external-calibration/clipboard.gif';
+const fastDeliveryIcon = new URL('../assets/external-calibration/fast-delivery.webp', import.meta.url).href;
+const courierIcon = new URL('../assets/external-calibration/courier.webp', import.meta.url).href;
+const doorDeliveryIcon = new URL('../assets/external-calibration/door-delivery.webp', import.meta.url).href;
+const clipboardIcon = new URL('../assets/external-calibration/clipboard.webp', import.meta.url).href;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Print form: "External Provider Calibration Check Record" (NPP-1101-F6, Issue 16-1, Rev 1)
@@ -317,6 +317,10 @@ function Stepper({ cycle }) {
                     src={s.icon}
                     alt={s.label}
                     className={`h-[18px] w-[18px] object-contain ${now ? '' : done ? 'opacity-60' : 'opacity-30 grayscale'}`}
+                    width="18"
+                    height="18"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ) : (
                   <Check className="h-3.5 w-3.5" style={{ color }} strokeWidth={3} />

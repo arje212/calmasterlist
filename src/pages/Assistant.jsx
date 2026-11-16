@@ -29,8 +29,8 @@ const SUGGESTIONS = [
   'Ihambing ang process instruction sa procedure at magmungkahi ng revision',
 ];
 
-export default function Assistant() {
-  const [open, setOpen] = useState(false);
+export default function Assistant({ initiallyOpen = false }) {
+  const [open, setOpen] = useState(initiallyOpen);
   const [messages, setMessages] = useState([]);
   const [draft, setDraft] = useState('');
   const [configured, setConfigured] = useState(null);

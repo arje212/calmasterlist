@@ -1,6 +1,6 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Menu, Gauge, ShieldOff } from 'lucide-react';
+import { Menu, Gauge, ShieldOff, MessageCircle } from 'lucide-react';
 import { useQueryClient } from '@tanstack/react-query';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
@@ -10,13 +10,15 @@ import { logAudit } from '@/lib/audit';
 import { desktopNotificationsEnabled, showDesktopNotification } from '@/lib/desktopNotifications';
 import SidebarNav from '@/components/layout/SidebarNav';
 import LoadingState from '@/components/common/LoadingState';
-import Assistant from '@/pages/Assistant';
+
+const Assistant = lazy(() => import('@/pages/Assistant'));
 
 export default function AppLayout() {
   const { data: me, isLoading } = useMe();
   const { unread } = useNotifications();
   const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
+  const [assistantMounted, setAssistantMounted] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -123,7 +125,21 @@ export default function AppLayout() {
           </Suspense>
         </div>
       </main>
-      <Assistant />
+      {assistantMounted ? (
+        <Suspense fallback={<div className="fixed bottom-6 right-6 z-50 h-14 w-14 animate-pulse rounded-full bg-primary/70" />}>
+          <Assistant initiallyOpen />
+        </Suspense>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setAssistantMounted(true)}
+          aria-label="Buksan ang AI Assistant"
+          aria-expanded={false}
+          className="no-print fixed bottom-4 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30 transition hover:scale-105 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30 sm:bottom-6 sm:right-6"
+        >
+          <MessageCircle className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 }
