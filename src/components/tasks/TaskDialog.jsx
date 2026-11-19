@@ -5,8 +5,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { toDate } from '@/lib/calibration';
 import { PRIORITIES, STATUSES, assigneeOf, priorityOf, progressOf, statusOf } from '@/lib/tasks';
 
-const field = 'h-11 w-full rounded-xl border border-[#e0daf5] bg-[#faf9ff] px-3 text-sm text-[#1b1740] focus:outline-none focus:ring-2 focus:ring-[#7c5cfc]';
-const label = 'flex flex-col gap-1.5 text-[11px] font-semibold uppercase tracking-[.08em] text-[#5b5675]';
+const field = 'h-11 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary';
+const label = 'flex flex-col gap-1.5 text-xs font-semibold uppercase tracking-[.08em] text-slate-600';
 
 const toForm = (task, defaults) => {
   if (task?.id) {
@@ -75,7 +75,7 @@ export default function TaskDialog({ open, task, defaults, people, canDelete, sa
           </div>
           {showProgress && (
             <label className={label}>Progress · {f.progress}%
-              <input type="range" min="0" max="100" step="5" value={f.progress} onChange={set('progress')} className="h-11 w-full accent-[#7c5cfc]" />
+              <input type="range" min="0" max="100" step="5" value={f.progress} onChange={set('progress')} className="h-11 w-full accent-primary" />
             </label>
           )}
           <div className="flex items-center justify-between gap-2 pt-1">
@@ -86,7 +86,7 @@ export default function TaskDialog({ open, task, defaults, people, canDelete, sa
             ) : <span />}
             <div className="flex gap-2">
               <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
-              <Button type="submit" className="bg-[#7c5cfc] hover:bg-[#6a49f0]" disabled={saving || !f.title.trim()}>{editing ? 'Save' : 'Add task'}</Button>
+              <Button type="submit" className="bg-primary hover:bg-primary/90" disabled={saving || !f.title.trim()}>{editing ? 'Save' : 'Add task'}</Button>
             </div>
           </div>
         </form>

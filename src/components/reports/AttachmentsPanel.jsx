@@ -45,7 +45,7 @@ export default function AttachmentsPanel({ report, canEdit, onChange }) {
               <Thumb reportId={report.id} id={a.id} />
               <div className="flex-1 space-y-1.5">
                 <Input defaultValue={a.caption} disabled={!canEdit} placeholder="Caption, e.g. Broken internal jaw" className="h-8 text-xs" onBlur={(e) => saveCaption(a, e.target.value)} />
-                {canEdit && <button type="button" onClick={() => remove(a)} className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-red-600"><Trash2 className="h-3 w-3" />Remove</button>}
+                {canEdit && <button type="button" onClick={() => remove(a)} className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-red-600"><Trash2 className="h-3 w-3" />Remove</button>}
               </div>
             </div>
           ))}

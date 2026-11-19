@@ -16,7 +16,7 @@ export default function EquipmentReports({ reports }) {
             <Link key={r.id} to={`/reports/${r.id}`} className="flex items-center justify-between py-3 group">
               <div>
                 <p className="font-mono text-[13px] font-medium text-slate-900 group-hover:text-primary transition-colors">{r.report_number}</p>
-                <p className="text-[11px] text-muted-foreground">{fmtDate(r.verification_date)} · {r.created_by_name}</p>
+                <p className="text-xs text-muted-foreground">{fmtDate(r.verification_date)} · {r.created_by_name}</p>
               </div>
               <div className="flex items-center gap-2">
                 <ResultBadge result={r.result} />

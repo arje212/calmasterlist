@@ -15,7 +15,7 @@ export default function ForecastChart({ equipment }) {
       <div className="h-56">
         <ResponsiveContainer>
           <BarChart data={data} margin={{ top: 20 }}>
-            <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} />
+            <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#64748b' }} axisLine={false} tickLine={false} />
             <YAxis hide allowDecimals={false} />
             <Tooltip cursor={{ fill: '#f1f5f9' }} contentStyle={{ borderRadius: 8, fontSize: 12 }} />
             <Bar dataKey="value" name="Equipment" radius={[6, 6, 0, 0]}>

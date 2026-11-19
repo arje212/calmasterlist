@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useConfirm } from '@/components/common/ConfirmDialog';
 import { ImagePlus, Trash2, Circle, ArrowUpRight, Loader2, Info, Undo2, Check, X, Pencil } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -88,6 +89,7 @@ function Photo({ src, marks, editing, tool, onCommit, onSize }) {
 }
 
 export default function ReportAttachments({ reportId, slot = 'sheet', disabled = false, primary = false }) {
+  const { confirm, confirmDialog } = useConfirm();
   const [items, setItems] = useState([]);
   const [urls, setUrls] = useState({});
   const [loading, setLoading] = useState(false);
@@ -138,7 +140,7 @@ export default function ReportAttachments({ reportId, slot = 'sheet', disabled =
     try { await saveAttachment(reportId, a.id, { caption, annotations: a.annotations || [] }); } catch (e) { setError(e.message); }
   };
   const remove = async (a) => {
-    if (!window.confirm('Remove this photo from the report?')) return;
+    if (!(await confirm({ title: 'Remove this photo?', description: 'The photo and its markings will be removed from the report.', confirmLabel: 'Remove photo', destructive: true }))) return;
     setError('');
     try {
       await deleteAttachment(reportId, a.id);
@@ -162,10 +164,11 @@ export default function ReportAttachments({ reportId, slot = 'sheet', disabled =
 
   return (
     <div className="rounded-lg border p-4 space-y-4">
+      {confirmDialog}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-1">
           <p className="eyebrow">{title}</p>
-          <p className="text-[11px] text-muted-foreground">{hint}</p>
+          <p className="text-xs text-muted-foreground">{hint}</p>
         </div>
         {!locked && (
           <>
@@ -198,9 +201,9 @@ export default function ReportAttachments({ reportId, slot = 'sheet', disabled =
                   : <div className="flex aspect-[4/3] items-center justify-center rounded-md bg-slate-100 text-xs text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin" /></div>}
 
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-semibold text-muted-foreground">#{index + 1}</span>
+                  <span className="text-xs font-semibold text-muted-foreground">#{index + 1}</span>
                   <Input
-                    value={a.caption || ''} placeholder="Caption" disabled={locked} className="h-8 text-[11px]"
+                    value={a.caption || ''} placeholder="Caption" disabled={locked} className="h-8 text-xs"
                     onChange={(e) => patchItem(a.id, { caption: e.target.value })} onBlur={(e) => { if (!locked) saveCaption(a, e.target.value); }}
                   />
                 </div>
@@ -214,7 +217,7 @@ export default function ReportAttachments({ reportId, slot = 'sheet', disabled =
 
                 {!locked && editing && (
                   <div className="space-y-2">
-                    <p className="text-[11px] text-muted-foreground">Drag on the photo to draw. Marks print in red.</p>
+                    <p className="text-xs text-muted-foreground">Drag on the photo to draw. Marks print in red.</p>
                     <div className="flex flex-wrap items-center gap-2">
                       <Button type="button" size="sm" variant={edit.tool === 'circle' ? 'default' : 'outline'} className="h-7 gap-1 text-xs" onClick={() => setEdit((c) => ({ ...c, tool: 'circle' }))}><Circle className="h-3.5 w-3.5" />Circle</Button>
                       <Button type="button" size="sm" variant={edit.tool === 'arrow' ? 'default' : 'outline'} className="h-7 gap-1 text-xs" onClick={() => setEdit((c) => ({ ...c, tool: 'arrow' }))}><ArrowUpRight className="h-3.5 w-3.5" />Arrow</Button>

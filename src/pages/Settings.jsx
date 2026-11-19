@@ -77,7 +77,7 @@ export default function Settings() {
             <div className="space-y-1.5"><Label className="text-xs">Report Document Title</Label><Input value={form.document_title} onChange={set('document_title')} /></div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="h-16 w-16 rounded-lg border bg-slate-50 flex items-center justify-center overflow-hidden">{form.org_logo_url ? <img src={form.org_logo_url} alt="logo" className="h-full w-full object-contain" /> : <span className="text-[10px] text-muted-foreground">No logo</span>}</div>
+            <div className="h-16 w-16 rounded-lg border bg-slate-50 flex items-center justify-center overflow-hidden">{form.org_logo_url ? <img src={form.org_logo_url} alt="logo" className="h-full w-full object-contain" /> : <span className="text-xs text-muted-foreground">No logo</span>}</div>
             <label className={`inline-flex items-center gap-2 text-sm rounded-md border px-3 py-2 hover:bg-slate-50 ${uploading ? 'pointer-events-none opacity-60' : 'cursor-pointer'}`}>{uploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}Upload logo<input type="file" accept="image/png,image/jpeg,image/svg+xml,image/webp" className="hidden" disabled={uploading} onChange={(e) => upload(e.target.files?.[0])} /></label>
             {form.org_logo_url && <Button variant="ghost" size="sm" onClick={() => setForm({ ...form, org_logo_url: '' })}>Remove</Button>}
           </div>

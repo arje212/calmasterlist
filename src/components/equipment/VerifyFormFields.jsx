@@ -43,7 +43,7 @@ export default function VerifyFormFields({ form, setForm, file, setFile, frequen
       <div className="space-y-1.5">
         <Label className="text-xs">Certificate / Supporting Document (PDF, JPG, PNG · max 10 MB)</Label>
         <Input type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" onChange={(e) => setFile(e.target.files?.[0] || null)} />
-        {file && <p className="text-[11px] text-muted-foreground">{file.name}</p>}
+        {file && <p className="text-xs text-muted-foreground">{file.name}</p>}
       </div>
     </div>
   );

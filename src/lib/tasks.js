@@ -5,7 +5,7 @@ import { toDate } from '@/lib/calibration';
 
 export const STATUSES = [
   { key: 'todo', label: 'To do', color: '#94a3b8' },
-  { key: 'in_progress', label: 'In progress', color: '#7c5cfc' },
+  { key: 'in_progress', label: 'In progress', color: '#1450d2' },
   { key: 'in_review', label: 'In review', color: '#f59e0b' },
   { key: 'done', label: 'Done', color: '#10b981' },
 ];

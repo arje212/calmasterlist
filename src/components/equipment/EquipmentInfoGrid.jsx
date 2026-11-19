@@ -15,15 +15,15 @@ export default function EquipmentInfoGrid({ e }) {
       <dl className="grid sm:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-4">
         {rows.map(([k, v, mono]) => (
           <div key={k}>
-            <dt className="text-[11px] text-muted-foreground">{k}</dt>
+            <dt className="text-xs text-muted-foreground">{k}</dt>
             <dd className={`text-sm text-slate-900 mt-0.5 break-words ${mono ? 'font-mono' : ''}`}>{v || '—'}</dd>
           </div>
         ))}
       </dl>
       {(e.description || e.remarks) && (
         <div className="grid sm:grid-cols-2 gap-6 mt-5 pt-5 border-t">
-          <div><p className="text-[11px] text-muted-foreground">Range</p><p className="text-sm mt-0.5">{e.description || '—'}</p></div>
-          <div><p className="text-[11px] text-muted-foreground">Remarks</p><p className="text-sm mt-0.5">{e.remarks || '—'}</p></div>
+          <div><p className="text-xs text-muted-foreground">Range</p><p className="text-sm mt-0.5">{e.description || '—'}</p></div>
+          <div><p className="text-xs text-muted-foreground">Remarks</p><p className="text-sm mt-0.5">{e.remarks || '—'}</p></div>
         </div>
       )}
     </div>

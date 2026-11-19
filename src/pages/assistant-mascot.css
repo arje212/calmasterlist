@@ -1,0 +1,199 @@
+/* Arjay animated assistant — isolated class names to avoid changing app-wide styles. */
+.qa-chat-panel{transform-origin:bottom right;animation:qaPanelPop .38s cubic-bezier(.2,.85,.25,1.12) both}
+.qa-arjay-entry{animation:qaRobotEnter .72s cubic-bezier(.2,.9,.25,1.2) both}
+.qa-speech-bubble{position:relative;max-width:90%;min-height:48px;padding:12px 15px;border:1px solid #dbeafe;border-radius:18px;background:#fff;color:#172554;font-size:13px;line-height:1.55;text-align:center;box-shadow:0 8px 22px #1e3a8a12}
+.qa-speech-bubble:after{content:"";position:absolute;top:-7px;left:50%;width:12px;height:12px;transform:translateX(-50%) rotate(45deg);background:#fff;border-top:1px solid #dbeafe;border-left:1px solid #dbeafe}
+.qa-type-cursor{display:inline-block;width:2px;height:14px;margin-left:3px;vertical-align:-2px;background:#2563eb;animation:qaCursorBlink .7s steps(2,start) infinite}
+.qa-suggestion{opacity:0;transform:translateY(9px);pointer-events:none}
+.qa-suggestion.is-visible{animation:qaSuggestionIn .34s ease both;pointer-events:auto}
+.qa-message-row{animation:qaMessageIn .28s ease both}
+.qa-chat-launcher{isolation:isolate}
+.qa-launcher-pulse{position:absolute;inset:-7px;border:2px solid #60a5fa;border-radius:50%;z-index:-1;animation:qaPulseRing 2.1s ease-out infinite}
+.qa-mascot{position:relative;width:92px;height:92px;display:grid;place-items:center;flex-shrink:0;overflow:visible}
+.qa-mascot-small{width:42px;height:42px;transform:scale(.43);transform-origin:center}
+.qa-mascot-character{position:relative;width:76px;height:88px;animation:qaMascotFloat 2.4s ease-in-out infinite}
+.qa-mascot-shadow{position:absolute;width:54px;height:8px;bottom:2px;border-radius:50%;background:#8d79bd55;filter:blur(3px);animation:qaMascotShadow 2.4s ease-in-out infinite}
+.qa-mascot-antenna{position:absolute;left:36px;top:0;width:4px;height:13px;border-radius:5px;background:#2563eb}
+.qa-mascot-antenna i{position:absolute;top:-4px;left:-3px;width:10px;height:10px;border-radius:50%;background:#fbbf24;box-shadow:0 0 0 3px #fef3c7;animation:qaAntennaGlow 1.15s ease-in-out infinite}
+.qa-mascot-ear{position:absolute;top:24px;width:11px;height:20px;border-radius:9px;background:#2563eb}
+.qa-mascot-ear-left{left:0;transform:rotate(-14deg)}
+.qa-mascot-ear-right{right:0;transform:rotate(14deg)}
+.qa-mascot-face{position:absolute;z-index:2;top:13px;left:6px;width:64px;height:55px;border:3px solid #2563eb;border-radius:23px 23px 20px 20px;background:linear-gradient(145deg,#fff,#eff6ff);box-shadow:inset 0 -4px 0 #dbeafe}
+.qa-mascot-eyes{position:absolute;top:18px;left:15px;display:flex;gap:17px}
+.qa-mascot-eyes i{width:6px;height:9px;border-radius:50%;background:#1e3a8a;animation:qaMascotBlink 4.2s infinite}
+.qa-mascot-cheeks{position:absolute;top:34px;left:7px;right:7px;display:flex;justify-content:space-between}
+.qa-mascot-cheeks i{width:9px;height:5px;border-radius:50%;background:#fda4af;opacity:.9}
+.qa-mascot-mouth{position:absolute;left:27px;top:36px;width:8px;height:5px;border-bottom:2px solid #1e3a8a;border-radius:0 0 8px 8px}
+.qa-mascot-body{position:absolute;top:65px;left:16px;width:44px;height:24px;border:3px solid #2563eb;border-radius:13px 13px 17px 17px;background:linear-gradient(135deg,#bfdbfe,#60a5fa);display:grid;place-items:center}
+.qa-mascot-body span{width:13px;height:13px;border-radius:5px;background:#fff;color:#2563eb;display:grid;place-items:center;font-size:9px}
+.qa-mascot-arm{position:absolute;top:69px;width:10px;height:20px;border:3px solid #2563eb;background:#93c5fd;border-radius:10px}
+.qa-mascot-arm-left{left:7px;transform:rotate(28deg);animation:qaArmWave 2.2s ease-in-out infinite}
+.qa-mascot-arm-right{right:6px;transform:rotate(-28deg)}
+.qa-mascot-spark{position:absolute;color:#f59e0b;font-size:15px;animation:qaMascotTwinkle 1.8s infinite}
+.qa-mascot-spark-one{left:0;top:13px}
+.qa-mascot-spark-two{right:1px;top:42px;animation-delay:.7s}
+.qa-thinking-dots{display:inline-flex;gap:5px;align-items:center;height:18px;padding:0 5px}
+.qa-thinking-dots i{width:7px;height:7px;border-radius:50%;background:#2563eb;animation:qaThinking .9s infinite}
+.qa-thinking-dots i:nth-child(2){animation-delay:.15s}
+.qa-thinking-dots i:nth-child(3){animation-delay:.3s}
+@keyframes qaPanelPop{0%{opacity:0;transform:translate(22px,22px) scale(.88)}100%{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes qaRobotEnter{0%{opacity:0;transform:translateY(24px) scale(.72)}65%{opacity:1;transform:translateY(-7px) scale(1.06)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes qaSuggestionIn{to{opacity:1;transform:translateY(0)}}
+@keyframes qaMessageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes qaPulseRing{0%{transform:scale(.92);opacity:.7}75%,100%{transform:scale(1.38);opacity:0}}
+@keyframes qaCursorBlink{to{visibility:hidden}}
+@keyframes qaMascotFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-6px) rotate(1deg)}}
+@keyframes qaMascotShadow{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(.78);opacity:.4}}
+@keyframes qaMascotBlink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.12)}}
+@keyframes qaMascotTwinkle{0%,100%{opacity:.45;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(20deg)}}
+@keyframes qaAntennaGlow{0%,100%{filter:brightness(1);box-shadow:0 0 0 3px #fef3c7,0 0 5px #fbbf24}50%{filter:brightness(1.35);box-shadow:0 0 0 5px #fef3c7,0 0 15px #f59e0b}}
+@keyframes qaArmWave{0%,100%{transform:rotate(28deg)}50%{transform:rotate(5deg)}}
+@keyframes qaThinking{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-6px);opacity:1}}
+@media(prefers-reduced-motion:reduce){.qa-chat-panel,.qa-arjay-entry,.qa-suggestion,.qa-message-row,.qa-mascot-character,.qa-mascot-shadow,.qa-mascot-eyes i,.qa-mascot-spark,.qa-mascot-antenna i,.qa-mascot-arm-left,.qa-thinking-dots i,.qa-launcher-pulse,.qa-type-cursor{animation:none!important;transition:none!important}.qa-suggestion{opacity:1;transform:none}}
+
+
+/* Layout correction: keep Arjay fully visible above the greeting even when
+   the suggestions make the chat content taller than the viewport. */
+.qa-arjay-entry{
+  width:88px;
+  height:92px;
+  min-height:92px;
+  margin-top:2px;
+  margin-bottom:4px;
+  overflow:visible;
+  flex:0 0 92px;
+}
+.qa-arjay-entry .qa-mascot{
+  width:88px;
+  height:92px;
+}
+.qa-chat-panel .qa-speech-bubble{
+  flex:0 0 auto;
+  margin-top:0;
+}
+.qa-chat-panel .qa-suggestion{
+  flex:0 0 auto;
+}
+
+
+/* Move the mascot down inside the scrollable welcome area so its antenna/head
+   are fully clear of the fixed dark header when the panel first opens. */
+.qa-arjay-entry{
+  box-sizing:content-box;
+  padding-top:20px;
+  margin-top:8px;
+  margin-bottom:8px;
+  height:92px;
+  min-height:92px;
+  flex:0 0 92px;
+  overflow:visible;
+}
+.qa-arjay-entry .qa-mascot{
+  transform:translateY(5px);
+  overflow:visible;
+}
+.qa-arjay-entry .qa-mascot-character{
+  transform-origin:center center;
+}
+
+
+/* Arjay outside the panel: playful lean against the blue launcher. */
+.qa-assistant-root{isolation:isolate}
+.qa-outside-companion{
+  position:absolute;
+  right:54px;
+  bottom:1px;
+  width:116px;
+  height:112px;
+  pointer-events:none;
+  z-index:4;
+  animation:qaCompanionArrive .55s cubic-bezier(.2,.9,.25,1.15) both;
+}
+.qa-leaning-robot{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:100px;
+  height:104px;
+  transform:rotate(-8deg);
+  transform-origin:bottom right;
+  animation:qaLeanPlay 2.8s ease-in-out infinite;
+}
+.qa-leaning-robot .qa-mascot{transform:scale(.88);transform-origin:bottom right}
+.qa-leaning-robot .qa-mascot-character{animation:qaLeanBob 2.5s ease-in-out infinite}
+.qa-leaning-robot .qa-mascot-arm-right{transform:rotate(-72deg);transform-origin:5px 4px}
+.qa-leaning-robot .qa-mascot-arm-left{animation:qaPlayWave 2.1s ease-in-out infinite}
+.qa-companion-hello{
+  position:absolute;
+  left:-13px;
+  top:0;
+  padding:5px 8px;
+  border:1px solid #dbeafe;
+  border-radius:10px 10px 10px 3px;
+  background:#fff;
+  color:#1e3a8a;
+  font-size:10px;
+  font-weight:600;
+  white-space:nowrap;
+  box-shadow:0 4px 12px #1e3a8a14;
+  opacity:0;
+  transform:translateY(4px);
+  animation:qaHelloPeek 4.8s ease-in-out 1s infinite;
+}
+.qa-popout-companion{
+  position:absolute;
+  right:calc(100% - 16px);
+  bottom:86px;
+  z-index:8;
+  display:flex;
+  align-items:flex-end;
+  gap:7px;
+  width:min(250px,calc(100vw - 30px));
+  pointer-events:none;
+  animation:qaPopoutEnter .48s cubic-bezier(.2,.9,.25,1.12) both;
+}
+.qa-popout-bubble{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  gap:4px;
+  max-height:142px;
+  overflow:hidden;
+  padding:10px 12px;
+  border:1px solid #bfdbfe;
+  border-radius:15px 15px 4px 15px;
+  background:#fff;
+  color:#334155;
+  box-shadow:0 12px 30px #0f172a24;
+  font-size:11px;
+  line-height:1.45;
+}
+.qa-popout-bubble strong{color:#1d4ed8;font-size:10px}
+.qa-popout-bubble span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden}
+.qa-popout-robot{
+  width:76px;
+  height:90px;
+  flex:0 0 76px;
+  transform-origin:bottom center;
+  animation:qaPopoutBounce .65s cubic-bezier(.2,.9,.25,1.2) both,qaMascotFloat 2.4s ease-in-out .65s infinite;
+}
+.qa-popout-robot .qa-mascot{transform:scale(.82);transform-origin:bottom center}
+.qa-popout-companion.is-thinking .qa-popout-robot{animation:qaPopoutBounce .65s cubic-bezier(.2,.9,.25,1.2) both,qaThinkWiggle .55s ease-in-out .65s infinite}
+.qa-popout-companion.is-explaining .qa-popout-robot .qa-mascot-arm-right{animation:qaExplainGesture .8s ease-in-out infinite;transform-origin:5px 4px}
+@keyframes qaCompanionArrive{from{opacity:0;transform:translate(18px,14px) scale(.7)}to{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes qaLeanPlay{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(-5deg) translateY(-3px)}}
+@keyframes qaLeanBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes qaPlayWave{0%,100%{transform:rotate(28deg)}50%{transform:rotate(-22deg)}}
+@keyframes qaHelloPeek{0%,12%,100%{opacity:0;transform:translateY(4px)}20%,72%{opacity:1;transform:translateY(0)}}
+@keyframes qaPopoutEnter{from{opacity:0;transform:translate(28px,12px) scale(.82)}to{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes qaPopoutBounce{0%{transform:translateY(22px) scale(.75)}65%{transform:translateY(-8px) scale(1.06)}100%{transform:translateY(0) scale(1)}}
+@keyframes qaThinkWiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+@keyframes qaExplainGesture{0%,100%{transform:rotate(-25deg)}50%{transform:rotate(-95deg)}}
+@media(max-width:520px){
+  .qa-popout-companion{right:0;bottom:76px;width:min(240px,calc(100vw - 34px))}
+  .qa-outside-companion{right:50px;transform:scale(.86);transform-origin:bottom right}
+}
+@media(prefers-reduced-motion:reduce){
+  .qa-outside-companion,.qa-leaning-robot,.qa-leaning-robot .qa-mascot-character,.qa-companion-hello,.qa-popout-companion,.qa-popout-robot,.qa-popout-companion.is-thinking .qa-popout-robot{animation:none!important}
+  .qa-companion-hello{opacity:1}
+}

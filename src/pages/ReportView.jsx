@@ -74,7 +74,7 @@ export default function ReportView() {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 no-print">
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" onClick={() => navigate(-1)}><ArrowLeft className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="icon" aria-label="Go back" onClick={() => navigate(-1)}><ArrowLeft className="h-4 w-4" /></Button>
           <div><p className="font-mono font-semibold">{r.report_number}</p><Link to={`/equipment/${r.equipment_id}`} className="text-xs text-muted-foreground hover:text-primary">{r.equipment_snapshot?.equipment_name}</Link></div>
           <ReportStatusBadge status={r.status} />
         </div>
@@ -83,7 +83,7 @@ export default function ReportView() {
           <Button variant="outline" className="gap-2" onClick={printPdf} disabled={busy === 'print'}>{busy === 'print' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Printer className="h-4 w-4" />}Print</Button>
           <Button variant="outline" className="gap-2" onClick={savePdf} disabled={busy === 'pdf'}>{busy === 'pdf' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}PDF</Button>
           <Button asChild className="gap-2"><Link to={`/sticker/${r.id}`}><Tag className="h-4 w-4" />Sticker</Link></Button>
-          {canEdit && <Button variant="ghost" size="icon" className="text-red-600" onClick={() => setConfirmDel(true)}><Trash2 className="h-4 w-4" /></Button>}
+          {canEdit && <Button variant="ghost" size="icon" className="text-red-600" aria-label="Delete report" onClick={() => setConfirmDel(true)}><Trash2 className="h-4 w-4" /></Button>}
         </div>
       </div>
       {r.status === 'rejected' && <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 no-print"><strong>Rejected:</strong> {r.rejection_reason} {own && '— edit and resubmit this report.'}</div>}

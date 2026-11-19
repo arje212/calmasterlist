@@ -21,7 +21,7 @@ export default function EquipmentFormFields({ form, setForm, errors }) {
     <div key={k} className="space-y-1.5">
       <Label className="text-xs">{label}</Label>
       <Input value={form[k] ?? ''} onChange={(e) => set(k, e.target.value)} className={errors[k] ? 'border-red-400' : ''} {...props} />
-      {errors[k] && <p className="text-[11px] text-red-600">{errors[k]}</p>}
+      {errors[k] && <p className="text-xs text-red-600">{errors[k]}</p>}
     </div>
   );
   // If an equipment still has an older value (e.g. "Calibration"), keep it in the list so it shows and is not lost on save.
@@ -37,7 +37,7 @@ export default function EquipmentFormFields({ form, setForm, errors }) {
             <SelectTrigger><SelectValue /></SelectTrigger>
             <SelectContent>{typeOptions.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
           </Select>
-          {errors.calibration_type && <p className="text-[11px] text-red-600">{errors.calibration_type}</p>}
+          {errors.calibration_type && <p className="text-xs text-red-600">{errors.calibration_type}</p>}
         </div>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 rounded-lg bg-slate-50 p-4">

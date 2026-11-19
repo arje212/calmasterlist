@@ -47,7 +47,7 @@ export default function StandardMasterlist() {
               <tbody>{rows.slice((page - 1) * PAGE, page * PAGE).map((standard) => (
                 <tr key={standard.id} className="border-b last:border-0 hover:bg-blue-50/40">
                   <td className="whitespace-nowrap px-4 py-3 font-mono text-[12px] font-medium text-primary">{standard.control_number}</td>
-                  {COLUMNS.slice(1).map((column) => <td key={column.key} className="whitespace-pre-line px-4 py-3 text-[11px]">{standard[column.key] || '—'}</td>)}
+                  {COLUMNS.slice(1).map((column) => <td key={column.key} className="whitespace-pre-line px-4 py-3 text-xs">{standard[column.key] || '—'}</td>)}
                 </tr>
               ))}</tbody>
             </table>

@@ -166,7 +166,7 @@ export default function ExternalCalibrationWorkflowDialog({ open, equipment, cyc
           <DialogDescription>{equipment.equipment_code} · {equipment.equipment_name} · Current due {fmtDate(equipment.next_due)}</DialogDescription>
         </DialogHeader>
         {record && <div className="grid grid-cols-4 gap-2" aria-label="External calibration progress">
-          {STEPS.map((step, index) => <div key={step} className={`border-t-2 pt-2 text-[10px] font-semibold uppercase ${index <= currentStep ? 'border-emerald-500 text-emerald-700' : 'border-slate-200 text-slate-400'}`}>{step}</div>)}
+          {STEPS.map((step, index) => <div key={step} className={`border-t-2 pt-2 text-xs font-semibold uppercase ${index <= currentStep ? 'border-emerald-500 text-emerald-700' : 'border-slate-200 text-slate-400'}`}>{step}</div>)}
         </div>}
 
         {!record ? (

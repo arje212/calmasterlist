@@ -146,7 +146,7 @@ export default function Notifications() {
                   <p className="text-xs text-muted-foreground mt-0.5">{n.message}</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  {toDate(n.date) && <span className="text-[11px] text-muted-foreground hidden sm:inline">{formatDistanceToNow(toDate(n.date), { addSuffix: true })}</span>}
+                  {toDate(n.date) && <span className="text-xs text-muted-foreground hidden sm:inline">{formatDistanceToNow(toDate(n.date), { addSuffix: true })}</span>}
                   {!read && <span className="h-2 w-2 rounded-full bg-primary" />}
                 </div>
               </Link>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useConfirm } from '@/components/common/ConfirmDialog';
 import { FileSpreadsheet, Loader2, Upload } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,7 @@ const MAX_FILE_SIZE = 25 * 1024 * 1024;
 const parseKeywords = (value) => [...new Set(value.split(/[,\n;]/).map((word) => word.trim().toLowerCase()).filter(Boolean))];
 
 export default function ReportTemplateUploadDialog({ onPublished, templates = [] }) {
+  const { confirm, confirmDialog } = useConfirm();
   const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [drafts, setDrafts] = useState([]);
@@ -119,7 +121,7 @@ export default function ReportTemplateUploadDialog({ onPublished, templates = []
     if (!reviewed) return setError('Review the PDF preview and check the confirmation before publishing');
 
     const replace = Boolean(draft.existing?.mapping || draft.existing?.template);
-    if (replace && !window.confirm('An existing template or mapping will be archived before this one is published. Continue?')) return;
+    if (replace && !(await confirm({ title: 'Replace the existing template?', description: 'The existing template and mapping will be archived before this one is published.', confirmLabel: 'Publish and archive old' }))) return;
 
     setBusy(true);
     setError('');
@@ -143,7 +145,7 @@ export default function ReportTemplateUploadDialog({ onPublished, templates = []
   };
 
   const removeDraft = async () => {
-    if (!draft || !window.confirm(`Delete the draft for "${draft.filename}"?`)) return;
+    if (!draft || !(await confirm({ title: 'Delete this draft?', description: `The draft for "${draft.filename}" will be deleted.`, confirmLabel: 'Delete draft', destructive: true }))) return;
     setBusy(true);
     setError('');
     try {
@@ -173,6 +175,7 @@ export default function ReportTemplateUploadDialog({ onPublished, templates = []
 
   return (
     <>
+      {confirmDialog}
       <Button type="button" variant="outline" size="sm" className="gap-1.5" onClick={showDialog} disabled={busy}>
         <Upload className="h-3.5 w-3.5" /> Upload Template
       </Button>
@@ -224,8 +227,8 @@ export default function ReportTemplateUploadDialog({ onPublished, templates = []
               {missingTemplates.length > 0 && (
                 <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
                   <p className="text-xs font-semibold text-amber-900">Mappings waiting for Excel templates ({missingTemplates.length})</p>
-                  <p className="mt-1 text-[11px] text-amber-800">Upload each blank form using its expected filename so it matches the existing mapping.</p>
-                  <ul className="mt-2 max-h-36 space-y-2 overflow-y-auto text-[11px]">
+                  <p className="mt-1 text-xs text-amber-800">Upload each blank form using its expected filename so it matches the existing mapping.</p>
+                  <ul className="mt-2 max-h-36 space-y-2 overflow-y-auto text-xs">
                     {missingTemplates.map((item) => (
                       <li key={item.key}>
                         <span className="block font-medium text-amber-950">{item.label}</span>
@@ -240,16 +243,16 @@ export default function ReportTemplateUploadDialog({ onPublished, templates = []
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Published templates</p>
                 <div className="mt-2 max-h-52 space-y-3 overflow-y-auto">
                   <div>
-                    <p className="mb-1 text-[11px] font-semibold text-slate-700">Standard · equipment type</p>
+                    <p className="mb-1 text-xs font-semibold text-slate-700">Standard · equipment type</p>
                     {standardTemplates.length ? standardTemplates.map((item) => (
-                      <p key={item.key} className="truncate py-0.5 text-[11px] text-slate-600">{item.label}</p>
-                    )) : <p className="text-[11px] text-muted-foreground">No standard templates published.</p>}
+                      <p key={item.key} className="truncate py-0.5 text-xs text-slate-600">{item.label}</p>
+                    )) : <p className="text-xs text-muted-foreground">No standard templates published.</p>}
                   </div>
                   <div>
-                    <p className="mb-1 text-[11px] font-semibold text-slate-700">Individual · control number</p>
+                    <p className="mb-1 text-xs font-semibold text-slate-700">Individual · control number</p>
                     {individualTemplates.length ? individualTemplates.map((item) => (
-                      <p key={item.key} className="truncate py-0.5 text-[11px] text-slate-600">{item.label}</p>
-                    )) : <p className="text-[11px] text-muted-foreground">No individual templates published.</p>}
+                      <p key={item.key} className="truncate py-0.5 text-xs text-slate-600">{item.label}</p>
+                    )) : <p className="text-xs text-muted-foreground">No individual templates published.</p>}
                   </div>
                 </div>
               </div>
@@ -270,7 +273,7 @@ export default function ReportTemplateUploadDialog({ onPublished, templates = []
                     <div className="space-y-1.5">
                       <Label htmlFor="template-keywords" className="text-xs">Equipment matching keywords</Label>
                       <Input id="template-keywords" value={keywords} onChange={(e) => setKeywords(e.target.value)} disabled={busy || draft.per_equipment} placeholder="e.g. digimatic indicator, digimatic" />
-                      <p className="text-[11px] text-muted-foreground">{draft.per_equipment ? 'This template is matched to its equipment control number.' : `${keywordsList.length}/12 keywords; separate with commas.`}</p>
+                      <p className="text-xs text-muted-foreground">{draft.per_equipment ? 'This template is matched to its equipment control number.' : `${keywordsList.length}/12 keywords; separate with commas.`}</p>
                     </div>
                   </div>
                   <p className="rounded-md bg-slate-50 p-3 text-xs text-slate-700">
@@ -288,10 +291,10 @@ export default function ReportTemplateUploadDialog({ onPublished, templates = []
                         <p className="text-xs text-muted-foreground">{draft.filename} · {draft.tables?.reduce((sum, group) => sum + group.fields, 0) || 0} detected input fields</p>
                       </div>
                       {draft.preview?.ok ? (
-                        <span className={`rounded-full px-2 py-1 text-[11px] font-medium ${draft.preview.errors ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'}`}>
+                        <span className={`rounded-full px-2 py-1 text-xs font-medium ${draft.preview.errors ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'}`}>
                           {draft.preview.errors ? `${draft.preview.errors} formula errors` : 'Test generated'}
                         </span>
-                      ) : <span className="rounded-full bg-red-100 px-2 py-1 text-[11px] font-medium text-red-700">Preview failed</span>}
+                      ) : <span className="rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-700">Preview failed</span>}
                     </div>
                     {draft.preview?.ok && (
                       <p className="mb-2 text-xs text-muted-foreground">

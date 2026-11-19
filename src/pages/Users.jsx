@@ -12,6 +12,7 @@ import InviteUserDialog from '@/components/users/InviteUserDialog';
 import UserActivityDialog from '@/components/users/UserActivityDialog';
 import UserProfileDialog from '@/components/users/UserProfileDialog';
 import UserRow from '@/components/users/UserRow';
+import PasswordResetDialog from '@/components/users/PasswordResetDialog';
 
 export default function Users() {
   const { data: me } = useMe();
@@ -21,6 +22,7 @@ export default function Users() {
   const [inviting, setInviting] = useState(false);
   const [activityUser, setActivityUser] = useState(null);
   const [profileUser, setProfileUser] = useState(null);
+  const [resetUser, setResetUser] = useState(null);
 
   const update = async (u, data, action, details) => {
     try {
@@ -34,14 +36,14 @@ export default function Users() {
       return false;
     }
   };
-  const reset = async (u) => {
-    const password = window.prompt(`Set a temporary password for ${u.id_number || u.username}. Use at least 10 characters.`);
-    if (!password) return;
+  const reset = async (u, password) => {
     try {
       await apiClient.users.resetPassword(u.id, password);
       toast.success('Temporary password set. Share it directly with the user.');
+      return true;
     } catch (error) {
       toast.error(error.message || 'Could not reset password');
+      return false;
     }
   };
 
@@ -56,11 +58,12 @@ export default function Users() {
             <UserRow key={u.id} u={u} isSelf={u.id === me?.id} activityCount={logs.filter((l) => l.user_email === u.email).length}
               onRole={(role) => update(u, { role }, 'user_role', `${u.role === 'admin' ? 'ADMIN' : 'STAFF'} → ${role === 'admin' ? 'ADMIN' : 'STAFF'}`)}
               onToggle={() => update(u, { disabled: !u.disabled }, u.disabled ? 'user_enable' : 'user_disable')}
-              onReset={() => reset(u)} onActivity={() => setActivityUser(u)} onEdit={() => setProfileUser(u)} />
+              onReset={() => setResetUser(u)} onActivity={() => setActivityUser(u)} onEdit={() => setProfileUser(u)} />
           ))}
         </div>
       )}
       <InviteUserDialog open={inviting} onClose={() => { setInviting(false); invalidate('users'); }} me={me} />
+      <PasswordResetDialog user={resetUser} onClose={() => setResetUser(null)} onSubmit={reset} />
       <UserActivityDialog user={activityUser} logs={logs} onClose={() => setActivityUser(null)} />
       <UserProfileDialog user={profileUser} onClose={() => setProfileUser(null)} onSave={(user, values) => update(user, values, 'user_profile', 'Updated report name, position, or signature')} />
     </div>

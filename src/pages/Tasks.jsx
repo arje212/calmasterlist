@@ -17,7 +17,7 @@ import TaskDialog from '@/components/tasks/TaskDialog';
 import Avatar from '@/components/tasks/Avatar';
 import { MyPanel, TeamPanel } from '@/components/tasks/TaskSidePanel';
 
-const selectCls = 'h-11 rounded-[10px] border border-[#e0daf5] bg-white px-3 text-[13px] font-semibold text-[#1b1740] focus:outline-none focus:ring-2 focus:ring-[#7c5cfc]';
+const selectCls = 'h-11 rounded-[10px] border border-slate-200 bg-white px-3 text-[13px] font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary';
 
 export default function Tasks() {
   const { data: me } = useMe();
@@ -163,13 +163,13 @@ export default function Tasks() {
   return (
     <div>
       <PageHeader eyebrow="Workspace" title="Tasks" description={`${openCount} open ${team ? 'across the team' : 'for you'}`}>
-        <div className="flex overflow-hidden rounded-[10px] border border-[#e0daf5]" role="group" aria-label="Board view">
+        <div className="flex overflow-hidden rounded-[10px] border border-slate-200" role="group" aria-label="Board view">
           {[['mine', 'My tasks'], ['team', 'Team board']].map(([k, label]) => (
             <button key={k} aria-pressed={scope === k} onClick={() => setScope(k)}
-              className={cn('min-h-[44px] px-4 text-[13px] font-semibold', scope === k ? 'bg-[#7c5cfc] text-white' : 'bg-white text-[#1b1740]')}>{label}</button>
+              className={cn('min-h-[44px] px-4 text-[13px] font-semibold', scope === k ? 'bg-primary text-white' : 'bg-white text-slate-900')}>{label}</button>
           ))}
         </div>
-        <Button className="h-11 gap-2 bg-[#7c5cfc] hover:bg-[#6a49f0]" onClick={() => openNew()}><Plus className="h-4 w-4" />New task</Button>
+        <Button className="h-11 gap-2 bg-primary hover:bg-primary/90" onClick={() => openNew()}><Plus className="h-4 w-4" />New task</Button>
       </PageHeader>
 
       {usingLocalTasks() && (
@@ -179,17 +179,17 @@ export default function Tasks() {
       )}
 
       <div className="mb-5 flex flex-wrap items-center gap-2.5">
-        <label className="flex h-11 min-w-[220px] max-w-[360px] flex-1 items-center gap-2.5 rounded-[10px] border border-[#e0daf5] bg-white px-3 text-sm focus-within:ring-2 focus-within:ring-[#7c5cfc]">
-          <Search className="h-4 w-4 text-[#5b5675]" />
+        <label className="flex h-11 min-w-[220px] max-w-[360px] flex-1 items-center gap-2.5 rounded-[10px] border border-slate-200 bg-white px-3 text-sm focus-within:ring-2 focus-within:ring-primary">
+          <Search className="h-4 w-4 text-slate-600" />
           <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search tasks" aria-label="Search tasks" className="w-full bg-transparent outline-none" />
         </label>
         {team && (
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by person">
             <button aria-pressed={person === 'all'} onClick={() => setPerson('all')}
-              className={cn('min-h-[44px] rounded-full border px-4 text-[13px] font-semibold', person === 'all' ? 'border-[#7c5cfc] bg-[#7c5cfc] text-white' : 'border-[#e0daf5] bg-white')}>All people</button>
+              className={cn('min-h-[44px] rounded-full border px-4 text-[13px] font-semibold', person === 'all' ? 'border-primary bg-primary text-white' : 'border-slate-200 bg-white')}>All people</button>
             {people.map((p) => (
               <button key={p.email} aria-pressed={person === p.email} onClick={() => setPerson(p.email)}
-                className={cn('flex min-h-[44px] items-center gap-2 rounded-full border px-3 text-[13px] font-semibold', person === p.email ? 'border-[#7c5cfc] bg-[#7c5cfc] text-white' : 'border-[#e0daf5] bg-white')}>
+                className={cn('flex min-h-[44px] items-center gap-2 rounded-full border px-3 text-[13px] font-semibold', person === p.email ? 'border-primary bg-primary text-white' : 'border-slate-200 bg-white')}>
                 <Avatar person={p} size={22} ring={false} />{p.name}
               </button>
             ))}
@@ -211,18 +211,18 @@ export default function Tasks() {
           <DragDropContext onDragEnd={onDragEnd}>
             <div className="grid min-w-0 flex-1 gap-4 md:grid-cols-2 min-[1500px]:grid-cols-4">
               {columns.map((col) => (
-                <section key={col.key} aria-label={col.label} className="rounded-2xl bg-[#ece8fb]/50 p-3">
+                <section key={col.key} aria-label={col.label} className="rounded-2xl bg-slate-100/50 p-3">
                   <div className="mb-3 flex items-center justify-between px-1">
-                    <h3 className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.12em] text-[#5b5675]">
+                    <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[.12em] text-slate-600">
                       <span className="h-2 w-2 rounded-[3px]" style={{ background: col.color }} />{col.label}
                       <Chip>{col.items.length}</Chip>
                     </h3>
                     <button aria-label={`Add task to ${col.label}`} onClick={() => openNew(col.key)}
-                      className="flex h-11 w-11 items-center justify-center rounded-[10px] text-[#5b21b6] hover:bg-white/70"><Plus className="h-4 w-4" /></button>
+                      className="flex h-11 w-11 items-center justify-center rounded-[10px] text-primary hover:bg-white/70"><Plus className="h-4 w-4" /></button>
                   </div>
                   <Droppable droppableId={col.key}>
                     {(prov, snap) => (
-                      <div ref={prov.innerRef} {...prov.droppableProps} className={cn('flex min-h-[120px] flex-col gap-3 rounded-xl transition-colors', snap.isDraggingOver && 'bg-[#7c5cfc]/10')}>
+                      <div ref={prov.innerRef} {...prov.droppableProps} className={cn('flex min-h-[120px] flex-col gap-3 rounded-xl transition-colors', snap.isDraggingOver && 'bg-primary/10')}>
                         {col.items.map((t, i) => (
                           <Draggable key={t.id} draggableId={String(t.id)} index={i} isDragDisabled={!canEdit(t)}>
                             {(p, s) => (
@@ -234,8 +234,8 @@ export default function Tasks() {
                         ))}
                         {prov.placeholder}
                         {col.items.length === 0 && !snap.isDraggingOver && (
-                          <div className="flex flex-1 flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-[#d9d0fb] py-8 text-xs text-[#5b5675]">
-                            <ClipboardList className="h-5 w-5 text-[#b9a9f7]" />No tasks here
+                          <div className="flex flex-1 flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-slate-300 py-8 text-xs text-slate-600">
+                            <ClipboardList className="h-5 w-5 text-slate-500" />No tasks here
                           </div>
                         )}
                       </div>

@@ -22,7 +22,7 @@ export default function StatusHero({ e }) {
   return (
     <div className="panel overflow-hidden">
       <div className={`${m.hero} px-6 py-6 text-white relative`}>
-        <p className="text-[11px] uppercase tracking-[0.2em] opacity-80">Current Status</p>
+        <p className="text-xs uppercase tracking-[0.2em] opacity-80">Current Status</p>
         <div className="flex items-center gap-3 mt-2">
           <span className="h-4 w-4 rounded-full bg-white/90 ring-4 ring-white/30 animate-pulse" />
           <p className="text-3xl font-semibold tracking-tight uppercase">{m.label}</p>

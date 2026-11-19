@@ -7,7 +7,7 @@ export default function DueCell({ date, days }) {
   return (
     <div className="leading-tight">
       <p className="font-mono text-[12px] text-slate-800">{fmtDate(date)}</p>
-      <p className={`text-[11px] ${tone}`}>{days < 0 ? `${Math.abs(days)}d overdue` : days === 0 ? 'Due today' : `${days}d left`}</p>
+      <p className={`text-xs ${tone}`}>{days < 0 ? `${Math.abs(days)}d overdue` : days === 0 ? 'Due today' : `${days}d left`}</p>
     </div>
   );
 }

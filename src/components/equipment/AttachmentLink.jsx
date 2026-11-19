@@ -26,7 +26,7 @@ export default function AttachmentLink({ uri, name }) {
     }
   };
   return (
-    <button onClick={open} className="inline-flex items-center gap-1 text-[11px] text-primary hover:underline max-w-[180px]">
+    <button onClick={open} className="inline-flex items-center gap-1 text-xs text-primary hover:underline max-w-[180px]">
       {busy ? <Loader2 className="h-3 w-3 animate-spin" /> : <Paperclip className="h-3 w-3" />}
       <span className="truncate">{name || 'Attachment'}</span>
     </button>

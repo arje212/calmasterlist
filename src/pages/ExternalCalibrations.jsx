@@ -212,7 +212,7 @@ function CheckRecordDialog({ rows, providers, defaultDate, onClose }) {
         </div>
 
         <div className="mt-4 rounded-lg border">
-          <div className="grid grid-cols-[1fr_150px_64px_64px] gap-2 border-b bg-slate-50 px-3 py-2 text-[11px] font-medium text-muted-foreground"><span>Equipment</span><span>Calibration range</span><span>PHY</span><span>FUN</span></div>
+          <div className="grid grid-cols-[1fr_150px_64px_64px] gap-2 border-b bg-slate-50 px-3 py-2 text-xs font-medium text-muted-foreground"><span>Equipment</span><span>Calibration range</span><span>PHY</span><span>FUN</span></div>
           <div className="max-h-48 divide-y overflow-y-auto">
             {items.map((it) => (
               <div key={it.id} className="grid grid-cols-[1fr_150px_64px_64px] items-center gap-2 px-3 py-1.5 text-sm">
@@ -226,7 +226,7 @@ function CheckRecordDialog({ rows, providers, defaultDate, onClose }) {
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-[11px] text-muted-foreground">PHY: 1 = no physical damage, 2 = with damage · FUN: A = no functional issue, B = with issues. Received condition, signatures and names are left blank for handwriting.</p>
+          <p className="text-xs text-muted-foreground">PHY: 1 = no physical damage, 2 = with damage · FUN: A = no functional issue, B = with issues. Received condition, signatures and names are left blank for handwriting.</p>
           <div className="flex gap-2"><Button type="button" variant="outline" onClick={onClose}>Cancel</Button><Button type="button" className="gap-2" onClick={() => window.print()}><Printer className="h-4 w-4" />Print</Button></div>
         </div>
       </div>
@@ -331,7 +331,7 @@ function Stepper({ cycle }) {
           );
         })}
       </div>
-      <p className="mt-1 text-[11px] font-medium" style={{ color: stage ? stage.color : NOT_STARTED_COLOR }}>{stage ? stage.label : 'Not Started'}</p>
+      <p className="mt-1 text-xs font-medium" style={{ color: stage ? stage.color : NOT_STARTED_COLOR }}>{stage ? stage.label : 'Not Started'}</p>
     </div>
   );
 }
@@ -434,7 +434,7 @@ function PlanBatchDialog({ rows, providers, me, refresh, onClose, onDone }) {
       </div>
 
       <div className="mt-4 overflow-hidden rounded-lg border">
-        <div className="grid grid-cols-[28px_1fr_90px_minmax(120px,1fr)] gap-2 border-b bg-slate-50 px-3 py-2 text-[11px] font-medium text-muted-foreground"><span /><span>Equipment</span><span>Due</span><span>Status</span></div>
+        <div className="grid grid-cols-[28px_1fr_90px_minmax(120px,1fr)] gap-2 border-b bg-slate-50 px-3 py-2 text-xs font-medium text-muted-foreground"><span /><span>Equipment</span><span>Due</span><span>Status</span></div>
         <div className="max-h-72 divide-y overflow-y-auto">
           {rows.map((row) => {
             const eligible = canPlanRow(row);
@@ -531,7 +531,7 @@ function SendBatchDialog({ rows, me, refresh, onClose, onDone }) {
         <label className="block space-y-1 text-xs"><span className="text-muted-foreground">Received by (provider representative) *</span><input value={receivedBy} onChange={(event) => setReceivedBy(event.target.value)} className={FIELD} /></label>
       </div>
       <div className="mt-4 overflow-hidden rounded-lg border">
-        <div className="grid grid-cols-[1fr_minmax(110px,0.7fr)_64px_64px_minmax(70px,0.5fr)] gap-2 border-b bg-slate-50 px-3 py-2 text-[11px] font-medium text-muted-foreground"><span>Equipment</span><span>Provider</span><span>PHY</span><span>FUN</span><span /></div>
+        <div className="grid grid-cols-[1fr_minmax(110px,0.7fr)_64px_64px_minmax(70px,0.5fr)] gap-2 border-b bg-slate-50 px-3 py-2 text-xs font-medium text-muted-foreground"><span>Equipment</span><span>Provider</span><span>PHY</span><span>FUN</span><span /></div>
         <div className="max-h-64 divide-y overflow-y-auto">
           {rows.map((row) => {
             const k = conditionOf(row);
@@ -547,7 +547,7 @@ function SendBatchDialog({ rows, me, refresh, onClose, onDone }) {
           })}
         </div>
       </div>
-      <p className="mt-2 text-[11px] text-muted-foreground">PHY: 1 = no physical damage, 2 = with damage · FUN: A = no functional issue, B = with issues (initial condition when it leaves).</p>
+      <p className="mt-2 text-xs text-muted-foreground">PHY: 1 = no physical damage, 2 = with damage · FUN: A = no functional issue, B = with issues (initial condition when it leaves).</p>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
         <label className="flex items-center gap-2 text-xs"><input type="checkbox" checked={printAfter} onChange={(event) => setPrintAfter(event.target.checked)} className="h-4 w-4 rounded border-slate-300" />Open the check record to print after marking</label>
         <div className="flex gap-2">
@@ -620,7 +620,7 @@ export default function ExternalCalibrations() {
             <button key={t.key} type="button" onClick={() => setFilter(filter === t.filter ? 'all' : t.filter)} aria-pressed={filter === t.filter}
               className={`rounded-lg bg-slate-50 px-3 py-2.5 text-left transition-colors hover:bg-slate-100 ${filter === t.filter ? 'ring-2 ring-slate-400' : ''}`} style={{ borderTop: `3px solid ${t.color}` }}>
               <p className="text-2xl font-semibold tabular-nums leading-tight">{t.n}</p>
-              <p className="text-[11px] text-muted-foreground mt-0.5">{t.label}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">{t.label}</p>
             </button>
           ))}
         </div>
@@ -672,18 +672,18 @@ export default function ExternalCalibrations() {
                   <input type="checkbox" checked={picked.has(row.id)} onChange={() => togglePick(row.id)} aria-label={`Select ${row.equipment_code}`} className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300" />
                   <div className="min-w-0">
                     <Link to={`/equipment/${row.id}`} className="font-medium text-primary hover:underline">{row.equipment_name}</Link>
-                    <p className="font-mono text-[11px] text-muted-foreground">{row.equipment_code} · {row.serial_number || 'No serial'}</p>
-                    <p className="text-[11px] text-muted-foreground">{row.cycle?.provider ? `${row.cycle.provider}${row.cycle.po_number ? ` · PO ${row.cycle.po_number}` : ''}${row.cycle.status === 'planned' && row.cycle.target_send_date ? ` · send ${fmtDate(row.cycle.target_send_date, 'dd MMM')}` : ''}` : 'Provider not assigned'}</p>
+                    <p className="font-mono text-xs text-muted-foreground">{row.equipment_code} · {row.serial_number || 'No serial'}</p>
+                    <p className="text-xs text-muted-foreground">{row.cycle?.provider ? `${row.cycle.provider}${row.cycle.po_number ? ` · PO ${row.cycle.po_number}` : ''}${row.cycle.status === 'planned' && row.cycle.target_send_date ? ` · send ${fmtDate(row.cycle.target_send_date, 'dd MMM')}` : ''}` : 'Provider not assigned'}</p>
                   </div>
                 </div>
                 <div>
                   <p className="font-mono text-xs">{fmtDate(row.next_due)}</p>
-                  {row.days_left !== null && <p className="mt-0.5 text-[11px] text-muted-foreground">{row.days_left < 0 ? `${Math.abs(row.days_left)} days overdue` : row.days_left === 0 ? 'Due today' : `${row.days_left} days left`}</p>}
-                  {meta && <p className="mt-1 inline-flex items-center gap-1.5 text-[11px] font-medium"><span className="h-[7px] w-[7px] rounded-full" style={{ background: meta.hex }} />{meta.label}</p>}
+                  {row.days_left !== null && <p className="mt-0.5 text-xs text-muted-foreground">{row.days_left < 0 ? `${Math.abs(row.days_left)} days overdue` : row.days_left === 0 ? 'Due today' : `${row.days_left} days left`}</p>}
+                  {meta && <p className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium"><span className="h-[7px] w-[7px] rounded-full" style={{ background: meta.hex }} />{meta.label}</p>}
                 </div>
                 <div>
                   <Stepper cycle={row.cycle} />
-                  {row.cycle?.certificate_review_status === 'rejected' && <p className="mt-1 text-[11px] text-red-600">Certificate needs follow-up</p>}
+                  {row.cycle?.certificate_review_status === 'rejected' && <p className="mt-1 text-xs text-red-600">Certificate needs follow-up</p>}
                 </div>
                 <div className="flex items-center gap-2 md:justify-end">
                   <Button size="icon" variant="ghost" className="h-8 w-8" title="Print check record" aria-label={`Print check record for ${row.equipment_code}`} onClick={() => setPrintRows([row])}><Printer className="h-4 w-4" /></Button>

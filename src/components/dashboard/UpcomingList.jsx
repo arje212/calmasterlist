@@ -16,7 +16,7 @@ export default function UpcomingList({ equipment }) {
             <Link key={e.id} to={`/equipment/${e.id}`} className="flex items-center justify-between py-3 gap-3 group">
               <div className="min-w-0">
                 <p className="text-sm font-medium truncate group-hover:text-primary transition-colors">{e.equipment_name}</p>
-                <p className="text-[11px] font-mono text-muted-foreground">{e.equipment_code} · {e.department}</p>
+                <p className="text-xs font-mono text-muted-foreground">{e.equipment_code} · {e.department}</p>
               </div>
               <div className="flex items-center gap-3 shrink-0"><DueCell date={e.next_due} days={e.days_left} /><span className="hidden sm:inline"><StatusBadge status={e.status} /></span></div>
             </Link>

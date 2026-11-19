@@ -48,32 +48,32 @@ function ForVerify({ equipment }) {
       <div className="mt-4 flex flex-wrap gap-2.5">
         {FV_TABS.map((t) => (
           <button key={t.k} aria-pressed={tab === t.k} onClick={() => setTab(t.k)}
-            className={cn('flex min-h-[44px] items-center gap-2 rounded-full border px-3.5 text-[13px] font-semibold', tab === t.k ? 'border-[#7c5cfc] bg-[#7c5cfc] text-white' : 'border-[#e0daf5] bg-white')}>
+            className={cn('flex min-h-[44px] items-center gap-2 rounded-full border px-3.5 text-[13px] font-semibold', tab === t.k ? 'border-primary bg-primary text-white' : 'border-slate-200 bg-white')}>
             {t.label}
-            <span className={cn('rounded-full px-2 py-0.5 text-xs', tab === t.k ? 'bg-white/25 text-white' : 'bg-[#f1ecff] text-[#5b21b6]')}>{count(t.k)}</span>
+            <span className={cn('rounded-full px-2 py-0.5 text-xs', tab === t.k ? 'bg-white/25 text-white' : 'bg-blue-50 text-primary')}>{count(t.k)}</span>
           </button>
         ))}
       </div>
       <div className="mt-3 overflow-x-auto">
         <table className="w-full min-w-[760px] text-[13px]">
           <thead>
-            <tr className="border-b border-[#ece8fb] text-left text-[11px] font-semibold uppercase tracking-[.08em] text-[#5b5675]">
+            <tr className="border-b border-slate-200 text-left text-xs font-semibold uppercase tracking-[.08em] text-slate-600">
               <th className="px-3 py-2.5">Control no.</th><th className="px-3 py-2.5">Equipment</th><th className="px-3 py-2.5">Department</th><th className="px-3 py-2.5">Due date</th><th className="px-3 py-2.5">Days left</th><th className="px-3 py-2.5">Status</th>
             </tr>
           </thead>
           <tbody>
-            {rows.length === 0 && <tr><td colSpan={6} className="px-3 py-8 text-center text-[#5b5675]">Nothing to verify in this group.</td></tr>}
+            {rows.length === 0 && <tr><td colSpan={6} className="px-3 py-8 text-center text-slate-600">Nothing to verify in this group.</td></tr>}
             {rows.map(({ e, due }) => {
               const d = due ? new Date(due) : null;
               const ok = d && !Number.isNaN(d.getTime());
               const left = ok ? differenceInDays(d, new Date()) : null;
               const [tone, label] = statusChip[e.status];
               return (
-                <tr key={e.id} className="border-b border-[#f1eefb]">
+                <tr key={e.id} className="border-b border-slate-200">
                   <td className="px-3 py-3 font-bold">{pick(e.asset_id, e.control_number, e.control_no, e.id) || '—'}</td>
-                  <td className="px-3 py-3 text-[#5b5675]">{pick(e.equipment_name, e.name) || '—'}</td>
-                  <td className="px-3 py-3 text-[#5b5675]">{pick(e.department) || '—'}</td>
-                  <td className="px-3 py-3 text-[#5b5675]">{ok ? format(d, 'd MMM yyyy') : '—'}</td>
+                  <td className="px-3 py-3 text-slate-600">{pick(e.equipment_name, e.name) || '—'}</td>
+                  <td className="px-3 py-3 text-slate-600">{pick(e.department) || '—'}</td>
+                  <td className="px-3 py-3 text-slate-600">{ok ? format(d, 'd MMM yyyy') : '—'}</td>
                   <td className={cn('px-3 py-3 tabular-nums', left != null && left < 0 && 'font-semibold text-red-700')}>{left == null ? '—' : left}</td>
                   <td className="px-3 py-3"><Chip tone={tone}>{label}</Chip></td>
                 </tr>
@@ -107,17 +107,17 @@ export default function ActionPlanSection({ equipment = [], reports = [] }) {
     <div className="mb-6 flex flex-col gap-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <div className="text-[11px] font-semibold uppercase tracking-[.14em] text-[#5b5675]">{plan.year} Action Plan</div>
-          <h2 className="mt-1.5 text-2xl font-extrabold tracking-tight text-[#1b1740]">Savings Projects and Budget</h2>
+          <div className="text-xs font-semibold uppercase tracking-[.14em] text-slate-600">{plan.year} Action Plan</div>
+          <h2 className="mt-1.5 text-2xl font-extrabold tracking-tight text-slate-900">Savings Projects and Budget</h2>
         </div>
         <div className="flex flex-wrap items-center gap-2.5">
-          <div className="flex overflow-hidden rounded-[10px] border border-[#e0daf5]" role="group" aria-label="Currency">
+          <div className="flex overflow-hidden rounded-[10px] border border-slate-200" role="group" aria-label="Currency">
             {['USD', 'PHP'].map((x) => (
-              <button key={x} aria-pressed={cur === x} onClick={() => setCur(x)} className={cn('min-h-[40px] px-4 text-[13px] font-semibold', cur === x ? 'bg-[#7c5cfc] text-white' : 'bg-white')}>{x}</button>
+              <button key={x} aria-pressed={cur === x} onClick={() => setCur(x)} className={cn('min-h-[40px] px-4 text-[13px] font-semibold', cur === x ? 'bg-primary text-white' : 'bg-white')}>{x}</button>
             ))}
           </div>
           <Button variant="outline" className="gap-2" onClick={() => downloadCsv(`action-plan-${plan.year}.csv`, planToCsv(plan, c))}><Download className="h-4 w-4" />Export CSV</Button>
-          <Button asChild className="gap-2 bg-[#7c5cfc] hover:bg-[#6a49f0]"><Link to="/budget"><PencilLine className="h-4 w-4" />Encode budget</Link></Button>
+          <Button asChild className="gap-2 bg-primary hover:bg-primary/90"><Link to="/budget"><PencilLine className="h-4 w-4" />Encode budget</Link></Button>
         </div>
       </div>
 
@@ -133,7 +133,7 @@ export default function ActionPlanSection({ equipment = [], reports = [] }) {
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[820px] text-[13px]">
             <thead>
-              <tr className="border-b border-[#ece8fb] text-left text-[11px] font-semibold uppercase tracking-[.08em] text-[#5b5675]">
+              <tr className="border-b border-slate-200 text-left text-xs font-semibold uppercase tracking-[.08em] text-slate-600">
                 <th className="px-3 py-2.5">Project</th><th className="px-3 py-2.5">Cycle time</th><th className="px-3 py-2.5 text-right">Budget</th><th className="px-3 py-2.5 text-right">Actual</th><th className="px-3 py-2.5">Achievement</th><th className="px-3 py-2.5">Status</th>
               </tr>
             </thead>
@@ -141,12 +141,12 @@ export default function ActionPlanSection({ equipment = [], reports = [] }) {
               {Object.values(PROJECTS).map(({ key, name, sub }) => {
                 const x = c.projects[key].totals;
                 return (
-                  <tr key={key} className="border-b border-[#f1eefb]">
-                    <td className="px-3 py-3.5"><div className="font-bold">{name}</div><div className="mt-0.5 text-xs text-[#5b5675]">{sub}</div></td>
+                  <tr key={key} className="border-b border-slate-200">
+                    <td className="px-3 py-3.5"><div className="font-bold">{name}</div><div className="mt-0.5 text-xs text-slate-600">{sub}</div></td>
                     <td className="px-3 py-3.5">{Math.round(x.avgBefore)} → {Math.round(x.avgAfter)} min/unit</td>
                     <td className="px-3 py-3.5 text-right tabular-nums">{m(x.budget)}</td>
                     <td className="px-3 py-3.5 text-right tabular-nums">{m(x.actual)}</td>
-                    <td className="px-3 py-3.5"><div className="flex items-center gap-2"><span className="h-2 flex-1 overflow-hidden rounded-full bg-[#ece8fb]"><i className="block h-full bg-[#7c5cfc]" style={{ width: `${Math.max(0, Math.min(100, (x.ach || 0) * 100))}%` }} /></span><b className="min-w-[44px] text-right">{pct(x.ach)}</b></div></td>
+                    <td className="px-3 py-3.5"><div className="flex items-center gap-2"><span className="h-2 flex-1 overflow-hidden rounded-full bg-slate-100"><i className="block h-full bg-primary" style={{ width: `${Math.max(0, Math.min(100, (x.ach || 0) * 100))}%` }} /></span><b className="min-w-[44px] text-right">{pct(x.ach)}</b></div></td>
                     <td className="px-3 py-3.5">{x.actual == null ? <Chip tone="amber">Awaiting actual</Chip> : x.ach >= 0.9 ? <Chip tone="green">On plan</Chip> : x.ach >= 0.5 ? <Chip tone="amber">Behind plan</Chip> : <Chip tone="red">Behind plan</Chip>}</td>
                   </tr>
                 );
@@ -164,11 +164,11 @@ export default function ActionPlanSection({ equipment = [], reports = [] }) {
           <div className="mt-3 h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={cum} margin={{ top: 8, right: 12, left: -4, bottom: 0 }}>
-                <CartesianGrid stroke="#ece8fb" vertical={false} />
-                <XAxis dataKey="m" tick={{ fontSize: 11, fill: '#5b5675' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 11, fill: '#5b5675' }} axisLine={false} tickLine={false} />
+                <CartesianGrid stroke="#e2e8f0" vertical={false} />
+                <XAxis dataKey="m" tick={{ fontSize: 12, fill: '#475569' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#475569' }} axisLine={false} tickLine={false} />
                 <Tooltip formatter={(v) => `${cur} ${money(v)}`} />
-                <Line type="monotone" dataKey="Budget" stroke="#7c5cfc" strokeWidth={3} dot={false} />
+                <Line type="monotone" dataKey="Budget" stroke="#1450d2" strokeWidth={3} dot={false} />
                 <Line type="monotone" dataKey="Actual" stroke="#10b981" strokeWidth={3} dot={{ r: 3 }} connectNulls={false} />
               </LineChart>
             </ResponsiveContainer>
@@ -179,12 +179,12 @@ export default function ActionPlanSection({ equipment = [], reports = [] }) {
           <div className="mt-3 h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={bars} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
-                <CartesianGrid stroke="#ece8fb" vertical={false} />
-                <XAxis dataKey="m" tick={{ fontSize: 11, fill: '#5b5675' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 11, fill: '#5b5675' }} axisLine={false} tickLine={false} />
+                <CartesianGrid stroke="#e2e8f0" vertical={false} />
+                <XAxis dataKey="m" tick={{ fontSize: 12, fill: '#475569' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#475569' }} axisLine={false} tickLine={false} />
                 <Tooltip formatter={(v) => `${cur} ${money(v)}`} />
-                <Bar dataKey="Budget" fill="#d9d0fb" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="Actual" fill="#7c5cfc" radius={[3, 3, 0, 0]} />
+                <Bar dataKey="Budget" fill="#cbd5e1" radius={[3, 3, 0, 0]} />
+                <Bar dataKey="Actual" fill="#1450d2" radius={[3, 3, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -200,7 +200,7 @@ export default function ActionPlanSection({ equipment = [], reports = [] }) {
             {[['report', 'Report preparation'], ['sticker', 'Sticker preparation']].map(([key, title]) => {
               const x = c.projects[key].totals;
               return (
-                <div key={key} className="rounded-2xl border border-[#ece8fb] bg-[#faf9ff] p-4">
+                <div key={key} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                   <div className="mb-3.5 font-bold">{title}</div>
                   <div className="grid grid-cols-3 gap-3.5">
                     <Stat label="Steps" value={REFERENCE[key].steps} />
@@ -211,7 +211,7 @@ export default function ActionPlanSection({ equipment = [], reports = [] }) {
               );
             })}
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-3.5 border-t border-[#ece8fb] pt-4 md:grid-cols-4">
+          <div className="mt-4 grid grid-cols-2 gap-3.5 border-t border-slate-200 pt-4 md:grid-cols-4">
             <Stat label="Man cost" value={`Php${money(plan.manCost, 0)}/day`} hint={`USD ${money(c.rate)}/hr`} />
             <Stat label="Forex" value={`Php${money(plan.forex, 0)}`} hint="per USD" />
             <Stat label="Budget quantity" value={`${money(c.projects.report.totals.qty / 12, 0)} / month`} hint={`${money(c.projects.report.totals.qty, 0)} calibrations a year`} />
@@ -222,15 +222,15 @@ export default function ActionPlanSection({ equipment = [], reports = [] }) {
           <CardHeader title="Auto-computed from the app" subtitle="Fills the actual savings of both projects"><Chip tone="green">{plan.useApp ? 'Auto' : 'Off'}</Chip></CardHeader>
           <div className="mt-4 flex flex-col gap-3.5 text-[13px]">
             {[['report', 'Calibration reports', 'Approved reports'], ['sticker', 'Calibration stickers', 'Stickers printed (one per approved report)']].map(([key, title, unit]) => (
-              <div key={key} className="rounded-2xl border border-[#ece8fb] p-4">
+              <div key={key} className="rounded-2xl border border-slate-200 p-4">
                 <div className="font-bold">{title}</div>
-                <div className="mt-1 text-[#5b5675]">{unit} × {m(c.perUnit[key])}</div>
+                <div className="mt-1 text-slate-600">{unit} × {m(c.perUnit[key])}</div>
                 <div className="mt-3 flex justify-between"><span>This month</span><b>{unitsThisMonth}</b></div>
                 <div className="mt-1.5 flex justify-between"><span>This year</span><b>{unitsYear}</b></div>
                 <div className="mt-1.5 flex justify-between"><span>Savings this year</span><b>{m(unitsYear * c.perUnit[key])}</b></div>
               </div>
             ))}
-            <p className="text-xs leading-relaxed text-[#5b5675]">Savings = units × minutes saved ÷ 60 × man cost per hour. The counts come from approved reports, so nobody has to type them in. You can override any month in Budget Entry.</p>
+            <p className="text-xs leading-relaxed text-slate-600">Savings = units × minutes saved ÷ 60 × man cost per hour. The counts come from approved reports, so nobody has to type them in. You can override any month in Budget Entry.</p>
           </div>
         </Card>
       </div>

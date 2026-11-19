@@ -14,9 +14,9 @@ export default function ComplianceCard({ pct, onTime, due }) {
         <div className="absolute inset-0 flex items-center justify-center"><span className="text-3xl font-semibold tabular-nums">{pct}<span className="text-lg opacity-60">%</span></span></div>
       </div>
       <div>
-        <p className="text-[11px] uppercase tracking-[0.16em] text-blue-200/70 font-semibold">Calibration Compliance</p>
+        <p className="text-xs uppercase tracking-[0.16em] text-blue-200/70 font-semibold">Calibration Compliance</p>
         <p className="text-sm text-blue-100/80 mt-2 leading-relaxed">{onTime} of {due} due verification cycles in the last 12 months were completed on time.</p>
-        <p className="text-[11px] text-blue-200/50 mt-2 font-mono">On-time ÷ Due × 100</p>
+        <p className="text-xs text-blue-200/50 mt-2 font-mono">On-time ÷ Due × 100</p>
       </div>
     </div>
   );

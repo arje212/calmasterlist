@@ -23,13 +23,13 @@ export default function ProcedurePdfViewer({ documentId, documentType }) {
   }, [pdfQuery.data]);
 
   if (pdfQuery.isLoading || (pdfQuery.isSuccess && !pdfUrl)) {
-    return <div className="flex min-h-48 items-center justify-center text-sm text-muted-foreground"><RefreshCw className="mr-2 h-4 w-4 animate-spin" /> Binubuksan ang document…</div>;
+    return <div className="flex min-h-48 items-center justify-center text-sm text-muted-foreground"><RefreshCw className="mr-2 h-4 w-4 animate-spin" /> Opening document…</div>;
   }
   if (pdfQuery.isError) {
     return (
       <div role="alert" className="mx-auto mt-8 max-w-lg rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
-        Hindi maipakita ang file bilang document: {pdfQuery.error.message}
-        <button type="button" onClick={() => pdfQuery.refetch()} className="ml-2 font-semibold underline">Subukan ulit</button>
+        Could not display the file as a document: {pdfQuery.error.message}
+        <button type="button" onClick={() => pdfQuery.refetch()} className="ml-2 font-semibold underline">Try again</button>
       </div>
     );
   }

@@ -1,29 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bell } from 'lucide-react';
-import { addDays } from 'date-fns';
-import { isoDate, today } from '@/lib/calibration';
+import { FileWarning, Hourglass, OctagonAlert } from 'lucide-react';
 
-export default function AlertStrip({ equipment, reports, me, settings }) {
-  const near = equipment.filter((e) => e.days_left !== null && e.days_left >= 0 && e.days_left <= Number(settings.near_days)).length;
-  const nearDueRange = { from: today(), to: isoDate(addDays(new Date(), Number(settings.near_days))) };
+const plural = (n, one, many) => (n === 1 ? one : many);
+
+// "Needs attention" strip. It uses the same status buckets as the stat cards below it
+// (Expired / Near Expiration), so the numbers here always match the cards and the Masterlist filter they open.
+export default function AlertStrip({ equipment, reports, me }) {
   const expired = equipment.filter((e) => e.status === 'expired').length;
+  const nearExpiration = equipment.filter((e) => e.status === 'due_soon').length;
   const action = me?.role === 'admin'
     ? reports.filter((r) => ['submitted', 'reviewed'].includes(r.status)).length
     : reports.filter((r) => r.created_by_id === me?.id && ['rejected', 'draft'].includes(r.status)).length;
   const alerts = [
-    near > 0 && { text: `${near} equipment are due within ${settings.near_days} days.`, to: `/masterlist?from=${nearDueRange.from}&to=${nearDueRange.to}`, tone: 'text-yellow-800 bg-yellow-50 border-yellow-200' },
-    action > 0 && { text: `${action} reports require action.`, to: '/reports', tone: 'text-blue-800 bg-blue-50 border-blue-200' },
-    expired > 0 && { text: `${expired} equipment are already expired.`, to: '/masterlist?status=expired', tone: 'text-red-800 bg-red-50 border-red-200' },
+    expired > 0 && { text: `${expired} equipment ${plural(expired, 'is', 'are')} expired — verify now.`, to: '/masterlist?status=expired', tone: 'text-red-900 bg-red-50 border-red-200', icon: OctagonAlert },
+    nearExpiration > 0 && { text: `${nearExpiration} equipment ${plural(nearExpiration, 'is', 'are')} near expiration.`, to: '/masterlist?status=due_soon', tone: 'text-orange-900 bg-orange-50 border-orange-200', icon: Hourglass },
+    action > 0 && { text: `${action} ${plural(action, 'report requires', 'reports require')} your action.`, to: '/reports', tone: 'text-blue-900 bg-blue-50 border-blue-200', icon: FileWarning },
   ].filter(Boolean);
   if (!alerts.length) return null;
   return (
-    <div className="grid md:grid-cols-3 gap-3 mb-6 fade-up">
+    <section aria-label="Needs attention" className="grid md:grid-cols-3 gap-3 mb-6 fade-up">
       {alerts.map((a) => (
-        <Link key={a.text} to={a.to} className={`flex items-center gap-2.5 rounded-lg border px-4 py-3 text-sm hover:shadow-sm transition-shadow ${a.tone}`}>
-          <Bell className="h-4 w-4 shrink-0" />{a.text}
+        <Link key={a.text} to={a.to} className={`flex items-center gap-2.5 rounded-lg border px-4 py-3 text-sm font-medium hover:shadow-sm transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${a.tone}`}>
+          <a.icon className="h-4 w-4 shrink-0" aria-hidden="true" />{a.text}
         </Link>
       ))}
-    </div>
+    </section>
   );
 }

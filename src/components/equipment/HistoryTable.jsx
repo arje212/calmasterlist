@@ -39,9 +39,9 @@ export default function HistoryTable({ history, reports }) {
                 const r = reportFor(vr);
                 return (
                   <tr key={vr.id} className="border-b last:border-0 align-top">
-                    <td className="py-3 pr-4 font-mono text-[12px] whitespace-nowrap">{fmtDate(vr.verification_date)}<p className="text-[10px] text-muted-foreground">Next: {fmtDate(vr.next_due_date)}</p></td>
+                    <td className="py-3 pr-4 font-mono text-[12px] whitespace-nowrap">{fmtDate(vr.verification_date)}<p className="text-xs text-muted-foreground">Next: {fmtDate(vr.next_due_date)}</p></td>
                     <td className="py-3 pr-4"><ResultBadge result={vr.result} /></td>
-                    <td className="py-3 pr-4 font-mono text-[12px]">{r ? <Link className="text-primary hover:underline" to={`/reports/${r.id}`}>{r.report_number}</Link> : <span className="text-red-600 text-[11px] font-sans font-semibold">REPORT REQUIRED</span>}</td>
+                    <td className="py-3 pr-4 font-mono text-[12px]">{r ? <Link className="text-primary hover:underline" to={`/reports/${r.id}`}>{r.report_number}</Link> : <span className="text-red-600 text-xs font-sans font-semibold">REPORT REQUIRED</span>}</td>
                     <td className="py-3 pr-4 text-[12px]">{vr.verified_by_name}</td>
                     <td className="py-3 pr-4 text-[12px] text-muted-foreground max-w-xs">{vr.remarks || vr.findings || '—'}</td>
                     <td className="py-3 pr-4">

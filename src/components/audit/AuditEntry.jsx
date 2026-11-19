@@ -9,11 +9,11 @@ export default function AuditEntry({ log, showEntity = true }) {
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <p className="text-sm">
           <span className="font-semibold text-slate-900">{log.user_name}</span>
-          <span className={`ml-2 text-[10px] font-semibold tracking-wider rounded px-1.5 py-0.5 ${log.user_role === 'ADMIN' ? 'bg-blue-50 text-blue-700' : 'bg-slate-100 text-slate-600'}`}>{log.user_role}</span>
+          <span className={`ml-2 text-xs font-semibold tracking-wider rounded px-1.5 py-0.5 ${log.user_role === 'ADMIN' ? 'bg-blue-50 text-blue-700' : 'bg-slate-100 text-slate-600'}`}>{log.user_role}</span>
           <span className="text-muted-foreground"> · {ACTION_LABELS[log.action] || log.action}</span>
           {showEntity && log.entity_label && <span className="font-mono text-[12px] text-primary ml-1">{log.entity_label}</span>}
         </p>
-        <p className="text-[11px] text-muted-foreground font-mono">{format(new Date(log.created_date), 'MMM d, yyyy · HH:mm')}</p>
+        <p className="text-xs text-muted-foreground font-mono">{format(new Date(log.created_date), 'MMM d, yyyy · HH:mm')}</p>
       </div>
       {log.details && <p className="text-xs text-muted-foreground mt-1">{log.details}</p>}
       {log.changes?.length > 0 && (

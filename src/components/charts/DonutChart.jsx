@@ -48,7 +48,7 @@ export default function DonutChart({ title, data, centerLabel, onSelect }) {
           </ResponsiveContainer>
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
             <p className="text-2xl font-semibold tabular-nums">{shown}</p>
-            <p className="text-[10px] uppercase tracking-wider text-muted-foreground">{centerLabel}</p>
+            <p className="text-xs uppercase tracking-wider text-muted-foreground">{centerLabel}</p>
           </div>
         </div>
 

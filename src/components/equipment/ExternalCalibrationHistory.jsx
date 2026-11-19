@@ -22,7 +22,7 @@ export default function ExternalCalibrationHistory({ cycles, onOpen }) {
             <tbody>{history.map((cycle) => (
                 <tr key={cycle.id} className="border-b last:border-0">
                 <td className="py-3 pr-4 font-medium">{cycle.provider}</td>
-                  <td className="py-3 pr-4"><span className={`rounded px-2 py-1 text-[10px] font-semibold ${displayStatus(cycle) === 'completed' ? 'bg-emerald-50 text-emerald-700' : displayStatus(cycle) === 'certificate_review' ? 'bg-violet-50 text-violet-700' : displayStatus(cycle) === 'returned' ? 'bg-orange-50 text-orange-700' : displayStatus(cycle) === 'sent' ? 'bg-amber-50 text-amber-700' : 'bg-blue-50 text-blue-700'}`}>{STAGES[displayStatus(cycle)] || cycle.status}</span>{cycle.certificate_review_status === 'rejected' && <p className="mt-1 text-[10px] text-red-600">Certificate rejected</p>}</td>
+                  <td className="py-3 pr-4"><span className={`rounded px-2 py-1 text-xs font-semibold ${displayStatus(cycle) === 'completed' ? 'bg-emerald-50 text-emerald-700' : displayStatus(cycle) === 'certificate_review' ? 'bg-violet-50 text-violet-700' : displayStatus(cycle) === 'returned' ? 'bg-orange-50 text-orange-700' : displayStatus(cycle) === 'sent' ? 'bg-amber-50 text-amber-700' : 'bg-blue-50 text-blue-700'}`}>{STAGES[displayStatus(cycle)] || cycle.status}</span>{cycle.certificate_review_status === 'rejected' && <p className="mt-1 text-xs text-red-600">Certificate rejected</p>}</td>
                 <td className="py-3 pr-4 font-mono text-xs">{fmtDate(cycle.sent_date)}</td>
                 <td className="py-3 pr-4 font-mono text-xs">{fmtDate(cycle.returned_date)}</td>
                 <td className="py-3 pr-4">{RESULT_META[cycle.calibration_result]?.label || '—'}</td>

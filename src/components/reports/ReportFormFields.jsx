@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useConfirm } from '@/components/common/ConfirmDialog';
 import { Plus, Trash2, Info } from 'lucide-react';
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
@@ -174,7 +175,7 @@ function InputGroup({ group, inputs, onChange, disabled }) {
       aria-label={f.label}
       title={f.label}
       {...gridProps}
-      className={compact ? 'h-8 min-w-[4.5rem] px-1.5 text-[11px]' : undefined}
+      className={compact ? 'h-8 min-w-[4.5rem] px-1.5 text-xs' : undefined}
     />
   );
 
@@ -184,7 +185,7 @@ function InputGroup({ group, inputs, onChange, disabled }) {
         <p className="eyebrow">{group.title}</p>
         <div className="grid sm:grid-cols-2 gap-4">
           {fields.map((f) => (
-            <div key={f.id} className="space-y-1"><Label className="text-[11px]">{f.label}</Label>{control(f, false)}</div>
+            <div key={f.id} className="space-y-1"><Label className="text-xs">{f.label}</Label>{control(f, false)}</div>
           ))}
         </div>
       </div>
@@ -204,7 +205,7 @@ function InputGroup({ group, inputs, onChange, disabled }) {
     <div className="space-y-2">
       <Label className="text-xs font-semibold">{group.title}</Label>
       <div className="overflow-x-auto border rounded-lg">
-        <table className="w-full text-[11px]">
+        <table className="w-full text-xs">
           <thead className="bg-slate-50">
             <tr>
               <th className={`${thBase} text-left`} />
@@ -246,7 +247,7 @@ function CaliperSections({ data, setData, disabled }) {
   const setPar = (ri, key, value) => setData('parallelism', parallel.map((r, j) => (j !== ri ? r : { ...r, [key]: value })));
   const setStab = (key) => (e) => setData('stabilization', { ...stab, [key]: e.target.value });
 
-  const inp = (value, onChange) => <Input value={value || ''} onChange={onChange} disabled={disabled} className="h-8 text-[11px] px-1.5" {...gridProps} />;
+  const inp = (value, onChange) => <Input value={value || ''} onChange={onChange} disabled={disabled} className="h-8 text-xs px-1.5" {...gridProps} />;
   const dispCls = (d) => (d === 'PASSED' ? 'text-emerald-700' : d === 'FAILED' ? 'text-red-600' : '');
 
   return (
@@ -254,18 +255,18 @@ function CaliperSections({ data, setData, disabled }) {
       <div className="rounded-lg border p-4 space-y-4">
         <p className="eyebrow">Equipment Under Test (extra details)</p>
         <div className="grid sm:grid-cols-2 gap-4">
-          <div className="space-y-1"><Label className="text-[11px]">Range</Label><Input value={data.range || ''} onChange={(e) => setData('range', e.target.value)} disabled={disabled} placeholder="0 ~ 150 mm" /></div>
-          <div className="space-y-1"><Label className="text-[11px]">Status</Label><Input value={data.status || ''} onChange={(e) => setData('status', e.target.value)} disabled={disabled} placeholder="Partial / Full" /></div>
+          <div className="space-y-1"><Label className="text-xs">Range</Label><Input value={data.range || ''} onChange={(e) => setData('range', e.target.value)} disabled={disabled} placeholder="0 ~ 150 mm" /></div>
+          <div className="space-y-1"><Label className="text-xs">Status</Label><Input value={data.status || ''} onChange={(e) => setData('status', e.target.value)} disabled={disabled} placeholder="Partial / Full" /></div>
         </div>
       </div>
 
       <div className="rounded-lg border p-4 space-y-4">
         <p className="eyebrow">Stabilization Details</p>
         <div className="grid sm:grid-cols-4 gap-4">
-          <div className="space-y-1"><Label className="text-[11px]">Time — Start</Label><Input value={stab.time_start || ''} onChange={setStab('time_start')} disabled={disabled} placeholder="8:30 AM" /></div>
-          <div className="space-y-1"><Label className="text-[11px]">Time — End</Label><Input value={stab.time_end || ''} onChange={setStab('time_end')} disabled={disabled} placeholder="9:35 AM" /></div>
-          <div className="space-y-1"><Label className="text-[11px]">Temp (°C) — Start</Label><Input value={stab.temp_start || ''} onChange={setStab('temp_start')} disabled={disabled} /></div>
-          <div className="space-y-1"><Label className="text-[11px]">Temp (°C) — End</Label><Input value={stab.temp_end || ''} onChange={setStab('temp_end')} disabled={disabled} /></div>
+          <div className="space-y-1"><Label className="text-xs">Time — Start</Label><Input value={stab.time_start || ''} onChange={setStab('time_start')} disabled={disabled} placeholder="8:30 AM" /></div>
+          <div className="space-y-1"><Label className="text-xs">Time — End</Label><Input value={stab.time_end || ''} onChange={setStab('time_end')} disabled={disabled} placeholder="9:35 AM" /></div>
+          <div className="space-y-1"><Label className="text-xs">Temp (°C) — Start</Label><Input value={stab.temp_start || ''} onChange={setStab('temp_start')} disabled={disabled} /></div>
+          <div className="space-y-1"><Label className="text-xs">Temp (°C) — End</Label><Input value={stab.temp_end || ''} onChange={setStab('temp_end')} disabled={disabled} /></div>
         </div>
       </div>
 
@@ -274,7 +275,7 @@ function CaliperSections({ data, setData, disabled }) {
           <Label className="text-xs font-semibold">{section.title}</Label>
           <div className="overflow-x-auto border rounded-lg">
             {/* fixed layout + % widths: the table always fits its box; only a phone-sized screen scrolls */}
-            <table className="w-full table-fixed text-[11px] min-w-[560px] sm:min-w-0">
+            <table className="w-full table-fixed text-xs min-w-[560px] sm:min-w-0">
               <colgroup>
                 <col style={{ width: '9%' }} /><col style={{ width: '10%' }} />
                 {REPETITIONS.map((n) => <col key={n} style={{ width: '9%' }} />)}
@@ -313,7 +314,7 @@ function CaliperSections({ data, setData, disabled }) {
       <div className="space-y-2">
         <Label className="text-xs font-semibold">Parallelism (mm)</Label>
         <div className="overflow-x-auto border rounded-lg">
-          <table className="w-full table-fixed text-[11px] min-w-[560px] sm:min-w-0">
+          <table className="w-full table-fixed text-xs min-w-[560px] sm:min-w-0">
             <colgroup>
               <col style={{ width: '9%' }} /><col style={{ width: '10%' }} /><col style={{ width: '16%' }} />
               <col style={{ width: '11%' }} /><col style={{ width: '11%' }} /><col style={{ width: '11%' }} />
@@ -345,8 +346,8 @@ function CaliperSections({ data, setData, disabled }) {
 
       <div className="rounded-lg border p-4 space-y-4">
         <p className="eyebrow">Verification Result Details</p>
-        <div className="space-y-1"><Label className="text-[11px]">Scope (e.g. 0-100 mm external measurement, 0-70 mm internal, depth, step measurement)</Label><Textarea rows={2} value={data.result_scope || ''} onChange={(e) => setData('result_scope', e.target.value)} disabled={disabled} /></div>
-        <div className="space-y-1"><Label className="text-[11px]">Result Note</Label><Input value={data.result_note || ''} onChange={(e) => setData('result_note', e.target.value)} disabled={disabled} /></div>
+        <div className="space-y-1"><Label className="text-xs">Scope (e.g. 0-100 mm external measurement, 0-70 mm internal, depth, step measurement)</Label><Textarea rows={2} value={data.result_scope || ''} onChange={(e) => setData('result_scope', e.target.value)} disabled={disabled} /></div>
+        <div className="space-y-1"><Label className="text-xs">Result Note</Label><Input value={data.result_note || ''} onChange={(e) => setData('result_note', e.target.value)} disabled={disabled} /></div>
       </div>
     </div>
   );
@@ -364,6 +365,7 @@ function Notice({ children }) {
    Main form
    ============================================================================ */
 export default function ReportFormFields({ form, setForm, disabled, isAdmin, error, standardEquipment = [], equipment }) {
+  const { confirm, confirmDialog } = useConfirm();
   const [templates, setTemplates] = useState([]);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
   const data = form.report_data || createScaleLupeData();
@@ -427,9 +429,9 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
     });
   }, [activeTemplate?.key, disabled]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const switchTemplate = (tpl) => {
+  const switchTemplate = async (tpl) => {
     if (tpl === activeTemplateKey) return;
-    if ((hasReadings(data) || hasInputs(data, activeTemplate)) && !window.confirm('Changing the template will clear the measurements you entered. Continue?')) return;
+    if ((hasReadings(data) || hasInputs(data, activeTemplate)) && !(await confirm({ title: 'Change template?', description: 'Changing the template will clear the measurements you entered.', confirmLabel: 'Change template', destructive: true }))) return;
     const carry = {
       temperature: data.temperature, humidity: data.humidity,
       equipment_accuracy: data.equipment_accuracy, required_accuracy: data.required_accuracy,
@@ -460,9 +462,9 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
 
   const field = (label, value, onChange, hint) => (
     <div className="space-y-1">
-      <Label className="text-[11px]">{label}</Label>
+      <Label className="text-xs">{label}</Label>
       <Input value={value || ''} onChange={onChange} disabled={disabled} />
-      {hint && <p className="text-[10px] text-muted-foreground">{hint}</p>}
+      {hint && <p className="text-xs text-muted-foreground">{hint}</p>}
     </div>
   );
 
@@ -477,11 +479,12 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
 
   return (
     <div className="space-y-5" data-grid-root>
+      {confirmDialog}
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-1.5">
           <Label className="text-xs">Report Number</Label>
           <Input value={form.report_number} onChange={set('report_number')} disabled={disabled || !isAdmin} className={`font-mono ${error ? 'border-red-400' : ''}`} />
-          {error && <p className="text-[11px] text-red-600">{error}</p>}
+          {error && <p className="text-xs text-red-600">{error}</p>}
         </div>
         <div className="space-y-1.5"><Label className="text-xs">Verification Date</Label><Input type="date" value={form.verification_date || ''} onChange={set('verification_date')} disabled={disabled} /></div>
       </div>
@@ -500,7 +503,7 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
                 )}
               </SelectContent>
             </Select>
-            <p className="text-[11px] text-muted-foreground">
+            <p className="text-xs text-muted-foreground">
               {individualTemplate
                 ? `Individual template matched to ${equipment?.equipment_code}; otherwise the standard equipment template is used.`
                 : 'Standard template is used unless an individual template matching this equipment control number is available.'}
@@ -510,8 +513,8 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
         </div>
         {missingTemplate && (
           <Notice>
-            May existing mapping para sa <strong>{missingTemplate.label}</strong>, pero wala ang Excel template file na <strong>{missingTemplate.template}</strong>. Hindi pa ito mapipili o magagamit sa report hanggang ma-upload at ma-review ang blank form.
-            {isAdmin ? ' Gamitin ang Upload Template button sa itaas at panatilihin ang eksaktong filename.' : ' Ipa-upload ito sa administrator.'}
+            There is an existing mapping for <strong>{missingTemplate.label}</strong>, but the Excel template file <strong>{missingTemplate.template}</strong> is missing. It cannot be selected or used in a report until the blank form is uploaded and reviewed.
+            {isAdmin ? ' Use the Upload Template button above and keep the exact filename.' : ' Ask an administrator to upload it.'}
           </Notice>
         )}
       </div>
@@ -523,7 +526,7 @@ export default function ReportFormFields({ form, setForm, disabled, isAdmin, err
           <p className="eyebrow">Standard Equipment Details</p>
           {standardEquipment.length > 0 && (
             <div className="w-full max-w-xs">
-              <Label className="text-[11px]">Choose Standard</Label>
+              <Label className="text-xs">Choose Standard</Label>
               <Select value={data.standard_equipment?.control_number || 'none'} onValueChange={(value) => value === 'none' ? setData('standard_equipment', { ...STANDARD_BLANK }) : applyStandard(value)}>
                 <SelectTrigger className="h-9 text-xs"><SelectValue placeholder="Choose Standard" /></SelectTrigger>
                 <SelectContent className="min-w-[18rem]">

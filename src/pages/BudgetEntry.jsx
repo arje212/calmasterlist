@@ -34,7 +34,7 @@ const ROWS = [
   { kind: 'calc', k: 'ach', label: 'Achievement rate', unit: '%' },
 ];
 
-const inputCls = 'rounded-md border bg-[#faf8ff] px-2 py-1.5 text-right text-[13px] tabular-nums text-[#1b1740] focus:outline-none focus:ring-2 focus:ring-[#7c5cfc]';
+const inputCls = 'rounded-md border bg-slate-50 px-2 py-1.5 text-right text-[13px] tabular-nums text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary';
 
 function Cell({ value, onChange, bad, warn, label, title, step = 'any', className }) {
   return (
@@ -42,14 +42,14 @@ function Cell({ value, onChange, bad, warn, label, title, step = 'any', classNam
       type="number" min="0" step={step} inputMode="decimal" aria-label={label} title={title}
       value={value ?? ''}
       onChange={(e) => onChange(e.target.value === '' ? null : Number(e.target.value))}
-      className={cn(inputCls, 'w-full min-w-[68px]', bad ? 'border-red-500 bg-red-50' : warn ? 'border-amber-500 bg-amber-50' : 'border-[#e7e3f7]', className)}
+      className={cn(inputCls, 'w-full min-w-[68px]', bad ? 'border-red-500 bg-red-50' : warn ? 'border-amber-500 bg-amber-50' : 'border-slate-200', className)}
     />
   );
 }
 
 function Field({ label, children }) {
   return (
-    <label className="flex flex-col gap-1.5 text-[11px] font-semibold uppercase tracking-[.08em] text-[#5b5675]">
+    <label className="flex flex-col gap-1.5 text-xs font-semibold uppercase tracking-[.08em] text-slate-600">
       {label}
       {children}
     </label>
@@ -89,33 +89,33 @@ function ProjectGrid({ pk, plan, c, setPlan }) {
   return (
     <Card>
       <CardHeader title={P.name} subtitle={`${P.sub}. Quantity comes from the monthly quantity above.`} />
-      <div className="mt-4 overflow-x-auto rounded-xl border border-[#e7e3f7]">
+      <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
         <table className="w-full min-w-[1180px] border-separate border-spacing-0 text-[13px]" aria-label={`${P.name} monthly budget`}>
           <thead>
             <tr>
-              <th className="sticky left-0 z-20 min-w-[210px] border-b border-r border-[#e7e3f7] bg-[#f1ecff] px-3 py-2.5 text-left text-[11px] uppercase tracking-[.08em] text-[#5b5675]">Line</th>
-              {MONTHS.map((m) => <th key={m} className="border-b border-[#e7e3f7] bg-[#f1ecff] px-1.5 py-2.5 text-right text-[11px] uppercase tracking-[.08em] text-[#5b5675]">{m}</th>)}
-              <th className="min-w-[92px] border-b border-l border-[#e7e3f7] bg-[#f1ecff] px-2 py-2.5 text-right text-[11px] uppercase tracking-[.08em] text-[#5b5675]">Total</th>
+              <th className="sticky left-0 z-20 min-w-[210px] border-b border-r border-slate-200 bg-blue-50 px-3 py-2.5 text-left text-xs uppercase tracking-[.08em] text-slate-600">Line</th>
+              {MONTHS.map((m) => <th key={m} className="border-b border-slate-200 bg-blue-50 px-1.5 py-2.5 text-right text-xs uppercase tracking-[.08em] text-slate-600">{m}</th>)}
+              <th className="min-w-[92px] border-b border-l border-slate-200 bg-blue-50 px-2 py-2.5 text-right text-xs uppercase tracking-[.08em] text-slate-600">Total</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" className="sticky left-0 z-10 border-b border-r border-[#e7e3f7] bg-white px-3 py-2 text-left font-semibold">Quantity <small className="font-medium text-[#5b5675]">calibrations</small></th>
-              {data.months.map((m, i) => <td key={i} className="border-b border-[#e7e3f7] bg-[#f7f5fd] px-2 py-2 text-right tabular-nums">{money(m.qty, 0)}</td>)}
-              <td className="border-b border-l border-[#e7e3f7] bg-[#f7f5fd] px-2 py-2 text-right font-bold tabular-nums">{money(data.totals.qty, 0)}</td>
+              <th scope="row" className="sticky left-0 z-10 border-b border-r border-slate-200 bg-white px-3 py-2 text-left font-semibold">Quantity <small className="font-medium text-slate-600">calibrations</small></th>
+              {data.months.map((m, i) => <td key={i} className="border-b border-slate-200 bg-slate-50 px-2 py-2 text-right tabular-nums">{money(m.qty, 0)}</td>)}
+              <td className="border-b border-l border-slate-200 bg-slate-50 px-2 py-2 text-right font-bold tabular-nums">{money(data.totals.qty, 0)}</td>
             </tr>
             {ROWS.map((r, idx) => {
-              if (r.sec) return <tr key={idx}><th colSpan={14} className="bg-[#f1ecff] px-3 py-2 text-left text-[11px] uppercase tracking-[.1em] text-[#5b5675]">{r.sec}</th></tr>;
+              if (r.sec) return <tr key={idx}><th colSpan={14} className="bg-blue-50 px-3 py-2 text-left text-xs uppercase tracking-[.1em] text-slate-600">{r.sec}</th></tr>;
               return (
                 <tr key={r.k}>
-                  <th scope="row" className="sticky left-0 z-10 whitespace-nowrap border-b border-r border-[#e7e3f7] bg-white px-3 py-1.5 text-left font-semibold">{r.label} <small className="font-medium text-[#5b5675]">{r.unit}</small></th>
+                  <th scope="row" className="sticky left-0 z-10 whitespace-nowrap border-b border-r border-slate-200 bg-white px-3 py-1.5 text-left font-semibold">{r.label} <small className="font-medium text-slate-600">{r.unit}</small></th>
                   {data.months.map((m, i) => {
                     if (r.kind === 'in') {
                       const v = plan[pk][r.k][i];
                       const bad = v != null && v < 0;
                       const warn = r.k === 'after' && v > plan[pk].before[i];
                       return (
-                        <td key={i} className="border-b border-[#e7e3f7] px-1 py-1">
+                        <td key={i} className="border-b border-slate-200 px-1 py-1">
                           <Cell
                             value={v} bad={bad} warn={warn && !bad}
                             label={`${P.short} ${r.label}, ${MONTHS[i]}`}
@@ -126,16 +126,16 @@ function ProjectGrid({ pk, plan, c, setPlan }) {
                       );
                     }
                     const v = m[r.k];
-                    return <td key={i} className={cn('border-b border-[#e7e3f7] bg-[#f7f5fd] px-2 py-1.5 text-right tabular-nums', r.strong && 'font-extrabold', v != null && v < 0 && 'text-red-700')}>{m.auto && r.k === 'actSav' ? <span title="Counted from approved reports in the app">{fmtCell(r.k, v)}*</span> : fmtCell(r.k, v)}</td>;
+                    return <td key={i} className={cn('border-b border-slate-200 bg-slate-50 px-2 py-1.5 text-right tabular-nums', r.strong && 'font-extrabold', v != null && v < 0 && 'text-red-700')}>{m.auto && r.k === 'actSav' ? <span title="Counted from approved reports in the app">{fmtCell(r.k, v)}*</span> : fmtCell(r.k, v)}</td>;
                   })}
-                  <td className={cn('border-b border-l border-[#e7e3f7] bg-[#f7f5fd] px-2 py-1.5 text-right font-bold tabular-nums', r.strong && 'font-extrabold')}>{fmtCell(r.k, totalOf(r.k))}</td>
+                  <td className={cn('border-b border-l border-slate-200 bg-slate-50 px-2 py-1.5 text-right font-bold tabular-nums', r.strong && 'font-extrabold')}>{fmtCell(r.k, totalOf(r.k))}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
       </div>
-      <p className="mt-3 text-xs text-[#5b5675]">An asterisk (*) means the actual was counted from approved reports in the app. Type a value in “Actual cost after” to override it.</p>
+      <p className="mt-3 text-xs text-slate-600">An asterisk (*) means the actual was counted from approved reports in the app. Type a value in “Actual cost after” to override it.</p>
     </Card>
   );
 }
@@ -176,18 +176,18 @@ function Summary({ plan, c }) {
           <CardHeader title="Projects" subtitle="Annual totals from the two project tabs." />
           <div className="mt-3 overflow-x-auto">
             <table className="w-full text-[13px]">
-              <thead><tr className="border-b border-[#e7e3f7] text-[11px] uppercase tracking-[.08em] text-[#5b5675]"><th className="py-2 text-left">Project</th><th className="py-2 text-right">Qty</th><th className="py-2 text-right">Budget</th><th className="py-2 text-right">Actual</th><th className="py-2 text-right">Achievement</th></tr></thead>
+              <thead><tr className="border-b border-slate-200 text-xs uppercase tracking-[.08em] text-slate-600"><th className="py-2 text-left">Project</th><th className="py-2 text-right">Qty</th><th className="py-2 text-right">Budget</th><th className="py-2 text-right">Actual</th><th className="py-2 text-right">Achievement</th></tr></thead>
               <tbody>
                 {Object.values(PROJECTS).map(({ key, name, sub }) => {
                   const x = c.projects[key].totals;
                   return (
-                    <tr key={key} className="border-b border-[#f1eefb] tabular-nums">
-                      <td className="py-3 text-left"><div className="font-bold">{name}</div><div className="text-xs text-[#5b5675]">{sub}</div></td>
+                    <tr key={key} className="border-b border-slate-200 tabular-nums">
+                      <td className="py-3 text-left"><div className="font-bold">{name}</div><div className="text-xs text-slate-600">{sub}</div></td>
                       <td className="py-3 text-right">{money(x.qty, 0)}</td>
                       <td className="py-3 text-right">{money(x.budget)}</td>
                       <td className="py-3 text-right">{money(x.actual)}</td>
                       <td className="py-3 text-right">
-                        <span className="mr-2 inline-block h-2 w-20 overflow-hidden rounded-full bg-[#ece8fb] align-middle"><i className="block h-full bg-[#7c5cfc]" style={{ width: `${Math.max(0, Math.min(100, (x.ach || 0) * 100))}%` }} /></span>
+                        <span className="mr-2 inline-block h-2 w-20 overflow-hidden rounded-full bg-slate-100 align-middle"><i className="block h-full bg-primary" style={{ width: `${Math.max(0, Math.min(100, (x.ach || 0) * 100))}%` }} /></span>
                         {pct(x.ach)}
                       </td>
                     </tr>
@@ -202,12 +202,12 @@ function Summary({ plan, c }) {
           <div className="mt-3 h-[230px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chart} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
-                <CartesianGrid stroke="#ece8fb" vertical={false} />
-                <XAxis dataKey="m" tick={{ fontSize: 11, fill: '#5b5675' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 11, fill: '#5b5675' }} axisLine={false} tickLine={false} />
+                <CartesianGrid stroke="#e2e8f0" vertical={false} />
+                <XAxis dataKey="m" tick={{ fontSize: 12, fill: '#475569' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#475569' }} axisLine={false} tickLine={false} />
                 <Tooltip formatter={(v) => `USD ${money(v)}`} />
-                <Bar dataKey="Budget" fill="#d9d0fb" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="Actual" fill="#7c5cfc" radius={[3, 3, 0, 0]} />
+                <Bar dataKey="Budget" fill="#cbd5e1" radius={[3, 3, 0, 0]} />
+                <Bar dataKey="Actual" fill="#1450d2" radius={[3, 3, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -252,7 +252,7 @@ export default function BudgetEntry() {
     <div>
       <Button variant="ghost" size="sm" className="mb-4 gap-1.5" onClick={() => navigate(-1)}><ArrowLeft className="h-3.5 w-3.5" />Back</Button>
       <PageHeader eyebrow={`${plan.year} Action Plan`} title="Budget Entry" description="Encode the savings budget for the calibration report and sticker projects. Shaded cells are formulas; everything else you can type.">
-        <span role="status" aria-live="polite" className="mr-1 flex items-center gap-1.5 text-xs text-[#5b5675]">
+        <span role="status" aria-live="polite" className="mr-1 flex items-center gap-1.5 text-xs text-slate-600">
           <CheckCircle2 className="h-4 w-4 text-emerald-600" />
           {note || (savedAt ? `Saved at ${savedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : 'Saves automatically')}
         </span>
@@ -265,24 +265,24 @@ export default function BudgetEntry() {
         <Card>
           <CardHeader title="Cost basis" subtitle="Applies to both projects. Direct labor only; indirect labor is excluded." />
           <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-5">
-            <Field label="Plan year"><input type="number" className={cn(inputCls, 'border-[#e7e3f7] text-left text-[15px] font-semibold')} value={plan.year} onChange={set('year')} /></Field>
-            <Field label="Man cost (PHP per day)"><input type="number" min="0" step="any" className={cn(inputCls, 'border-[#e7e3f7] text-left text-[15px] font-semibold')} value={plan.manCost} onChange={set('manCost')} /></Field>
-            <Field label="Working hours per day"><input type="number" min="0" step="any" className={cn(inputCls, 'border-[#e7e3f7] text-left text-[15px] font-semibold')} value={plan.hours} onChange={set('hours')} /></Field>
-            <Field label="Forex (PHP per USD)"><input type="number" min="0" step="any" className={cn(inputCls, 'border-[#e7e3f7] text-left text-[15px] font-semibold')} value={plan.forex} onChange={set('forex')} /></Field>
-            <Field label="Man cost (USD per hour)"><div className="min-h-[38px] rounded-md border border-dashed border-[#e7e3f7] bg-[#f7f5fd] px-2.5 py-2 text-[15px] font-bold normal-case tracking-normal text-[#1b1740]">USD {money(c.rate, 4)}</div></Field>
+            <Field label="Plan year"><input type="number" className={cn(inputCls, 'border-slate-200 text-left text-[15px] font-semibold')} value={plan.year} onChange={set('year')} /></Field>
+            <Field label="Man cost (PHP per day)"><input type="number" min="0" step="any" className={cn(inputCls, 'border-slate-200 text-left text-[15px] font-semibold')} value={plan.manCost} onChange={set('manCost')} /></Field>
+            <Field label="Working hours per day"><input type="number" min="0" step="any" className={cn(inputCls, 'border-slate-200 text-left text-[15px] font-semibold')} value={plan.hours} onChange={set('hours')} /></Field>
+            <Field label="Forex (PHP per USD)"><input type="number" min="0" step="any" className={cn(inputCls, 'border-slate-200 text-left text-[15px] font-semibold')} value={plan.forex} onChange={set('forex')} /></Field>
+            <Field label="Man cost (USD per hour)"><div className="min-h-[38px] rounded-md border border-dashed border-slate-200 bg-slate-50 px-2.5 py-2 text-[15px] font-bold normal-case tracking-normal text-slate-900">USD {money(c.rate, 4)}</div></Field>
           </div>
           <h4 className="mt-6 text-[15px] font-bold">Monthly quantity (in-house calibrations)</h4>
-          <p className="mt-1 text-[13px] text-[#5b5675]">Expected number of calibrations each month. Shared by the report and sticker projects.</p>
+          <p className="mt-1 text-[13px] text-slate-600">Expected number of calibrations each month. Shared by the report and sticker projects.</p>
           <div className="mt-3 grid grid-cols-3 gap-2.5 sm:grid-cols-6 lg:grid-cols-12">
             {MONTHS.map((m, i) => (
-              <label key={m} className="flex flex-col gap-1 text-[11px] font-semibold text-[#5b5675]">
+              <label key={m} className="flex flex-col gap-1 text-xs font-semibold text-slate-600">
                 {m}
                 <Cell value={plan.qty[i]} step="1" label={`Quantity, ${m}`} bad={plan.qty[i] < 0} onChange={(v) => setPlan((p) => setQtyIn(p, i, v ?? 0))} />
               </label>
             ))}
           </div>
           <label className="mt-5 flex items-center gap-2 text-[13px]">
-            <input type="checkbox" checked={!!plan.useApp} onChange={(e) => setPlan((p) => ({ ...p, useApp: e.target.checked }))} className="h-4 w-4 accent-[#7c5cfc]" />
+            <input type="checkbox" checked={!!plan.useApp} onChange={(e) => setPlan((p) => ({ ...p, useApp: e.target.checked }))} className="h-4 w-4 accent-primary" />
             Count approved reports in this app as actual savings (one report and one sticker each)
           </label>
         </Card>
@@ -290,7 +290,7 @@ export default function BudgetEntry() {
         <div role="tablist" aria-label="Budget sections" className="flex flex-wrap gap-2">
           {tabs.map(([k, label]) => (
             <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)}
-              className={cn('min-h-[44px] rounded-full border px-5 text-[13px] font-semibold transition-colors', tab === k ? 'border-[#7c5cfc] bg-[#7c5cfc] text-white' : 'border-[#e7e3f7] bg-white hover:border-[#7c5cfc]')}>
+              className={cn('min-h-[44px] rounded-full border px-5 text-[13px] font-semibold transition-colors', tab === k ? 'border-primary bg-primary text-white' : 'border-slate-200 bg-white hover:border-primary')}>
               {label}
             </button>
           ))}
@@ -300,7 +300,7 @@ export default function BudgetEntry() {
         {tab === 'report' && <ProjectGrid pk="report" plan={plan} c={c} setPlan={setPlan} />}
         {tab === 'sticker' && <ProjectGrid pk="sticker" plan={plan} c={c} setPlan={setPlan} />}
 
-        <p className="text-xs text-[#5b5675]">Amounts are in USD. Savings = (labor + materials before) − (labor + materials after). Labor = quantity × minutes per unit ÷ 60 × man cost per hour.</p>
+        <p className="text-xs text-slate-600">Amounts are in USD. Savings = (labor + materials before) − (labor + materials after). Labor = quantity × minutes per unit ÷ 60 × man cost per hour.</p>
       </div>
     </div>
   );

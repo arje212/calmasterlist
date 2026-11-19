@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useConfirm } from '@/components/common/ConfirmDialog';
+import { useModal } from '@/hooks/useModal';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Archive, BookOpen, Download, Eye, FileSpreadsheet, FileText, Folder, FolderUp, RefreshCw, Search, ShieldCheck, Trash2, Upload, X } from 'lucide-react';
 import { toast } from 'sonner';
@@ -24,6 +26,20 @@ const LIBRARIES = {
   },
 };
 
+function PreviewFrame({ onClose, children }) {
+  const ref = useRef(null);
+  useModal(true, onClose, ref);
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6">
+      <button type="button" tabIndex={-1} aria-hidden="true" className="absolute inset-0 cursor-default bg-slate-950/60" onClick={() => onClose()} />
+      <section ref={ref} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="procedure-preview-title"
+        className="relative z-10 flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-xl border bg-white shadow-2xl focus:outline-none">
+        {children}
+      </section>
+    </div>
+  );
+}
+
 function formatBytes(bytes) {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
@@ -45,6 +61,7 @@ function getPreviewControlNumber(preview, fileName) {
 }
 
 function ProcedureLibrary({ documentType = 'procedure' }) {
+  const { confirm, confirmDialog } = useConfirm();
   const library = LIBRARIES[documentType] || LIBRARIES.procedure;
   const { data: me } = useMe();
   const queryClient = useQueryClient();
@@ -79,7 +96,7 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
     const folders = new Map();
     visibleDocuments.forEach((document) => {
       const segments = String(document.relative_path || document.original_name).replaceAll('\\', '/').split('/').filter(Boolean);
-      const folderName = segments.length > 1 ? segments[0] : 'Walang folder';
+      const folderName = segments.length > 1 ? segments[0] : 'No folder';
       if (!folders.has(folderName)) folders.set(folderName, []);
       folders.get(folderName).push(document);
     });
@@ -135,21 +152,21 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
       await queryClient.invalidateQueries({ queryKey: ['procedure-workbook', documentType, document.id] });
       toast.success(`${document.original_name} napalitan na`);
     } catch (error) {
-      setActionError(`Hindi napalitan ang ${document.original_name}: ${error.message}`);
-      toast.error(`Hindi napalitan ang ${library.singular} file.`);
+      setActionError(`Could not replace ${document.original_name}: ${error.message}`);
+      toast.error(`Could not replace the ${library.singular} file.`);
     }
   };
 
   const removeFile = async (document) => {
-    if (!window.confirm(`Alisin ang "${document.original_name}" sa procedure library?`)) return;
+    if (!(await confirm({ title: 'Remove this file?', description: `"${document.original_name}" will be removed from the library.`, confirmLabel: 'Remove', destructive: true }))) return;
     setActionError('');
     try {
       await apiClient.procedures.remove(document.id);
       await queryClient.invalidateQueries({ queryKey: library.queryKey });
-      toast.success(`Inalis na ang ${library.singular} file`);
+      toast.success(`Removed the ${library.singular} file`);
     } catch (error) {
-      setActionError(`Hindi naalis ang ${document.original_name}: ${error.message}`);
-      toast.error(`Hindi naalis ang ${library.singular} file.`);
+      setActionError(`Could not remove ${document.original_name}: ${error.message}`);
+      toast.error(`Could not remove the ${library.singular} file.`);
     }
   };
 
@@ -164,8 +181,8 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
       anchor.click();
       window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (error) {
-      setActionError(`Hindi ma-download ang ${document.original_name}: ${error.message}`);
-      toast.error('Hindi ma-download ang procedure file.');
+      setActionError(`Could not download ${document.original_name}: ${error.message}`);
+      toast.error('Could not download the procedure file.');
     }
   };
 
@@ -179,19 +196,19 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="break-all text-xs font-semibold text-slate-900">{document.original_name}</h3>
             {document.archived ? (
-              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-600"><Archive className="h-3 w-3" /> Archive</span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-600"><Archive className="h-3 w-3" /> Archive</span>
             ) : (
-              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] text-emerald-700"><ShieldCheck className="h-3 w-3" /> Ginagamit sa {library.title}</span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-xs text-emerald-700"><ShieldCheck className="h-3 w-3" /> Ginagamit sa {library.title}</span>
             )}
           </div>
-          <p className="mt-1 break-all text-[11px] text-muted-foreground">{document.relative_path}</p>
-          <p className="mt-1 text-[10px] text-muted-foreground">{document.extension.toUpperCase().slice(1)} · {formatBytes(document.size)}</p>
+          <p className="mt-1 break-all text-xs text-muted-foreground">{document.relative_path}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{document.extension.toUpperCase().slice(1)} · {formatBytes(document.size)}</p>
         </div>
       </div>
       <div className="flex shrink-0 items-center gap-1 self-end sm:self-auto">
         <button type="button" onClick={() => setPreviewDocument(document)} title="Tingnan ang file" aria-label={`Tingnan ang ${document.original_name}`}
           className="rounded-lg p-2 text-slate-500 transition hover:bg-blue-50 hover:text-primary"><Eye className="h-4 w-4" /></button>
-        <button type="button" onClick={() => downloadFile(document)} title="I-download ang original file" aria-label={`I-download ang ${document.original_name}`}
+        <button type="button" onClick={() => downloadFile(document)} title="Download the original file" aria-label={`Download ${document.original_name}`}
           className="rounded-lg p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"><Download className="h-4 w-4" /></button>
         {isAdmin && (
           <>
@@ -205,7 +222,7 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
                   event.target.value = '';
                 }} />
             </label>
-            <button type="button" onClick={() => removeFile(document)} title="Alisin ang file" aria-label={`Alisin ang ${document.original_name}`}
+            <button type="button" onClick={() => removeFile(document)} title="Remove file" aria-label={`Remove ${document.original_name}`}
               className="rounded-lg p-2 text-slate-500 transition hover:bg-red-50 hover:text-red-600"><Trash2 className="h-4 w-4" /></button>
           </>
         )}
@@ -220,6 +237,7 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
 
   return (
     <div className="space-y-6">
+      {confirmDialog}
       <PageHeader eyebrow="DOCUMENTS" title={library.title} description={library.description} children={null} />
 
       <section className="panel space-y-4 p-5">
@@ -228,10 +246,10 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
           <div>
             <h2 className="text-sm font-semibold">{library.title}</h2>
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-              Gagamitin ng Assistant ang active files sa {library.title} para sa tanong tungkol sa library na ito. Kapag tahasang hiniling na ihambing ang Process Instruction at Procedure, maghahanap ito sa dalawang library. Maaaring mag-download ang staff; admin lang ang puwedeng magdagdag, magpalit, o mag-alis ng files.
+              The Assistant uses the active files in {library.title} to answer questions about this library. When you explicitly ask it to compare a Process Instruction with a Procedure, it searches both libraries. Staff can download files; only admins can add, replace, or remove them.
             </p>
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-              DOC at XLS/XLSX lang ang tinatanggap (hanggang 10 MB bawat file). Hindi mababasa ang scanned image-only documents.
+              Only DOC and XLS/XLSX files are accepted (up to 10 MB each). Scanned image-only documents cannot be read.
             </p>
           </div>
         </div>
@@ -242,13 +260,13 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
               <FolderUp className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <div>
                 <p className="text-xs font-semibold">Magdagdag ng {library.title.toLocaleLowerCase()} folder</p>
-                <p className="mt-1 text-[11px] text-muted-foreground">Piliin ang folder; ia-upload ang lahat ng DOC, XLS, at XLSX sa loob. Ang laman ng folder na `Invalid` ay maitatabi bilang archive at hindi gagamitin ng Assistant.</p>
+                <p className="mt-1 text-xs text-muted-foreground">Choose a folder; every DOC, XLS, and XLSX file inside is uploaded. The contents of a folder named `Invalid` are kept as an archive and are not used by the Assistant.</p>
               </div>
             </div>
             <button type="button" onClick={() => folderInput.current?.click()} disabled={uploading}
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-primary px-3 py-2 text-xs font-medium text-white transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60">
               {uploading ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
-              {uploading ? 'Nag-a-upload…' : 'Pumili ng folder'}
+              {uploading ? 'Uploading…' : 'Choose folder'}
             </button>
             <input ref={(element) => { folderInput.current = element; element?.setAttribute('webkitdirectory', ''); }}
               type="file" multiple accept={ACCEPTED_TYPES} className="hidden"
@@ -263,7 +281,7 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
         {actionError && <p role="alert" className="whitespace-pre-line rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-800">{actionError}</p>}
         {documentsQuery.isError && (
           <div role="alert" className="rounded-lg border border-red-200 bg-red-50 p-3 text-xs text-red-800">
-            Hindi makuha ang procedure library: {documentsQuery.error.message}
+            Could not load the procedure library: {documentsQuery.error.message}
             <button type="button" onClick={() => documentsQuery.refetch()} className="ml-2 inline-flex items-center gap-1 font-semibold underline"><RefreshCw className="h-3 w-3" /> Subukan ulit</button>
           </div>
         )}
@@ -273,8 +291,8 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
         <div className="flex flex-col gap-3 border-b p-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
             <h2 className="text-sm font-semibold">{library.title}</h2>
-            <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-700">{activeCount} active</span>
-            {archivedCount > 0 && <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">{archivedCount} archived</span>}
+            <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700">{activeCount} active</span>
+            {archivedCount > 0 && <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">{archivedCount} archived</span>}
           </div>
           <label className="relative block sm:w-64">
             <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
@@ -286,7 +304,7 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
         {visibleDocuments.length === 0 ? (
           <div className="px-4 py-12 text-center">
             <BookOpen className="mx-auto h-8 w-8 text-slate-300" />
-            <p className="mt-3 text-sm font-medium">{documents.length ? 'Walang tugmang document' : `Wala pang ${library.singular} files`}</p>
+            <p className="mt-3 text-sm font-medium">{documents.length ? 'No matching documents' : `No ${library.singular} files yet`}</p>
             <p className="mt-1 text-xs text-muted-foreground">{documents.length ? 'Subukan ang ibang pangalan o folder.' : `Admin ay maaaring pumili ng folder para idagdag ang ${library.title.toLocaleLowerCase()}.`}</p>
           </div>
         ) : (
@@ -301,7 +319,7 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
                         <Folder className="h-4 w-4 shrink-0 text-primary" />
                         <span className="break-all text-xs font-semibold text-slate-900">{folder.name}</span>
                       </span>
-                      <span className="flex items-center gap-2 text-[10px] text-muted-foreground">
+                      <span className="flex items-center gap-2 text-xs text-muted-foreground">
                         <span>{folder.documents.length} instruction{folder.documents.length === 1 ? '' : 's'}</span>
                         {folderArchivedCount > 0 && <span className="rounded-full bg-slate-200 px-2 py-0.5 text-slate-600">{folderArchivedCount} archive</span>}
                       </span>
@@ -315,14 +333,11 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
             <div className="divide-y">{visibleDocuments.map(renderDocument)}</div>
           )
         )}
-        {isAdmin && <div className="flex items-center gap-2 border-t bg-slate-50 px-4 py-3 text-[10px] text-muted-foreground"><Upload className="h-3 w-3" /> Para mag-edit, palitan ang original document gamit ang updated na file.</div>}
+        {isAdmin && <div className="flex items-center gap-2 border-t bg-slate-50 px-4 py-3 text-xs text-muted-foreground"><Upload className="h-3 w-3" /> To edit, replace the original document with the updated file.</div>}
       </section>
 
       {previewDocument && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6">
-          <button type="button" aria-label="Isara ang preview" className="absolute inset-0 bg-slate-950/60" onClick={() => setPreviewDocument(null)} />
-          <section role="dialog" aria-modal="true" aria-labelledby="procedure-preview-title"
-            className="relative z-10 flex max-h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-xl border bg-white shadow-2xl">
+        <PreviewFrame onClose={() => setPreviewDocument(null)}>
             <header className="flex shrink-0 items-center justify-between gap-3 border-b px-4 py-3 sm:px-6">
               <div className="flex min-w-0 items-center gap-3">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-primary">
@@ -330,20 +345,20 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
                 </div>
                 <div className="min-w-0">
                   <h2 id="procedure-preview-title" className="truncate text-sm font-semibold">{previewDocument.original_name}</h2>
-                  <p className="truncate text-[11px] font-semibold text-primary">
+                  <p className="truncate text-xs font-semibold text-primary">
                     Control No.: {previewQuery.data?.control_number
                       || getPreviewControlNumber(previewQuery.data, previewDocument.original_name)
-                      || (previewQuery.isError ? 'Hindi nakita sa dokumento' : 'Kinukuha…')}
+                      || (previewQuery.isError ? 'Not found in document' : 'Loading…')}
                   </p>
-                  <p className="truncate text-[11px] text-muted-foreground">{previewDocument.relative_path}</p>
+                  <p className="truncate text-xs text-muted-foreground">{previewDocument.relative_path}</p>
                 </div>
               </div>
               <div className="flex shrink-0 items-center gap-1">
-                <button type="button" onClick={() => downloadFile(previewDocument)} title="I-download ang original para i-edit sa Excel o Word"
-                  className="inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><Download className="h-3.5 w-3.5" /><span className="hidden sm:inline">I-download para i-edit</span></button>
+                <button type="button" onClick={() => downloadFile(previewDocument)} title="Download the original to edit in Excel or Word"
+                  className="inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"><Download className="h-3.5 w-3.5" /><span className="hidden sm:inline">Download to edit</span></button>
                 {isAdmin && (
                   <>
-                    <button type="button" onClick={() => previewReplaceInput.current?.click()} title="I-upload ang in-edit na original file"
+                    <button type="button" onClick={() => previewReplaceInput.current?.click()} title="Upload the edited original file"
                       className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-2.5 py-2 text-xs font-medium text-white hover:bg-primary/90">
                       <Upload className="h-3.5 w-3.5" /><span className="hidden sm:inline">Upload edited file</span>
                     </button>
@@ -355,16 +370,15 @@ function ProcedureLibrary({ documentType = 'procedure' }) {
                       }} />
                   </>
                 )}
-                <button type="button" onClick={() => setPreviewDocument(null)} aria-label="Isara ang preview"
-                  className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-900"><X className="h-4 w-4" /></button>
+                <button type="button" onClick={() => setPreviewDocument(null)} aria-label="Close preview"
+                  className="rounded-lg p-2.5 text-slate-500 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><X className="h-4 w-4" /></button>
               </div>
             </header>
 
             <div className="min-h-0 flex-1 overflow-auto bg-slate-50 p-3 sm:p-6">
               <ProcedurePdfViewer documentId={previewDocument.id} documentType={documentType} />
             </div>
-          </section>
-        </div>
+        </PreviewFrame>
       )}
     </div>
   );

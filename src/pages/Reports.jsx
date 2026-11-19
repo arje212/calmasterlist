@@ -81,7 +81,7 @@ function Folder({ label, caption, count, blue, selected, onOpen }) {
       className={`flex flex-col items-center gap-1.5 rounded-xl px-1.5 pb-3 pt-3.5 text-center transition-colors ${selected ? 'bg-white ring-2 ring-blue-600' : 'hover:bg-white/70'}`}>
       <FolderIcon blue={blue} badge={count} />
       <span className="text-[13px] font-semibold leading-tight text-slate-900">{label}</span>
-      <span className="text-[11px] text-slate-600">{caption}</span>
+      <span className="text-xs text-slate-600">{caption}</span>
     </button>
   );
 }
@@ -95,7 +95,7 @@ function ReportRow({ r, showType }) {
         <p className="truncate text-xs text-slate-600">{showType ? `${folderOf(s.equipment_name)} · ` : ''}{s.equipment_name || '—'} · {s.equipment_code || '—'}</p>
       </div>
       <div className="flex shrink-0 items-center gap-2">
-        <div className="text-right"><ReportStatusBadge status={r.status} /><p className="mt-0.5 text-[11px] text-slate-600">{fmtDate(r.verification_date)}</p></div>
+        <div className="text-right"><ReportStatusBadge status={r.status} /><p className="mt-0.5 text-xs text-slate-600">{fmtDate(r.verification_date)}</p></div>
         <ChevronRight className="hidden h-4 w-4 text-slate-300 transition-transform group-hover:translate-x-0.5 sm:block" />
       </div>
     </Link>
@@ -212,7 +212,7 @@ export default function Reports() {
                     {shown.map((r) => {
                       const m = monthLabel(r.verification_date);
                       const header = m !== lastMonth ? (
-                        <div className="flex justify-between bg-slate-50 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-600"><span>{m}</span><span>{monthTotals[m]}</span></div>
+                        <div className="flex justify-between bg-slate-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-600"><span>{m}</span><span>{monthTotals[m]}</span></div>
                       ) : null;
                       lastMonth = m;
                       return <React.Fragment key={r.id}>{header}<ReportRow r={r} showType={searching || selected === ACTION} /></React.Fragment>;
